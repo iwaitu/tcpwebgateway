@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpWebGateway", "TcpWebGateway\TcpWebGateway.csproj", "{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TcpWebGateway", "TcpWebGateway\TcpWebGateway.csproj", "{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BAB8F695-61A4-4D75-9B8F-D0C6E457372E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB8F695-61A4-4D75-9B8F-D0C6E457372E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB8F695-61A4-4D75-9B8F-D0C6E457372E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB8F695-61A4-4D75-9B8F-D0C6E457372E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB8F695-61A4-4D75-9B8F-D0C6E457372E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

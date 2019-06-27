@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  tcpwebgateway:
+    image: ${DOCKER_REGISTRY-}tcpwebgateway
+    build:
+      context: .
+      dockerfile: TcpWebGateway/Dockerfile

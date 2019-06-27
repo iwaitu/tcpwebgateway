@@ -11,6 +11,9 @@ using MQTTnet.Client.Options;
 
 namespace TcpWebGateway.Controllers
 {
+    /// <summary>
+    /// 窗帘控制器
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CurtainController : ControllerBase

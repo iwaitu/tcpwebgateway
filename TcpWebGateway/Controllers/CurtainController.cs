@@ -72,10 +72,38 @@ namespace TcpWebGateway.Controllers
             TcpHelper.SetStatus(id, value);
         }
 
+        /// <summary>
+        /// 停止
+        /// </summary>
+        /// <param name="id"></param>
         [HttpPost]
+        [Route("Stop")]
         public void Stop(int id)
         {
             TcpHelper.Stop(id);
         }
+
+        /// <summary>
+        /// 打开
+        /// </summary>
+        /// <param name="id"></param>
+        [HttpPost]
+        [Route("Open")]
+        public void Open(int id)
+        {
+            TcpHelper.Open(id);
+        }
+
+        /// <summary>
+        /// 关闭
+        /// </summary>
+        /// <param name="id"></param>
+        [HttpPost]
+        [Route("Close")]
+        public void Close(int id)
+        {
+            TcpHelper.Close(id);
+        }
+
     }
 }

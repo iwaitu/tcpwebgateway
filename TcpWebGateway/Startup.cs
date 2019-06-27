@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace TcpWebGateway
@@ -30,7 +23,7 @@ namespace TcpWebGateway
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "智能网关", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "Tcp Web Gateway", Version = "v1" });
             });
         }
 
@@ -47,17 +40,17 @@ namespace TcpWebGateway
                 app.UseHsts();
             }
 
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "webapi");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
             });
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            
 
             MqttHelper mqtt = new MqttHelper();
             mqtt.Connect();

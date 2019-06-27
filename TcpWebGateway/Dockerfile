@@ -5,9 +5,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
-COPY ["TcpWebGateway/TcpWebGateway.csproj", "TcpWebGateway/"]
+COPY ["TcpWebGateway.csproj", "TcpWebGateway/"]
 RUN dotnet restore "TcpWebGateway/TcpWebGateway.csproj"
-COPY . .
+COPY . TcpWebGateway/
 WORKDIR "/src/TcpWebGateway"
 RUN dotnet build "TcpWebGateway.csproj" -c Release -o /app
 

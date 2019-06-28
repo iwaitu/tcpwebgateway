@@ -61,6 +61,30 @@ namespace TcpWebGateway
                    .Build();
                     this.Publish(message);
                 }
+                else if(e.ApplicationMessage.Topic == "Home/Curtain2/Open")
+                {
+                    TcpHelper.Open(2);
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain2/Stop")
+                {
+                    TcpHelper.Stop(2);
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain2/Close")
+                {
+                    TcpHelper.Close(2);
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Open")
+                {
+                    TcpHelper.Open(3);
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Stop")
+                {
+                    TcpHelper.Stop(3);
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Close")
+                {
+                    TcpHelper.Close(3);
+                }
 
             });
 

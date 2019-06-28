@@ -78,6 +78,12 @@ namespace TcpWebGateway
                 mqtt.Subscribe("Home/Curtain3/Set");
                 mqtt.Subscribe("Home/Curtain2/Get");
                 mqtt.Subscribe("Home/Curtain3/Get");
+                mqtt.Subscribe("Home/Curtain3/Open");
+                mqtt.Subscribe("Home/Curtain3/Close");
+                mqtt.Subscribe("Home/Curtain3/Stop");
+                mqtt.Subscribe("Home/Curtain2/Open");
+                mqtt.Subscribe("Home/Curtain2/Close");
+                mqtt.Subscribe("Home/Curtain2/Stop");
             }
 
         }

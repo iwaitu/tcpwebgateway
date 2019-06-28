@@ -29,9 +29,13 @@ namespace TcpWebGateway
 
         public static void SetStatus(int id,int value)
         {
-            if(value <1 || value > 99)
+            if(value <1 )
             {
-                return;
+                value = 1;
+            }
+            if(value >99 )
+            {
+                value = 99;
             }
             using (TcpClient client = new TcpClient("192.168.50.17", 26))
             using (NetworkStream stream = client.GetStream())

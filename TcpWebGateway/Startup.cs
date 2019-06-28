@@ -71,11 +71,15 @@ namespace TcpWebGateway
             
             ///mqtt 订阅
             MqttHelper mqtt = new MqttHelper();
-            mqtt.Connect();
-            mqtt.Subscribe("Home/Curtain2/Set");
-            mqtt.Subscribe("Home/Curtain3/Set");
-            mqtt.Subscribe("Home/Curtain2/Get");
-            mqtt.Subscribe("Home/Curtain3/Get");
+            var ret = mqtt.Connect().Result;
+            if (ret)
+            {
+                mqtt.Subscribe("Home/Curtain2/Set");
+                mqtt.Subscribe("Home/Curtain3/Set");
+                mqtt.Subscribe("Home/Curtain2/Get");
+                mqtt.Subscribe("Home/Curtain3/Get");
+            }
+
         }
     }
 }

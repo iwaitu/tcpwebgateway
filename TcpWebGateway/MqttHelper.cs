@@ -10,16 +10,15 @@ namespace TcpWebGateway
     public class MqttHelper
     {
         private IMqttClientOptions options = new MqttClientOptionsBuilder()
-            .WithClientId("MqttNetCoreClient")
+            .WithClientId("MqttNetCoreClient1")
             .WithTcpServer("192.168.50.245", 1883)
-            .WithCleanSession()
             .Build();
 
         private MqttClient _mqttClient;
         
 
 
-        public bool Connect()
+        public async Task<bool> Connect()
         {
             int ret = 0;
             MqttFactory factory = new MqttFactory();
@@ -65,13 +64,13 @@ namespace TcpWebGateway
 
             });
 
-            _mqttClient.UseDisconnectedHandler(async e => {
-                Console.WriteLine("### MQTT掉线,1秒后重连 ###");
-                await Task.Delay(1000);
-                await _mqttClient.ReconnectAsync();
-            });
+            //_mqttClient.UseDisconnectedHandler(async e => {
+            //    //Console.WriteLine("### MQTT掉线,1秒后重连 ###");
+            //    //await Task.Delay(1000);
+            //    //await _mqttClient.ReconnectAsync();
+            //});
 
-            var result = _mqttClient.ConnectAsync(options).Result;
+            var result =  await _mqttClient.ConnectAsync(options);
             if(result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
             {
                 return true;

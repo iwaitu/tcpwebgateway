@@ -7,6 +7,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
 using System.Reflection;
+using TcpWebGateway.Services;
 
 namespace TcpWebGateway
 {
@@ -41,7 +42,9 @@ namespace TcpWebGateway
                 c.IncludeXmlComments(xmlPath);
             });
 
-            
+            services.AddHostedService<TimedHostedService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,6 +87,15 @@ namespace TcpWebGateway
                 mqtt.Subscribe("Home/Curtain2/Open");
                 mqtt.Subscribe("Home/Curtain2/Close");
                 mqtt.Subscribe("Home/Curtain2/Stop");
+                mqtt.Subscribe("Home/Hailin1/GetCurrent");
+                mqtt.Subscribe("Home/Hailin2/GetCurrent");
+                mqtt.Subscribe("Home/Hailin3/GetCurrent");
+                mqtt.Subscribe("Home/Hailin1/GetSetResult");
+                mqtt.Subscribe("Home/Hailin2/GetSetResult");
+                mqtt.Subscribe("Home/Hailin3/GetSetResult");
+                mqtt.Subscribe("Home/Hailin1/Set");
+                mqtt.Subscribe("Home/Hailin2/Set");
+                mqtt.Subscribe("Home/Hailin3/Set");
             }
 
         }

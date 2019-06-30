@@ -22,9 +22,23 @@ namespace TcpWebGateway.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetTemperature")]
-        public int GetTemperature(int id)
+        public float GetTemperature(int id)
         {
-            return 0;
+            var ret =  TcpHelper.GetTemperature(id)/10;
+            return ret;
+        }
+
+        /// <summary>
+        /// 设置地暖温控器温度
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="temp">5.0-35.0 之间</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SetTemperature")]
+        public bool SetTemperature(int id,float temp)
+        {
+            return TcpHelper.SetTemperature(id, (Int16)(temp * 10));
         }
     }
 }

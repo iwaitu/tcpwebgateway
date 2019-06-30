@@ -103,9 +103,9 @@ namespace TcpWebGateway
         /// 获取地暖恒温器的室内温度
         /// </summary>
         /// <returns></returns>
-        public static int GetTemperature(int id)
+        public static float GetTemperature(int id)
         {
-            int ret = 0;
+            float ret = 0;
             using (TcpClient client = new TcpClient("192.168.50.17", 23))
             using (NetworkStream stream = client.GetStream())
             {
@@ -123,7 +123,65 @@ namespace TcpWebGateway
             return ret;
         }
 
-        
+        /// <summary>
+        /// 获取地暖恒温器的设置温度
+        /// </summary>
+        /// <returns></returns>
+        public static float GetTemperatureSetResult(int id)
+        {
+            float ret = 0;
+            using (TcpClient client = new TcpClient("192.168.50.17", 23))
+            using (NetworkStream stream = client.GetStream())
+            {
+                byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, (byte)id, 0x03, 0x00, 0x01, 0x00, 0x01 };
+                //byte[] CRC = CRCHelper.get_CRC16_C(data);
+                //byte[] cmd = new byte[] { data[0], data[1], data[2], data[3], data[4], data[5], CRC[0], CRC[1] };
+                stream.Write(data, 0, data.Length);
+
+                data = new Byte[11];
+                ret = stream.Read(data, 0, data.Length);
+                ret = BitConverter.ToInt16(new byte[] { data[10], data[9] });
+                stream.Close();
+                client.Close();
+            }
+            return ret;
+        }
+
+
+        /// <summary>
+        /// 设定温度
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="temperature"></param>
+        /// <returns></returns>
+        public static bool SetTemperature(int id, Int16 temperature)
+        {
+            int ret = 0;
+            using (TcpClient client = new TcpClient("192.168.50.17", 23))
+            using (NetworkStream stream = client.GetStream())
+            {
+                var byteTemp = BitConverter.GetBytes(temperature);
+                if (BitConverter.IsLittleEndian)
+                {
+                    Array.Reverse(byteTemp);
+                }
+                byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, (byte)id, 0x06, 0x00, 0x01, byteTemp[0],byteTemp[1] };
+                stream.Write(data, 0, data.Length);
+
+                data = new Byte[12];
+                ret = stream.Read(data, 0, data.Length);
+                ret = BitConverter.ToInt16(new byte[] { data[11], data[10] });
+
+                stream.Close();
+                client.Close();
+            }
+            if (ret == temperature)
+            {
+                return true;
+            }
+            return false;
+        }
+
 
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TcpWebGateway", "TcpWebGateway\TcpWebGateway.csproj", "{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tc[WebGatewauTest", "Tc[WebGatewauTest\Tc[WebGatewauTest.csproj", "{F1883F52-A807-437A-B5E9-EC5639BDB8D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{732ACFDF-4FC1-4BDD-83CC-9333C920F2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1883F52-A807-437A-B5E9-EC5639BDB8D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1883F52-A807-437A-B5E9-EC5639BDB8D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1883F52-A807-437A-B5E9-EC5639BDB8D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1883F52-A807-437A-B5E9-EC5639BDB8D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

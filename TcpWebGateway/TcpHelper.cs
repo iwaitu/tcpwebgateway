@@ -98,5 +98,32 @@ namespace TcpWebGateway
                 client.Close();
             }
         }
+
+        /// <summary>
+        /// 获取地暖恒温器的室内温度
+        /// </summary>
+        /// <returns></returns>
+        public static int GetTemperature(int id)
+        {
+            int ret = 0;
+            using (TcpClient client = new TcpClient("192.168.50.17", 23))
+            using (NetworkStream stream = client.GetStream())
+            {
+                byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, (byte)id, 0x03, 0x00, 0x06, 0x00, 0x01 };
+                //byte[] CRC = CRCHelper.get_CRC16_C(data);
+                //byte[] cmd = new byte[] { data[0], data[1], data[2], data[3], data[4], data[5], CRC[0], CRC[1] };
+                stream.Write(data, 0, data.Length);
+
+                data = new Byte[11];
+                ret = stream.Read(data, 0, data.Length);
+                ret = BitConverter.ToInt16(new byte[] { data[10], data[9] });
+                stream.Close();
+                client.Close();
+            }
+            return ret;
+        }
+
+        
+
     }
 }

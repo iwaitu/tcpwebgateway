@@ -90,18 +90,26 @@ namespace TcpWebGateway
                 }else if(e.ApplicationMessage.Topic == "Home/Hailin1/Set")
                 {
                     sVal = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
+                    float fVal = float.Parse(sVal);
+                    fVal = fVal * 10;
                     bSuccess = false;
-                    bSuccess = TcpHelper.SetTemperature(1, Convert.ToInt16 (sVal));
+                    bSuccess = TcpHelper.SetTemperature(1, (short)fVal);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin2/Set")
                 {
                     sVal = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
-                    TcpHelper.SetTemperature(2, Convert.ToInt16(sVal));
+                    float fVal = float.Parse(sVal);
+                    fVal = fVal * 10;
+                    bSuccess = false;
+                    TcpHelper.SetTemperature(2, (short)fVal);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin3/Set")
                 {
                     sVal = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
-                    TcpHelper.SetTemperature(3, Convert.ToInt16(sVal));
+                    float fVal = float.Parse(sVal);
+                    fVal = fVal * 10;
+                    bSuccess = false;
+                    TcpHelper.SetTemperature(3, (short)fVal);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin1/GetCurrent")
                 {

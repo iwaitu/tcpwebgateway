@@ -113,7 +113,7 @@ namespace TcpWebGateway
                 //byte[] CRC = CRCHelper.get_CRC16_C(data);
                 //byte[] cmd = new byte[] { data[0], data[1], data[2], data[3], data[4], data[5], CRC[0], CRC[1] };
                 stream.Write(data, 0, data.Length);
-
+                
                 data = new Byte[11];
                 ret = stream.Read(data, 0, data.Length);
                 ret = BitConverter.ToInt16(new byte[] { data[10], data[9] });

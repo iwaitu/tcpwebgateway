@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NLog;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
@@ -71,7 +72,7 @@ namespace TcpWebGateway
             app.UseHttpsRedirection();
             app.UseMvc();
 
-            
+
             ///mqtt 订阅
             MqttHelper mqtt = new MqttHelper();
             var ret = mqtt.Connect().Result;

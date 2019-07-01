@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using TcpWebGateway.Services;
 
 namespace TcpWebGateway.Controllers
 {
@@ -14,6 +16,18 @@ namespace TcpWebGateway.Controllers
     [ApiController]
     public class HeatSystemController : ControllerBase
     {
+        private readonly ILogger _logger;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
+        public HeatSystemController(ILogger<HeatSystemController> logger)
+        {
+            _logger = logger;
+            logger.LogDebug("test");
+        }
+
 
         /// <summary>
         /// 获取房间温度
@@ -24,8 +38,17 @@ namespace TcpWebGateway.Controllers
         [Route("GetTemperature")]
         public float GetTemperature(int id)
         {
-            var ret =  TcpHelper.GetTemperature(id)/10;
-            return ret;
+            try
+            {
+                var ret = TcpHelper.GetTemperature(id) / 10;
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return 0;
+            }
+            
         }
 
         /// <summary>
@@ -38,7 +61,16 @@ namespace TcpWebGateway.Controllers
         [Route("SetTemperature")]
         public bool SetTemperature(int id,float temp)
         {
-            return TcpHelper.SetTemperature(id, (Int16)(temp * 10));
+            try
+            {
+                return TcpHelper.SetTemperature(id, (Int16)(temp * 10));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return false;
+            }
+            
         }
     }
 }

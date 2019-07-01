@@ -1,9 +1,10 @@
-﻿using MQTTnet;
+﻿
+using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
+using NLog;
 using System;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace TcpWebGateway
@@ -16,7 +17,13 @@ namespace TcpWebGateway
             .Build();
 
         private MqttClient _mqttClient;
+        private readonly ILogger _logger;
 
+        public MqttHelper()
+        {
+            _logger  = NLog.LogManager.GetCurrentClassLogger();
+            _logger.Info("### log test ###");
+        }
 
 
 
@@ -30,12 +37,13 @@ namespace TcpWebGateway
             _mqttClient.UseApplicationMessageReceivedHandler(e => {
 
                 var sVal = string.Empty;
-                Console.WriteLine("### 数据接收 ###");
-                Console.WriteLine($"+ Topic = {e.ApplicationMessage.Topic}");
-                Console.WriteLine($"+ Payload = {sVal}");
-                Console.WriteLine($"+ QoS = {e.ApplicationMessage.QualityOfServiceLevel}");
-                Console.WriteLine($"+ Retain = {e.ApplicationMessage.Retain}");
-                Console.WriteLine();
+                _logger.Info("### 数据接收 ###");
+                _logger.Info($"+ Topic = {e.ApplicationMessage.Topic}");
+                _logger.Info($"+ Payload = {sVal}");
+                _logger.Info($"+ QoS = {e.ApplicationMessage.QualityOfServiceLevel}");
+                _logger.Info($"+ Retain = {e.ApplicationMessage.Retain}");
+                _logger.Info("");
+
                 if(e.ApplicationMessage.Topic == "Home/Curtain2/Set")
                 {
                     sVal = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
@@ -179,13 +187,21 @@ namespace TcpWebGateway
             //    //await Task.Delay(1000);
             //    //await _mqttClient.ReconnectAsync();
             //});
-
-            var result =  await _mqttClient.ConnectAsync(options);
-            if(result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
+            try
             {
-                return true;
+                var result = await _mqttClient.ConnectAsync(options);
+                if (result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+                _logger.Error(ex.Message);
+                return false;
+            }
+            
         }
 
         public async void Subscribe(string topic)
@@ -195,11 +211,20 @@ namespace TcpWebGateway
 
         public async void Publish(MqttApplicationMessage message)
         {
-            if (!_mqttClient.IsConnected)
+            try
             {
-                await _mqttClient.ReconnectAsync();
+                if (!_mqttClient.IsConnected)
+                {
+                    await _mqttClient.ReconnectAsync();
+                }
+                await _mqttClient.PublishAsync(message);
             }
-            await _mqttClient.PublishAsync(message);
+            catch (Exception ex)
+            {
+
+                _logger.Error(ex.Message);
+            }
+            
         }
 
 

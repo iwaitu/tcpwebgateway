@@ -15,6 +15,8 @@ namespace TcpWebGateway
     {
         public static void Main(string[] args)
         {
+            var appBasePath = System.IO.Directory.GetCurrentDirectory();
+            NLog.GlobalDiagnosticsContext.Set("appbasepath", appBasePath);
             var logger = NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
             try
             {

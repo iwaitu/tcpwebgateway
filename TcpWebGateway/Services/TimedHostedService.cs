@@ -43,58 +43,67 @@ namespace TcpWebGateway.Services
         {
            
             MqttFactory factory = new MqttFactory();
-            _mqttClient = factory.CreateMqttClient() as MqttClient;
-            _ = _mqttClient.ConnectAsync(options).Result;
-
-            ///客厅
-            var temp1 = TcpHelper.GetTemperature(1) / 10;
-            var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin1/CurrentTemp")
-                   .WithPayload(temp1.ToString() )
-                   .WithAtLeastOnceQoS()
-                   .Build();
-            _ = _mqttClient.PublishAsync(message).Result;
-            temp1 = TcpHelper.GetTemperatureSetResult(1) / 10;
-            message = new MqttApplicationMessageBuilder()
-           .WithTopic("Home/Hailin1/SetResult")
-           .WithPayload(temp1.ToString())
-           .WithAtLeastOnceQoS()
-           .Build();
-            _ = _mqttClient.PublishAsync(message).Result;
-
-            ///客卧
-            temp1 = TcpHelper.GetTemperature(2) / 10;
-            message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin2/CurrentTemp")
-                   .WithPayload(temp1.ToString() )
-                   .WithAtLeastOnceQoS()
-                   .Build();
-            _ = _mqttClient.PublishAsync(message).Result;
-            temp1 = TcpHelper.GetTemperatureSetResult(3) / 10;
-            message = new MqttApplicationMessageBuilder()
-           .WithTopic("Home/Hailin2/SetResult")
-           .WithPayload(temp1.ToString())
-           .WithAtLeastOnceQoS()
-           .Build();
-            _ = _mqttClient.PublishAsync(message).Result;
-
-            ///主卧
-            temp1 = TcpHelper.GetTemperature(3) / 10;
-            message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin3/CurrentTemp")
+            using (_mqttClient = factory.CreateMqttClient() as MqttClient)
+            {
+                var result = _mqttClient.ConnectAsync(options).Result;
+                if(result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
+                {
+                    ///客厅
+                    var temp1 = TcpHelper.GetTemperature(1) / 10;
+                    var message = new MqttApplicationMessageBuilder()
+                           .WithTopic("Home/Hailin1/CurrentTemp")
+                           .WithPayload(temp1.ToString())
+                           .WithAtLeastOnceQoS()
+                           .Build();
+                    _ = _mqttClient.PublishAsync(message).Result;
+                    temp1 = TcpHelper.GetTemperatureSetResult(1) / 10;
+                    message = new MqttApplicationMessageBuilder()
+                   .WithTopic("Home/Hailin1/SetResult")
                    .WithPayload(temp1.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-            _ = _mqttClient.PublishAsync(message).Result;
-            temp1 = TcpHelper.GetTemperatureSetResult(3) / 10;
-            message = new MqttApplicationMessageBuilder()
-           .WithTopic("Home/Hailin3/SetResult")
-           .WithPayload(temp1.ToString())
-           .WithAtLeastOnceQoS()
-           .Build();
-            _ = _mqttClient.PublishAsync(message).Result;
+                    _ = _mqttClient.PublishAsync(message).Result;
 
-            _mqttClient.DisconnectAsync();
+                    ///客卧
+                    temp1 = TcpHelper.GetTemperature(2) / 10;
+                    message = new MqttApplicationMessageBuilder()
+                           .WithTopic("Home/Hailin2/CurrentTemp")
+                           .WithPayload(temp1.ToString())
+                           .WithAtLeastOnceQoS()
+                           .Build();
+                    _ = _mqttClient.PublishAsync(message).Result;
+                    temp1 = TcpHelper.GetTemperatureSetResult(3) / 10;
+                    message = new MqttApplicationMessageBuilder()
+                   .WithTopic("Home/Hailin2/SetResult")
+                   .WithPayload(temp1.ToString())
+                   .WithAtLeastOnceQoS()
+                   .Build();
+                    _ = _mqttClient.PublishAsync(message).Result;
+
+                    ///主卧
+                    temp1 = TcpHelper.GetTemperature(3) / 10;
+                    message = new MqttApplicationMessageBuilder()
+                           .WithTopic("Home/Hailin3/CurrentTemp")
+                           .WithPayload(temp1.ToString())
+                           .WithAtLeastOnceQoS()
+                           .Build();
+                    _ = _mqttClient.PublishAsync(message).Result;
+                    temp1 = TcpHelper.GetTemperatureSetResult(3) / 10;
+                    message = new MqttApplicationMessageBuilder()
+                   .WithTopic("Home/Hailin3/SetResult")
+                   .WithPayload(temp1.ToString())
+                   .WithAtLeastOnceQoS()
+                   .Build();
+                    _ = _mqttClient.PublishAsync(message).Result;
+
+                    _mqttClient.DisconnectAsync();
+                }
+
+
+                
+            }
+                
+            
         }
 
         public Task StopAsync(CancellationToken cancellationToken)

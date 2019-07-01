@@ -15,7 +15,7 @@ namespace TcpWebGateway.Services
         private readonly ILogger _logger;
         private Timer _timer;
         private IMqttClientOptions options = new MqttClientOptionsBuilder()
-            .WithClientId("MqttNetCoreTimer1")
+            .WithClientId(Guid.NewGuid().ToString())
             .WithTcpServer("192.168.50.245", 1883)
             .Build();
 
@@ -44,7 +44,7 @@ namespace TcpWebGateway.Services
             {
                 try
                 {
-                    var result = _mqttClient.ConnectAsync(options).Result;
+                    var result = await _mqttClient.ConnectAsync(options);
                     if (result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
                     {
                         ///客厅
@@ -97,6 +97,7 @@ namespace TcpWebGateway.Services
 
                         await _mqttClient.DisconnectAsync();
                     }
+                    _logger.LogError("Connect to Mqtt failed!");
                 }
                 catch (Exception ex)
                 {

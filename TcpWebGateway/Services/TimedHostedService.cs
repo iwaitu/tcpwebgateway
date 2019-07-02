@@ -15,16 +15,17 @@ namespace TcpWebGateway.Services
     {
         private readonly ILogger _logger;
         private readonly MqttHelper _mqttHelper;
+        private readonly TcpHelper _tcpHelper;
         public IServiceProvider Services { get; }
 
         private Timer _timer;
 
 
-        public TimedHostedService(ILogger<TimedHostedService> logger, MqttHelper mqtthelper)
+        public TimedHostedService(ILogger<TimedHostedService> logger, MqttHelper mqtthelper,TcpHelper tcpHelper)
         {
             _logger = logger;
             _mqttHelper = mqtthelper;
-            
+            _tcpHelper = tcpHelper;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -47,14 +48,14 @@ namespace TcpWebGateway.Services
                     //var scopedProcessingService = scope.ServiceProvider.GetRequiredService<MqttHelper>();
 
                     ///客厅
-                    var temp1 = TcpHelper.GetTemperature(1) / 10;
+                    var temp1 = await _tcpHelper.GetTemperature(1) / 10;
                     var message = new MqttApplicationMessageBuilder()
                            .WithTopic("Home/Hailin1/CurrentTemp")
                            .WithPayload(temp1.ToString())
                            .WithAtLeastOnceQoS()
                            .Build();
                     await _mqttHelper.Publish(message);
-                    temp1 = TcpHelper.GetTemperatureSetResult(1) / 10;
+                    temp1 = await _tcpHelper.GetTemperatureSetResult(1) / 10;
                     message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin1/SetResult")
                    .WithPayload(temp1.ToString())
@@ -63,14 +64,14 @@ namespace TcpWebGateway.Services
                     await _mqttHelper.Publish(message);
 
                     ///客卧
-                    temp1 = TcpHelper.GetTemperature(2) / 10;
+                    temp1 = await _tcpHelper.GetTemperature(2) / 10;
                     message = new MqttApplicationMessageBuilder()
                            .WithTopic("Home/Hailin2/CurrentTemp")
                            .WithPayload(temp1.ToString())
                            .WithAtLeastOnceQoS()
                            .Build();
                     await _mqttHelper.Publish(message);
-                    temp1 = TcpHelper.GetTemperatureSetResult(3) / 10;
+                    temp1 = await _tcpHelper.GetTemperatureSetResult(3) / 10;
                     message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin2/SetResult")
                    .WithPayload(temp1.ToString())
@@ -79,14 +80,14 @@ namespace TcpWebGateway.Services
                     await _mqttHelper.Publish(message);
 
                     ///主卧
-                    temp1 = TcpHelper.GetTemperature(3) / 10;
+                    temp1 = await _tcpHelper.GetTemperature(3) / 10;
                     message = new MqttApplicationMessageBuilder()
                            .WithTopic("Home/Hailin3/CurrentTemp")
                            .WithPayload(temp1.ToString())
                            .WithAtLeastOnceQoS()
                            .Build();
                     await _mqttHelper.Publish(message);
-                    temp1 = TcpHelper.GetTemperatureSetResult(3) / 10;
+                    temp1 = await _tcpHelper.GetTemperatureSetResult(3) / 10;
                     message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin3/SetResult")
                    .WithPayload(temp1.ToString())

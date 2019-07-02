@@ -17,15 +17,16 @@ namespace TcpWebGateway.Controllers
     public class HeatSystemController : ControllerBase
     {
         private readonly ILogger _logger;
-
+        private readonly TcpHelper _tcpHelper;
         /// <summary>
-        /// 
+        ///  构造函数
         /// </summary>
         /// <param name="logger"></param>
-        public HeatSystemController(ILogger<HeatSystemController> logger)
+        /// <param name="tcpHelper"></param>
+        public HeatSystemController(ILogger<HeatSystemController> logger,TcpHelper tcpHelper)
         {
             _logger = logger;
-            logger.LogDebug("test");
+            _tcpHelper = tcpHelper;
         }
 
 
@@ -36,11 +37,11 @@ namespace TcpWebGateway.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetTemperature")]
-        public float GetTemperature(int id)
+        public async Task<float> GetTemperature(int id)
         {
             try
             {
-                var ret = TcpHelper.GetTemperature(id) / 10;
+                var ret = await _tcpHelper.GetTemperature(id) / 10;
                 return ret;
             }
             catch (Exception ex)
@@ -59,11 +60,11 @@ namespace TcpWebGateway.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("SetTemperature")]
-        public bool SetTemperature(int id,float temp)
+        public async Task<bool> SetTemperature(int id,float temp)
         {
             try
             {
-                return TcpHelper.SetTemperature(id, (Int16)(temp * 10));
+                return await _tcpHelper.SetTemperature(id, (Int16)(temp * 10));
             }
             catch (Exception ex)
             {

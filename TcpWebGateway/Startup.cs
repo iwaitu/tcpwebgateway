@@ -10,6 +10,7 @@ using NLog;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
+using System.Net;
 using System.Reflection;
 using TcpWebGateway.Services;
 
@@ -28,8 +29,8 @@ namespace TcpWebGateway
         public void ConfigureServices(IServiceCollection services)
         {
             ///注入mqtthelper
-            
-            services.AddSingleton(new MqttHelper());
+            services.AddSingleton<TcpHelper>();
+            services.AddSingleton<MqttHelper>();
             services.AddHostedService<TimedHostedService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -66,6 +67,7 @@ namespace TcpWebGateway
                 app.UseHsts();
             }
 
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
             app.UseSwaggerUI(c =>

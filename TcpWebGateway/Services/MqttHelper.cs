@@ -21,14 +21,14 @@ namespace TcpWebGateway.Services
 
         private MqttClient _mqttClient;
         private readonly ILogger _logger;
+        private readonly TcpHelper _tcpHelper;
         private bool Started = false;
 
-        public MqttHelper()
+        public MqttHelper(TcpHelper tcpHelper)
         {
             _logger = LogManager.GetCurrentClassLogger();
-
+            _tcpHelper = tcpHelper;
             int ret = 0;
-            bool bSuccess = false;
             MqttFactory factory = new MqttFactory();
             _mqttClient = factory.CreateMqttClient() as MqttClient;
 
@@ -46,11 +46,12 @@ namespace TcpWebGateway.Services
 
                 if (e.ApplicationMessage.Topic == "Home/Curtain2/Set")
                 {
-                    
-                    if(Convert.ToInt32(sVal) == -1)
+
+                    if (Convert.ToInt32(sVal) == -1)
                     {
-                        TcpHelper.Stop(2);
-                        ret = TcpHelper.GetStatus(2);
+                        Task.Run(async () => { await _tcpHelper.StopCurtain(2); });
+                        Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(2); });
+                        
                         var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain2/Status")
                         .WithPayload(ret.ToString())
                         .WithAtLeastOnceQoS()
@@ -59,7 +60,7 @@ namespace TcpWebGateway.Services
                     }
                     else
                     {
-                        TcpHelper.SetStatus(2, Convert.ToInt32(sVal));
+                        Task.Run(async () => { await _tcpHelper.SetCurtainStatus(2, Convert.ToInt32(sVal)); });
                     }
                     
                 }
@@ -68,8 +69,8 @@ namespace TcpWebGateway.Services
 
                     if (Convert.ToInt32(sVal) == -1)
                     {
-                        TcpHelper.Stop(3);
-                        ret = TcpHelper.GetStatus(3);
+                        Task.Run(async () => { await _tcpHelper.StopCurtain(3); });
+                        Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(3); });
                         var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain2/Status")
                         .WithPayload(ret.ToString())
                         .WithAtLeastOnceQoS()
@@ -78,12 +79,12 @@ namespace TcpWebGateway.Services
                     }
                     else
                     {
-                        TcpHelper.SetStatus(3, Convert.ToInt32(sVal));
+                        Task.Run(async () => { await _tcpHelper.SetCurtainStatus(3, Convert.ToInt32(sVal)); });
                     }
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Curtain3/Get")
                 {
-                    ret = TcpHelper.GetStatus(3);
+                    Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(3); });
                     var message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Curtain3/Status")
                    .WithPayload(ret.ToString())
@@ -93,7 +94,7 @@ namespace TcpWebGateway.Services
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Curtain2/Get")
                 {
-                    ret = TcpHelper.GetStatus(2);
+                    Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(2); });
                     var message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Curtain2/Status")
                    .WithPayload(ret.ToString())
@@ -106,16 +107,17 @@ namespace TcpWebGateway.Services
 
                     if (sVal == "open")
                     {
-                        TcpHelper.Open(2);
+                        Task.Run(async () => { await _tcpHelper.OpenCurtain(2); });
                     }
                     else if (sVal == "close")
                     {
-                        TcpHelper.Close(2);
+                        Task.Run(async () => { await _tcpHelper.CloseCurtain(2); });
                     }
                     else if (sVal == "stop")
                     {
-                        TcpHelper.Stop(2);
-                        ret = TcpHelper.GetStatus(2);
+                        
+                        Task.Run(async () => { await _tcpHelper.StopCurtain(2);  });
+                        Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(2); });
                         var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain2/Status")
                         .WithPayload(ret.ToString())
                         .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
@@ -129,22 +131,23 @@ namespace TcpWebGateway.Services
 
                     if (sVal == "open")
                     {
-                        TcpHelper.Open(3);
+                        Task.Run(async () => { await _tcpHelper.OpenCurtain(3); });
                     }
-                    else if(sVal == "close")
+                    else if (sVal == "close")
                     {
-                        TcpHelper.Close(3);
+                        Task.Run(async () => { await _tcpHelper.CloseCurtain(3); });
                     }
-                    else if(sVal == "stop")
+                    else if (sVal == "stop")
                     {
-                        TcpHelper.Stop(3);
-                        ret = TcpHelper.GetStatus(3);
+
+                        Task.Run(async () => { await _tcpHelper.StopCurtain(3); });
+                        Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(3); });
                         var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain3/Status")
                         .WithPayload(ret.ToString())
-                        .WithAtLeastOnceQoS()
+                        .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
+                        .WithRetainFlag(false)
                         .Build();
                         Task.Run(async () => { await Publish(message); });
-
                     }
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin1/Set")
@@ -152,28 +155,29 @@ namespace TcpWebGateway.Services
 
                     float fVal = float.Parse(sVal);
                     fVal = fVal * 10;
-                    bSuccess = false;
-                    bSuccess = TcpHelper.SetTemperature(1, (short)fVal);
+
+                    Task.Run(async () => { await _tcpHelper.SetTemperature(1, (short)fVal); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin2/Set")
                 {
 
                     float fVal = float.Parse(sVal);
                     fVal = fVal * 10;
-                    bSuccess = false;
-                    TcpHelper.SetTemperature(2, (short)fVal);
+
+                    Task.Run(async () => { await _tcpHelper.SetTemperature(2, (short)fVal); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin3/Set")
                 {
 
                     float fVal = float.Parse(sVal);
                     fVal = fVal * 10;
-                    bSuccess = false;
-                    TcpHelper.SetTemperature(3, (short)fVal);
+
+                    Task.Run(async () => { await _tcpHelper.SetTemperature(3, (short)fVal); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin1/GetCurrent")
                 {
-                    var temp = TcpHelper.GetTemperature(1) / 10;
+                    float temp = 0;
+                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(1) / 10; }); ;
                     var message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin1/CurrentTemp")
                    .WithPayload(temp.ToString())
@@ -183,7 +187,8 @@ namespace TcpWebGateway.Services
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin2/GetCurrent")
                 {
-                    var temp = TcpHelper.GetTemperature(2) / 10;
+                    float temp = 0;
+                    Task.Run(async () => { temp  = await _tcpHelper.GetTemperature(2) / 10; }); ;
                     var message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin2/CurrentTemp")
                    .WithPayload(temp.ToString())
@@ -193,7 +198,8 @@ namespace TcpWebGateway.Services
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin3/GetCurrent")
                 {
-                    var temp = TcpHelper.GetTemperature(3) / 10;
+                    float temp = 0;
+                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(3) / 10; }); ;
                     var message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin3/CurrentTemp")
                    .WithPayload(temp.ToString())
@@ -203,7 +209,8 @@ namespace TcpWebGateway.Services
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin1/GetSetResult")
                 {
-                    var temp = TcpHelper.GetTemperatureSetResult(1) / 10;
+                    float temp = 0;
+                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(1) / 10; }); ;
                     var message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin1/SetResult")
                    .WithPayload(temp.ToString())
@@ -213,7 +220,8 @@ namespace TcpWebGateway.Services
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin2/GetSetResult")
                 {
-                    var temp = TcpHelper.GetTemperatureSetResult(2) / 10;
+                    float temp = 0;
+                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(2) / 10; }); ;
                     var message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin2/SetResult")
                    .WithPayload(temp.ToString())
@@ -223,7 +231,8 @@ namespace TcpWebGateway.Services
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin3/GetSetResult")
                 {
-                    var temp = TcpHelper.GetTemperatureSetResult(3) / 10;
+                    float temp = 0;
+                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(3) / 10; }); ;
                     var message = new MqttApplicationMessageBuilder()
                    .WithTopic("Home/Hailin3/SetResult")
                    .WithPayload(temp.ToString())

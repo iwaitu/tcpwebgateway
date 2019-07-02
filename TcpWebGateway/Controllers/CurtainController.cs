@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MQTTnet;
+using Microsoft.Extensions.Logging;
 using MQTTnet.Client;
-using MQTTnet.Client.Connecting;
-using MQTTnet.Client.Options;
+using TcpWebGateway.Services;
 
 namespace TcpWebGateway.Controllers
 {
@@ -18,18 +13,15 @@ namespace TcpWebGateway.Controllers
     [ApiController]
     public class CurtainController : ControllerBase
     {
-        private IMqttClientOptions options = new MqttClientOptionsBuilder()
-            .WithClientId(Guid.NewGuid().ToString())
-            .WithTcpServer("192.168.50.245", 1883)
-            .WithCleanSession()
-            .Build();
+        private readonly ILogger _logger;
+        private readonly TcpHelper _tcpHelper;
 
         private IMqttClient _mqttClient;
 
-        public CurtainController()
+        public CurtainController(ILogger<HeatSystemController> logger, TcpHelper tcpHelper)
         {
-            MqttFactory factory = new MqttFactory();
-            _mqttClient = factory.CreateMqttClient();
+            _logger = logger;
+            _tcpHelper = tcpHelper;
 
         }
 
@@ -47,19 +39,9 @@ namespace TcpWebGateway.Controllers
             {
                 return 0;
             }
-            int retPercent = TcpHelper.GetStatus(id);
+            int retPercent = await _tcpHelper.GetCurtainStatus(id);
 
-            var result = await _mqttClient.ConnectAsync(options);
-            if (result.ResultCode == MqttClientConnectResultCode.Success)
-            {
-                var message = new MqttApplicationMessageBuilder()
-                    .WithTopic("/Home/Curtain" + id + "/State")
-                    .WithPayload(retPercent.ToString())
-                    .WithAtLeastOnceQoS()
-                    .Build();
-                await _mqttClient.PublishAsync(message);
-                await _mqttClient.DisconnectAsync();
-            }
+            
             return retPercent;
 
         }
@@ -70,9 +52,9 @@ namespace TcpWebGateway.Controllers
         /// <param name="id">布帘id=3 , 纱帘id=2</param>
         /// <param name="value">百分比</param>
         [HttpPost]
-        public void SetPosition(int id, int value)
+        public async Task SetPosition(int id, int value)
         {
-            TcpHelper.SetStatus(id, value);
+            await _tcpHelper.SetCurtainStatus(id, value);
         }
 
         /// <summary>
@@ -81,9 +63,9 @@ namespace TcpWebGateway.Controllers
         /// <param name="id"></param>
         [HttpPost]
         [Route("Stop")]
-        public void Stop(int id)
+        public async Task Stop(int id)
         {
-            TcpHelper.Stop(id);
+            await _tcpHelper.StopCurtain(id);
         }
 
         /// <summary>
@@ -92,9 +74,9 @@ namespace TcpWebGateway.Controllers
         /// <param name="id"></param>
         [HttpPost]
         [Route("Open")]
-        public void Open(int id)
+        public async Task Open(int id)
         {
-            TcpHelper.Open(id);
+            await _tcpHelper.OpenCurtain(id);
         }
 
         /// <summary>
@@ -103,9 +85,9 @@ namespace TcpWebGateway.Controllers
         /// <param name="id"></param>
         [HttpPost]
         [Route("Close")]
-        public void Close(int id)
+        public async Task Close(int id)
         {
-            TcpHelper.Close(id);
+            await _tcpHelper.CloseCurtain(id);
         }
 
     }

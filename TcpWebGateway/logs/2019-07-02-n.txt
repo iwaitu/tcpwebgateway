@@ -94,3 +94,660 @@
 2019-07-02 08:03:18.3982|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:03:18 
 2019-07-02 08:03:48.3988|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:03:48 
 2019-07-02 08:04:18.4109|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:04:18 
+2019-07-02 08:43:26.5964|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 08:43:28.5503|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:43:28 
+2019-07-02 08:43:28.6862|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:43:52.2064|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:43:52.2064|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 08:43:52.2155|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:43:52.2297|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:43:52.2297|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:43:52.2297|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:43:57.0010|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:43:57.0010|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 08:43:57.0010|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:43:57.0010|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:43:57.0010|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:43:57.0010|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:43:58.5513|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:43:58 
+2019-07-02 08:44:01.1409|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:44:01.1409|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 08:44:01.1459|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:44:01.1459|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:44:01.1459|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:44:01.1459|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:44:28.5528|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:44:28 
+2019-07-02 08:44:30.4543|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:44:30.4543|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:44:30.4543|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:44:30.4642|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:44:30.4642|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:44:30.4642|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:44:32.1385|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:44:32.1385|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:44:32.1385|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:44:32.1385|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:44:32.1385|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:44:32.1385|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:44:37.3014|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:44:37.3014|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:44:37.3014|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:44:37.3014|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:44:37.3014|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:44:37.3014|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:44:38.4944|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:44:38.4944|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:44:38.4944|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:44:38.4944|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:44:38.4944|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:44:38.4944|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:44:58.5512|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:44:58 
+2019-07-02 08:45:08.8608|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:45:08.8608|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:45:08.8692|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:45:08.8692|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:45:08.8692|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:45:08.8692|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:45:15.0462|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:45:15.0462|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:45:15.0462|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:45:15.0462|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:45:15.0462|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:45:15.0529|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:45:28.5435|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:45:28 
+2019-07-02 08:45:58.5440|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:45:58 
+2019-07-02 08:45:59.2075|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:45:59.2075|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:45:59.2075|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:45:59.2075|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:45:59.2232|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:45:59.2232|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:46:28.5435|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:46:28 
+2019-07-02 08:46:58.5432|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:46:58 
+2019-07-02 08:47:28.5559|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:47:28 
+2019-07-02 08:47:58.5538|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:47:58 
+2019-07-02 08:48:28.5555|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:48:28 
+2019-07-02 08:48:58.5522|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:48:58 
+2019-07-02 08:49:28.5554|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:49:28 
+2019-07-02 08:49:58.5536|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:49:58 
+2019-07-02 08:50:28.5432|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:50:28 
+2019-07-02 08:50:58.5435|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:50:58 
+2019-07-02 08:51:22.0177|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:22.0177|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:22.0301|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:22.0301|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:22.0413|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:22.0413|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:23.3001|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:23.3001|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:23.3052|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:23.3052|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:23.3052|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:23.3052|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:25.5127|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:25.5127|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:25.5127|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:25.5127|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:25.5127|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:25.5127|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:27.0197|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:27.0212|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:27.0212|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:27.0212|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:27.0212|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:27.0212|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:27.7920|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:27.7920|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:27.7920|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:27.7920|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:27.7920|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:27.7920|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:28.5438|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:51:28 
+2019-07-02 08:51:28.9746|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:28.9746|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:28.9746|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:28.9746|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:28.9746|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:28.9746|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:29.8168|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:29.8168|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:29.8168|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:29.8168|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:29.8168|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:29.8168|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:30.5985|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:30.5985|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:30.5985|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:30.5985|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:30.5985|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:30.5985|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:31.3102|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:51:31.3102|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:51:31.3102|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:51:31.3102|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:51:31.3102|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:51:31.3102|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:51:58.5524|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:51:58 
+2019-07-02 08:52:28.5521|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:52:28 
+2019-07-02 08:52:55.1607|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:52:55.1607|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:52:55.1607|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:52:55.1607|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:52:55.1795|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:52:55.1795|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:52:56.1838|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:52:56.1838|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:52:56.2100|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:52:56.2100|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:52:56.2100|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:52:56.2100|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:52:58.5439|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:52:58 
+2019-07-02 08:53:16.5627|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:53:16.5627|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:53:16.5627|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:53:16.5627|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:53:16.5737|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:53:16.5737|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:53:22.8988|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:53:22.8988|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:53:22.8988|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:53:22.8988|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:53:22.8988|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:53:22.8988|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:53:28.5516|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:53:28 
+2019-07-02 08:53:33.5675|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 08:53:58.5437|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:53:58 
+2019-07-02 08:54:28.5436|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:54:28 
+2019-07-02 08:54:58.5436|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:54:58 
+2019-07-02 08:55:28.5545|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:55:28 
+2019-07-02 08:55:58.5511|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:55:58 
+2019-07-02 08:56:28.5513|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:56:28 
+2019-07-02 08:56:58.5512|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:56:58 
+2019-07-02 08:57:21.1282|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 08:57:22.8780|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:57:22 
+2019-07-02 08:57:23.0215|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:57:35.5665|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:57:35.5673|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:57:35.5673|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:57:35.5673|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:57:35.5673|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:57:35.5673|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:57:40.1583|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 08:57:40.1583|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 08:57:40.1583|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 08:57:40.1583|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 08:57:40.1583|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 08:57:40.1609|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 08:57:50.8257|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 08:57:52.8681|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:57:52 
+2019-07-02 08:57:52.9538|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:57:53.0266|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:57:53.1169|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:57:53.1874|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:57:53.2580|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:57:53.3301|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:58:22.8804|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:58:22 
+2019-07-02 08:58:22.9622|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:58:23.0583|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:58:23.1369|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:58:23.2068|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:58:23.2763|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:58:23.3543|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:05:09.5474|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:05:11.2830|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:05:11 
+2019-07-02 09:05:11.4012|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:05:32.6507|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:05:32.6507|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:05:32.6507|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:05:32.6507|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:05:32.6507|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:05:32.6613|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:05:39.0175|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:05:39.0175|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:05:39.0175|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:05:39.0204|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:05:39.0204|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:05:39.0204|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:05:41.2738|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:05:41 
+2019-07-02 09:05:43.2176|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:05:43.2176|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:05:43.2176|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:05:43.2176|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:05:43.2176|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:05:43.2176|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:06:01.6741|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:06:01.6741|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:06:01.6741|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:06:01.6824|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:06:01.6963|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:06:01.6963|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:06:04.2204|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:06:04.2204|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:06:04.2204|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:06:04.2204|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:06:04.2240|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:06:04.2240|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:06:07.7692|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:06:07.7692|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:06:07.7725|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:06:07.7725|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:06:07.7725|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:06:07.7725|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:06:08.6214|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:06:08.6214|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:06:08.6214|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:06:08.6214|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:06:08.6214|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:06:08.6214|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:06:11.2865|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:06:11 
+2019-07-02 09:06:41.2879|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:06:41 
+2019-07-02 09:07:11.2735|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:07:11 
+2019-07-02 09:07:20.8827|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:07:20.8827|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:07:20.8827|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:07:20.8827|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:07:20.8950|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:07:20.8950|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:07:33.6546|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:07:33.6546|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Set 
+2019-07-02 09:07:33.6546|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:07:33.6546|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:07:33.6546|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:07:33.6546|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:07:41.2860|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:07:41 
+2019-07-02 09:08:11.2861|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:08:11 
+2019-07-02 09:08:41.2863|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:08:41 
+2019-07-02 09:09:01.1259|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:09:01.1259|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 09:09:01.1347|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:09:01.1347|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:09:01.1509|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:09:01.1509|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:09:06.0359|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:09:06.0365|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 09:09:06.0365|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:09:06.0365|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:09:06.0365|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:09:06.0365|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:09:11.2855|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:09:11 
+2019-07-02 09:09:16.7282|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 09:09:16.7686|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=35] [ReasonCode=]' at an unexpected time. 
+2019-07-02 09:09:16.8679|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:09:16.9663|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:09:17.0453|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:09:17.1240|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:09:17.2046|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:18:27.8699|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:18:29.8571|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:18:29 
+2019-07-02 09:18:29.9945|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:18:42.6339|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:18:42.6339|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 09:18:42.6339|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:18:42.6339|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:18:42.6339|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:18:42.6339|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:18:46.0942|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:18:46.0942|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 09:18:46.0942|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:18:46.0942|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:18:46.1029|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:18:46.1029|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:18:56.7583|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 09:18:59.8604|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:18:59 
+2019-07-02 09:18:59.9458|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:00.0413|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:00.1259|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:00.1968|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:00.2671|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:00.3370|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:29.8484|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:19:29 
+2019-07-02 09:19:29.9280|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:30.0079|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:30.1067|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:30.1771|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:30.2481|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:30.3185|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:19:59.8489|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:19:59 
+2019-07-02 09:19:59.9424|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:00.0413|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:00.1356|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:00.2065|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:00.2821|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:00.3521|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:29.8488|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:20:29 
+2019-07-02 09:20:29.9247|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:30.0255|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:30.1231|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:30.1947|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:30.2752|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:20:30.3462|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:22:03.3058|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:22:05.0393|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:22:05 
+2019-07-02 09:22:05.1799|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:22:16.8732|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:22:16.8732|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 09:22:16.8732|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:22:16.8732|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:22:16.8732|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:22:16.8732|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:22:27.5348|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 09:22:35.0380|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:22:35 
+2019-07-02 09:22:35.1252|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:22:35.2188|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:22:35.3141|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:22:35.3876|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:22:35.4619|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:22:35.5356|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:28:03.0757|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:28:04.8147|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:28:04 
+2019-07-02 09:28:13.5306|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:28:13.5306|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 09:28:13.5306|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:28:13.5405|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:28:13.5405|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:28:13.5405|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:28:23.7282|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 09:28:50.5135|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:28:52.2071|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:28:52 
+2019-07-02 09:28:52.3285|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:29:21.1345|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:29:21.1345|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Get 
+2019-07-02 09:29:21.1345|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:29:21.1345|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:29:21.1508|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:29:21.1508|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:29:22.1993|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:29:22 
+2019-07-02 09:29:31.2486|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 09:29:31.2858|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=21] [ReasonCode=]' at an unexpected time. 
+2019-07-02 09:29:31.3768|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:29:31.4701|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:29:31.5557|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:29:31.6422|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:29:31.7256|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:43:22.7546|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:43:24.4763|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:43:24 
+2019-07-02 09:43:24.6159|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:43:39.8190|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:43:39.8190|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Get 
+2019-07-02 09:43:39.8190|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:43:39.8190|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:43:39.8190|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:43:39.8190|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:43:49.9332|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 09:43:54.4751|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:43:54 
+2019-07-02 09:43:54.5641|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:43:54.6568|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:43:54.7551|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:43:54.8492|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:43:54.9254|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:43:55.0231|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:44:24.4762|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:44:24 
+2019-07-02 09:44:24.5730|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:44:24.6661|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:44:24.7533|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:44:24.8280|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:44:24.8989|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:44:24.9722|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:44:54.4759|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:44:54 
+2019-07-02 09:47:24.0131|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:47:25.8345|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:47:25 
+2019-07-02 09:47:36.6172|ERROR|TcpWebGateway.Services.MqttHelper|A task was canceled. 
+2019-07-02 09:47:46.5592|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 09:47:55.8383|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:47:55 
+2019-07-02 09:48:25.8342|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:48:25 
+2019-07-02 09:48:55.8352|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:48:55 
+2019-07-02 09:49:25.8361|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:49:25 
+2019-07-02 09:51:56.6687|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:51:58.4155|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:51:58 
+2019-07-02 09:52:32.5977|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:52:32 
+2019-07-02 09:52:32.6756|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:53:09.8209|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:53:09 
+2019-07-02 09:53:22.9287|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:53:32.3995|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:53:32 
+2019-07-02 09:53:38.0754|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:53:54.8309|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:53:54 
+2019-07-02 09:54:08.9040|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:54:08.9040|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Get 
+2019-07-02 09:54:08.9040|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:54:08.9144|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:54:08.9144|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:54:08.9144|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:54:19.0310|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 09:54:24.7731|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:54:24 
+2019-07-02 09:54:54.7712|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:54:54 
+2019-07-02 09:55:24.7711|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:55:24 
+2019-07-02 09:55:54.7725|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:55:54 
+2019-07-02 09:56:24.7699|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:56:24 
+2019-07-02 09:56:54.7728|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:56:54 
+2019-07-02 09:57:24.7704|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:57:24 
+2019-07-02 09:57:54.7719|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:57:54 
+2019-07-02 09:58:24.7703|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:58:24 
+2019-07-02 09:58:54.7725|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:58:54 
+2019-07-02 09:59:27.9443|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 09:59:29.7192|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:59:29 
+2019-07-02 09:59:29.8639|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 09:59:56.4542|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 09:59:56.4542|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Get 
+2019-07-02 09:59:56.4542|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 09:59:56.4635|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 09:59:56.4635|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 09:59:56.4783|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 09:59:59.7247|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 9:59:59 
+2019-07-02 10:00:06.5737|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:00:06.6064|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=21] [ReasonCode=]' at an unexpected time. 
+2019-07-02 10:00:29.7123|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:00:29 
+2019-07-02 10:00:29.8338|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:00:29.8338|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Hailin1/Set 
+2019-07-02 10:00:29.8338|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 10:00:29.8338|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-02 10:00:29.8338|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:00:29.8338|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:00:59.7264|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:00:59 
+2019-07-02 10:01:03.5551|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:01:03.5551|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3/Get 
+2019-07-02 10:01:03.5551|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 10:01:03.5551|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:01:03.5551|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:01:03.5551|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:01:13.6556|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:01:29.7275|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:01:29 
+2019-07-02 10:01:42.0397|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:01:42.0397|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:01:42.0397|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 10:01:42.0397|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:01:42.0397|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:01:42.0397|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:01:52.2025|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:01:59.7250|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:01:59 
+2019-07-02 10:02:29.7241|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:02:29 
+2019-07-02 10:02:50.2764|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:02:50.2764|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:02:50.2764|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 10:02:50.2943|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:02:50.2943|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:02:50.2943|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:02:59.7234|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:02:59 
+2019-07-02 10:03:00.4648|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:03:00.4932|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=22] [ReasonCode=]' at an unexpected time. 
+2019-07-02 10:03:29.7242|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:03:29 
+2019-07-02 10:03:59.7241|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:03:59 
+2019-07-02 10:04:29.7243|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:04:29 
+2019-07-02 10:04:48.4250|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:04:48.4250|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:04:48.4299|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 10:04:48.4299|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:04:48.4299|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:04:48.4587|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:05:11.4826|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:05:11 
+2019-07-02 10:05:11.4935|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:05:27.0440|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:05:29.7121|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:05:29 
+2019-07-02 10:05:59.7129|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:05:59 
+2019-07-02 10:06:29.7251|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:06:29 
+2019-07-02 10:06:59.7235|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:06:59 
+2019-07-02 10:10:15.2481|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:10:16.9611|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:10:16 
+2019-07-02 10:10:17.1084|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:10:30.4908|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:10:30.4908|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:10:30.4908|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 10:10:30.4908|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:10:30.4908|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:10:30.4908|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:10:40.6520|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:10:46.9536|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:10:46 
+2019-07-02 10:11:16.9668|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:11:16 
+2019-07-02 10:11:24.9944|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:11:24.9944|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:11:24.9944|INFO|TcpWebGateway.Services.MqttHelper|+ Payload =  
+2019-07-02 10:11:24.9944|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:11:25.0046|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:11:25.0046|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:11:35.1723|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:13:35.9832|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:13:37.7202|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:13:37 
+2019-07-02 10:13:37.8493|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:13:46.8492|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:13:46.8492|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:13:46.8492|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:13:46.8492|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:13:46.8492|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:13:46.8492|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:13:57.0178|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:14:07.7243|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:14:07 
+2019-07-02 10:14:13.2037|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:14:13.2037|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:14:13.2037|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:14:13.2037|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:14:13.2037|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:14:13.2037|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:14:23.3627|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:14:37.7136|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:14:37 
+2019-07-02 10:15:23.2741|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:15:23 
+2019-07-02 10:15:38.3490|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:15:38 
+2019-07-02 10:15:39.3526|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:15:39.9812|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:15:40.4711|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:15:41.0473|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:15:41.0807|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:15:43.9267|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:15:45.5715|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:15:45 
+2019-07-02 10:15:45.6757|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:15:55.6425|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:15:55.6425|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:15:55.6425|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:15:55.6425|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:15:55.6425|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:15:55.6452|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:16:21.6379|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:16:23.3047|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:16:23 
+2019-07-02 10:16:23.4238|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:16:34.0866|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:16:34.0866|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:16:34.0866|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:16:34.0866|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:16:34.0866|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:16:34.0866|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:16:44.2510|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:16:53.3030|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:16:53 
+2019-07-02 10:17:49.4224|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:17:51.1961|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:17:51 
+2019-07-02 10:17:51.3517|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 10:18:04.0421|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:18:04.0421|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:18:04.0421|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:18:04.0421|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:18:04.0421|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:18:04.0421|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:18:14.2122|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:18:21.1993|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:18:21 
+2019-07-02 10:18:34.6734|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:18:34.6734|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:18:34.6734|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:18:34.6734|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:18:34.6734|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:18:34.6734|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:23:03.0310|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:24:49.1125|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:24:59.8677|ERROR|TcpWebGateway.Services.MqttHelper|It is not allowed to connect with a server after the connection is established. 
+2019-07-02 10:24:59.8677|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:24:59 
+2019-07-02 10:25:19.5018|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:25:19.5018|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:25:19.5114|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:25:19.5288|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:25:19.5288|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:25:19.5288|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:25:29.6974|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:25:29.8361|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:25:29 
+2019-07-02 10:25:57.7222|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:27:26.3916|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:27:59.0827|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:28:22.6330|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:28:22.6330|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:28:22.6330|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:28:22.6330|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:28:22.6330|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:28:22.6483|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:28:32.8559|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:28:38.7598|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:28:38.7598|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:28:38.7598|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:28:38.7598|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:28:38.7598|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:28:38.7598|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:28:48.9178|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-02 10:32:05.3785|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:32:23.3966|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:32:23.3966|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:32:23.3966|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:32:23.3966|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:32:23.3966|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:32:23.3966|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:48:07.9596|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:48:17.1257|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:48:17.1257|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:48:17.1257|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:48:17.1257|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:48:17.1257|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:48:17.1294|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:48:43.0005|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:48:43.0005|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:48:43.0005|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:48:43.0005|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:48:43.0195|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:48:43.0261|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:48:52.7245|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:48:52.7245|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:48:52.7245|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:48:52.7245|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:48:52.7245|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:48:52.7245|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:49:13.7127|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:49:13.7127|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:49:13.7127|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:49:13.7127|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:49:13.7338|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:49:13.7615|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:50:39.7615|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 10:50:41.8431|ERROR|TcpWebGateway.Services.MqttHelper|It is not allowed to connect with a server after the connection is established. 
+2019-07-02 10:50:41.8493|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:50:41 
+2019-07-02 10:50:53.6309|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:50:53.6309|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:50:53.6309|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:50:53.6309|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:50:53.6309|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:50:53.6494|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:50:57.8715|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:50:57.8715|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:50:57.8715|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:50:57.8715|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:50:57.8715|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:50:57.8715|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:51:01.7795|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-02 10:51:01.7795|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain3 
+2019-07-02 10:51:01.7795|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = stop 
+2019-07-02 10:51:01.7795|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-02 10:51:01.7795|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-02 10:51:01.7795|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-02 10:51:11.8075|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:51:11 
+2019-07-02 10:51:41.8079|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 10:51:41 

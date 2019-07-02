@@ -1,15 +1,17 @@
 ﻿
+using Microsoft.Extensions.Hosting;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
 using NLog;
 using System;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace TcpWebGateway
+namespace TcpWebGateway.Services
 {
-    public class MqttHelper
+    public class MqttHelper : IMqttHelper
     {
         private IMqttClientOptions options = new MqttClientOptionsBuilder()
             .WithClientId("MqttNetCoreClient1")
@@ -21,20 +23,15 @@ namespace TcpWebGateway
 
         public MqttHelper()
         {
-            _logger  = NLog.LogManager.GetCurrentClassLogger();
-            _logger.Info("### log test ###");
-        }
+            _logger = LogManager.GetCurrentClassLogger();
 
-
-
-        public async Task<bool> Connect()
-        {
             int ret = 0;
             bool bSuccess = false;
             MqttFactory factory = new MqttFactory();
             _mqttClient = factory.CreateMqttClient() as MqttClient;
 
-            _mqttClient.UseApplicationMessageReceivedHandler(e => {
+            _mqttClient.UseApplicationMessageReceivedHandler(async e =>
+            {
 
                 var sVal = string.Empty;
                 _logger.Info("### 数据接收 ###");
@@ -44,15 +41,17 @@ namespace TcpWebGateway
                 _logger.Info($"+ Retain = {e.ApplicationMessage.Retain}");
                 _logger.Info("");
 
-                if(e.ApplicationMessage.Topic == "Home/Curtain2/Set")
+                if (e.ApplicationMessage.Topic == "Home/Curtain2/Set")
                 {
                     sVal = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
                     TcpHelper.SetStatus(2, Convert.ToInt32(sVal));
-                }else if (e.ApplicationMessage.Topic == "Home/Curtain3/Set")
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Set")
                 {
                     sVal = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
                     TcpHelper.SetStatus(3, Convert.ToInt32(sVal));
-                }else if(e.ApplicationMessage.Topic == "Home/Curtain3/Get")
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Get")
                 {
                     ret = TcpHelper.GetStatus(3);
                     var message = new MqttApplicationMessageBuilder()
@@ -60,7 +59,7 @@ namespace TcpWebGateway
                    .WithPayload(ret.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-                    this.Publish(message);
+                    await Publish(message);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Curtain2/Get")
                 {
@@ -70,9 +69,9 @@ namespace TcpWebGateway
                    .WithPayload(ret.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-                    this.Publish(message);
+                    await Publish(message);
                 }
-                else if(e.ApplicationMessage.Topic == "Home/Curtain2/Open")
+                else if (e.ApplicationMessage.Topic == "Home/Curtain2/Open")
                 {
                     TcpHelper.Open(2);
                 }
@@ -95,7 +94,8 @@ namespace TcpWebGateway
                 else if (e.ApplicationMessage.Topic == "Home/Curtain3/Close")
                 {
                     TcpHelper.Close(3);
-                }else if(e.ApplicationMessage.Topic == "Home/Hailin1/Set")
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Hailin1/Set")
                 {
                     sVal = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
                     float fVal = float.Parse(sVal);
@@ -127,7 +127,7 @@ namespace TcpWebGateway
                    .WithPayload(temp.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-                    this.Publish(message);
+                    await Publish(message);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin2/GetCurrent")
                 {
@@ -137,7 +137,7 @@ namespace TcpWebGateway
                    .WithPayload(temp.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-                    this.Publish(message);
+                    await Publish(message);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin3/GetCurrent")
                 {
@@ -147,7 +147,7 @@ namespace TcpWebGateway
                    .WithPayload(temp.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-                    this.Publish(message);
+                    await Publish(message);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin1/GetSetResult")
                 {
@@ -157,7 +157,7 @@ namespace TcpWebGateway
                    .WithPayload(temp.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-                    this.Publish(message);
+                    await Publish(message);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin2/GetSetResult")
                 {
@@ -167,7 +167,7 @@ namespace TcpWebGateway
                    .WithPayload(temp.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-                    this.Publish(message);
+                    await Publish(message);
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Hailin3/GetSetResult")
                 {
@@ -177,46 +177,22 @@ namespace TcpWebGateway
                    .WithPayload(temp.ToString())
                    .WithAtLeastOnceQoS()
                    .Build();
-                    this.Publish(message);
+                    await Publish(message);
                 }
 
             });
-
-            //_mqttClient.UseDisconnectedHandler(async e => {
-            //    //Console.WriteLine("### MQTT掉线,1秒后重连 ###");
-            //    //await Task.Delay(1000);
-            //    //await _mqttClient.ReconnectAsync();
-            //});
-            try
-            {
-                var result = await _mqttClient.ConnectAsync(options);
-                if (result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex.Message);
-                return false;
-            }
-            
         }
+
 
         public async void Subscribe(string topic)
         {
             await _mqttClient.SubscribeAsync(new TopicFilterBuilder().WithTopic(topic).Build());
         }
 
-        public async void Publish(MqttApplicationMessage message)
+        public async Task Publish(MqttApplicationMessage message)
         {
             try
             {
-                if (!_mqttClient.IsConnected)
-                {
-                    await _mqttClient.ReconnectAsync();
-                }
                 await _mqttClient.PublishAsync(message);
             }
             catch (Exception ex)
@@ -224,9 +200,60 @@ namespace TcpWebGateway
 
                 _logger.Error(ex.Message);
             }
-            
+
+        }
+
+        private void SetupSubscribe()
+        {
+            Subscribe("Home/Curtain2/Set");
+            Subscribe("Home/Curtain3/Set");
+            Subscribe("Home/Curtain2/Get");
+            Subscribe("Home/Curtain3/Get");
+            Subscribe("Home/Curtain3/Open");
+            Subscribe("Home/Curtain3/Close");
+            Subscribe("Home/Curtain3/Stop");
+            Subscribe("Home/Curtain2/Open");
+            Subscribe("Home/Curtain2/Close");
+            Subscribe("Home/Curtain2/Stop");
+            Subscribe("Home/Hailin1/GetCurrent");
+            Subscribe("Home/Hailin2/GetCurrent");
+            Subscribe("Home/Hailin3/GetCurrent");
+            Subscribe("Home/Hailin1/GetSetResult");
+            Subscribe("Home/Hailin2/GetSetResult");
+            Subscribe("Home/Hailin3/GetSetResult");
+            Subscribe("Home/Hailin1/Set");
+            Subscribe("Home/Hailin2/Set");
+            Subscribe("Home/Hailin3/Set");
+        }
+
+        public async Task StartAsync()
+        {
+            try
+            {
+                var result = await _mqttClient.ConnectAsync(options);
+                if (result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
+                {
+                    SetupSubscribe();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.Message);
+            }
         }
 
 
+        public void Dispose()
+        {
+            if (_mqttClient != null)
+            {
+                if (_mqttClient.IsConnected)
+                {
+                    var task = new Task(() => { _mqttClient.DisconnectAsync(); });
+                    task.RunSynchronously();
+                }
+                _mqttClient.Dispose();
+            }
+        }
     }
 }

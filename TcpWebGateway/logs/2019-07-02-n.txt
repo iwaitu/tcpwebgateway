@@ -1,0 +1,96 @@
+2019-07-02 07:09:37.9587|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:09:39.5952|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:09:39.6041|ERROR|TcpWebGateway.Services.TimedHostedService|No service for type 'TcpWebGateway.Services.MqttHelper' has been registered. 
+2019-07-02 07:20:23.2878|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:20:36.7658|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:21:01.1230|ERROR|TcpWebGateway.Services.TimedHostedService|Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2019-07-02 07:21:06.7621|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:22:02.2402|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:22:04.2808|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:22:32.7287|ERROR|TcpWebGateway.Services.TimedHostedService|No service for type 'TcpWebGateway.Services.MqttHelper' has been registered. 
+2019-07-02 07:22:34.2881|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:25:10.1168|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:25:11.9335|ERROR|TcpWebGateway.Program|Stopped program because of exception System.InvalidOperationException: Unable to resolve service for type 'TcpWebGateway.Services.MqttHelper' while attempting to activate 'TcpWebGateway.Services.TimedHostedService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token, String shutdownMessage)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.Run(IWebHost host)
+   at TcpWebGateway.Program.Main(String[] args) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Program.cs:line 24
+2019-07-02 07:26:21.8144|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:26:23.6235|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:26:49.0341|ERROR|TcpWebGateway.Services.TimedHostedService|Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2019-07-02 07:26:53.6137|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:26:53.6419|ERROR|TcpWebGateway.Services.TimedHostedService|Unable to write data to the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2019-07-02 07:27:23.6161|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:27:23.6417|ERROR|TcpWebGateway.Services.TimedHostedService|Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2019-07-02 07:27:53.6155|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:28:13.5552|ERROR|TcpWebGateway.Services.TimedHostedService|Unable to write data to the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2019-07-02 07:28:23.6171|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:28:27.9772|ERROR|TcpWebGateway.Services.TimedHostedService|Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2019-07-02 07:28:53.6161|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:29:25.5001|ERROR|TcpWebGateway.Services.TimedHostedService|Unable to write data to the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2019-07-02 07:29:25.5001|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:35:59.5466|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:36:01.5009|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:36:01.6344|ERROR|TcpWebGateway.Services.MqttHelper|_ReconnectAsync_ can be used only if _ConnectAsync_ was called before. 
+2019-07-02 07:36:01.7190|ERROR|TcpWebGateway.Services.MqttHelper|_ReconnectAsync_ can be used only if _ConnectAsync_ was called before. 
+2019-07-02 07:36:31.5046|INFO|TcpWebGateway.Services.TimedHostedService|后台任务 %s 
+2019-07-02 07:36:31.5808|ERROR|TcpWebGateway.Services.MqttHelper|_ReconnectAsync_ can be used only if _ConnectAsync_ was called before. 
+2019-07-02 07:36:31.6594|ERROR|TcpWebGateway.Services.MqttHelper|_ReconnectAsync_ can be used only if _ConnectAsync_ was called before. 
+2019-07-02 07:46:34.8782|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:46:36.6608|ERROR|TcpWebGateway.Program|Stopped program because of exception System.InvalidOperationException: Unable to resolve service for type 'TcpWebGateway.Services.MqttHelper' while attempting to activate 'TcpWebGateway.Services.TimedHostedService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token, String shutdownMessage)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.Run(IWebHost host)
+   at TcpWebGateway.Program.Main(String[] args) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Program.cs:line 24
+2019-07-02 07:53:29.0732|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:53:31.0723|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 7:53:31 
+2019-07-02 07:58:51.2794|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 07:59:00.3024|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 7:59:00 
+2019-07-02 07:59:00.3807|ERROR|TcpWebGateway.Services.TimedHostedService|Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2019-07-02 07:59:34.8528|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 7:59:34 
+2019-07-02 07:59:53.0230|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 7:59:53 
+2019-07-02 07:59:55.8943|ERROR|TcpWebGateway.Services.TimedHostedService|由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 192.168.50.17:23 
+2019-07-02 08:01:46.5560|DEBUG|TcpWebGateway.Program|init main 
+2019-07-02 08:01:48.4063|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:01:48 
+2019-07-02 08:01:48.5465|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-02 08:02:18.3987|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:02:18 
+2019-07-02 08:02:48.3989|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:02:48 
+2019-07-02 08:03:18.3982|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:03:18 
+2019-07-02 08:03:48.3988|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:03:48 
+2019-07-02 08:04:18.4109|INFO|TcpWebGateway.Services.TimedHostedService|后台任务|2019/7/2 8:04:18 

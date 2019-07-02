@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MQTTnet.AspNetCore;
+using MQTTnet.Protocol;
+using MQTTnet.Server;
 using NLog;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
@@ -24,6 +27,10 @@ namespace TcpWebGateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ///注入mqtthelper
+            services.AddSingleton<MqttHelper>();
+            services.AddHostedService<TimedHostedService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(c =>
@@ -42,9 +49,6 @@ namespace TcpWebGateway
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
-
-            services.AddHostedService<TimedHostedService>();
-
 
         }
 
@@ -71,33 +75,6 @@ namespace TcpWebGateway
 
             app.UseHttpsRedirection();
             app.UseMvc();
-
-
-            ///mqtt 订阅
-            MqttHelper mqtt = new MqttHelper();
-            var ret = mqtt.Connect().Result;
-            if (ret)
-            {
-                mqtt.Subscribe("Home/Curtain2/Set");
-                mqtt.Subscribe("Home/Curtain3/Set");
-                mqtt.Subscribe("Home/Curtain2/Get");
-                mqtt.Subscribe("Home/Curtain3/Get");
-                mqtt.Subscribe("Home/Curtain3/Open");
-                mqtt.Subscribe("Home/Curtain3/Close");
-                mqtt.Subscribe("Home/Curtain3/Stop");
-                mqtt.Subscribe("Home/Curtain2/Open");
-                mqtt.Subscribe("Home/Curtain2/Close");
-                mqtt.Subscribe("Home/Curtain2/Stop");
-                mqtt.Subscribe("Home/Hailin1/GetCurrent");
-                mqtt.Subscribe("Home/Hailin2/GetCurrent");
-                mqtt.Subscribe("Home/Hailin3/GetCurrent");
-                mqtt.Subscribe("Home/Hailin1/GetSetResult");
-                mqtt.Subscribe("Home/Hailin2/GetSetResult");
-                mqtt.Subscribe("Home/Hailin3/GetSetResult");
-                mqtt.Subscribe("Home/Hailin1/Set");
-                mqtt.Subscribe("Home/Hailin2/Set");
-                mqtt.Subscribe("Home/Hailin3/Set");
-            }
 
         }
     }

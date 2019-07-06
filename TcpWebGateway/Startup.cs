@@ -31,7 +31,7 @@ namespace TcpWebGateway
             ///注入mqtthelper
             services.AddSingleton<TcpHelper>();
             services.AddSingleton<MqttHelper>();
-            services.AddHostedService<TimedHostedService>();
+            //services.AddHostedService<TimedHostedService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

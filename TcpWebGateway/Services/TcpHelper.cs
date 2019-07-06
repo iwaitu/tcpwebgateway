@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -14,13 +15,16 @@ namespace TcpWebGateway.Services
         private NetworkStream _streamCurtain;
         private NetworkStream _streamHailin;
 
-        public TcpHelper()
+        private readonly ILogger _logger;
+
+        public TcpHelper(ILogger<TcpHelper> logger)
         {
-            _clientCurtain = new TcpClient("192.168.50.17", 26);
-            _clientHailin = new TcpClient("192.168.50.17", 23);
+            _clientCurtain = new TcpClient("192.168.50.17", 8001);
+            _clientHailin = new TcpClient("192.168.50.17", 502);
             _streamCurtain = _clientCurtain.GetStream();
             _streamHailin = _clientHailin.GetStream();
 
+            _logger = logger;
         }
         
         public async Task<int> GetCurtainStatus(int id)
@@ -90,18 +94,28 @@ namespace TcpWebGateway.Services
         /// <returns></returns>
         public async Task<float> GetTemperature(int id)
         {
-            float ret = 0;
-            byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, (byte)id, 0x03, 0x00, 0x06, 0x00, 0x01 };
-            //byte[] CRC = CRCHelper.get_CRC16_C(data);
-            //byte[] cmd = new byte[] { data[0], data[1], data[2], data[3], data[4], data[5], CRC[0], CRC[1] };
-            await _streamHailin.WriteAsync(data, 0, data.Length);
+            try
+            {
+                float ret = 0;
+                byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, (byte)id, 0x03, 0x00, 0x06, 0x00, 0x01 };
+                //byte[] CRC = CRCHelper.get_CRC16_C(data);
+                //byte[] cmd = new byte[] { data[0], data[1], data[2], data[3], data[4], data[5], CRC[0], CRC[1] };
+                await _streamHailin.WriteAsync(data, 0, data.Length);
 
-            data = new Byte[11];
-            ret = await _streamHailin.ReadAsync(data, 0, data.Length);
-            ret = BitConverter.ToInt16(new byte[] { data[10], data[9] });
+                data = new Byte[11];
+                ret = await _streamHailin.ReadAsync(data, 0, data.Length);
+                ret = BitConverter.ToInt16(new byte[] { data[10], data[9] });
 
-            await _streamHailin.FlushAsync();
-            return ret;
+                await _streamHailin.FlushAsync();
+                return ret;
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError(ex.Source + ":" + ex.Message);
+                return 0;
+            }
+            
         }
 
         /// <summary>
@@ -110,18 +124,27 @@ namespace TcpWebGateway.Services
         /// <returns></returns>
         public async Task<float> GetTemperatureSetResult(int id)
         {
-            float ret = 0;
-            byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, (byte)id, 0x03, 0x00, 0x01, 0x00, 0x01 };
-            //byte[] CRC = CRCHelper.get_CRC16_C(data);
-            //byte[] cmd = new byte[] { data[0], data[1], data[2], data[3], data[4], data[5], CRC[0], CRC[1] };
-            await _streamHailin.WriteAsync(data, 0, data.Length);
+            try
+            {
+                float ret = 0;
+                byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, (byte)id, 0x03, 0x00, 0x01, 0x00, 0x01 };
+                //byte[] CRC = CRCHelper.get_CRC16_C(data);
+                //byte[] cmd = new byte[] { data[0], data[1], data[2], data[3], data[4], data[5], CRC[0], CRC[1] };
+                await _streamHailin.WriteAsync(data, 0, data.Length);
 
-            data = new Byte[11];
-            ret = await _streamHailin.ReadAsync(data, 0, data.Length);
-            ret = BitConverter.ToInt16(new byte[] { data[10], data[9] });
+                data = new Byte[11];
+                ret = await _streamHailin.ReadAsync(data, 0, data.Length);
+                ret = BitConverter.ToInt16(new byte[] { data[10], data[9] });
 
-            await _streamHailin.FlushAsync();
-            return ret;
+                await _streamHailin.FlushAsync();
+                return ret;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Source + ":" + ex.Message);
+                return 0;
+            }
+           
         }
 
 

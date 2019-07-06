@@ -1,0 +1,2 @@
+2019-07-06 02:14:45.3571|DEBUG|TcpWebGateway.Program|init main 
+2019-07-06 02:16:06.7520|DEBUG|TcpWebGateway.Program|init main 

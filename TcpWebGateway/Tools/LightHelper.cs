@@ -13,6 +13,7 @@ namespace TcpWebGateway.Tools
     {
         private static readonly HttpClient client = new HttpClient();
         private SwitchListener _listener;
+        private HVACSelected _hVacSelected = HVACSelected.None;
         public LightHelper(SwitchListener listener)
         {
             _listener = listener;
@@ -57,6 +58,36 @@ namespace TcpWebGateway.Tools
             else if (Command.IndexOf("0C 20 10 14 00 01 00 7F") >= 0) //关闭餐厨按钮
             {
                 await CloseKitchen();
+            }
+            //OD
+            else if (Command.IndexOf("0D 20 10 15 00 01 00 FF") >= 0) //打开书房空调
+            {
+                await OpenWorkroomAC();
+            }
+            else if (Command.IndexOf("0D 20 10 15 00 01 00 7F") >= 0) //关闭书房按钮
+            {
+                await CloseWorkroomAC();
+            }
+            else if (Command.IndexOf("0D 20 10 16 00 01 00 FF") >= 0) //打开客厅空调
+            {
+                await OpenLivingroomAC();
+            }
+            else if (Command.IndexOf("0D 20 10 16 00 01 00 7F") >= 0) //关闭客厅按钮
+            {
+                await CloseLivingroomAC();
+            }
+            else if (Command.IndexOf("0D 20 10 11 00 01 00 FF") >= 0) //新风开
+            {
+                //await CloseLivingroomAC();
+            }
+            else if (Command.IndexOf("0D 20 10 12 00 01 00 FF") >= 0) //新风关
+            {
+                //await CloseLivingroomAC();
+            }
+            //OF温控面板
+            else if(Command.IndexOf("0F 20 00 39 00 01 00 01 2D") >= 0)
+            {
+                
             }
         }
 
@@ -139,13 +170,55 @@ namespace TcpWebGateway.Tools
             var cmds = new List<string>();
             cmds.Add("0C 06 10 24 00 01");
             await _listener.SendCommand(cmds);
-            await Task.CompletedTask;
+            await LightSwitch("KR1Brightness", "ON");
+            await LightSwitch("KR2Brightness", "ON");
+            await LightSwitch("KR3Brightness", "ON");
+            await LightSwitch("KR4Brightness", "ON");
+            await LightSwitch("Table1Brightness", "ON");
+            await LightSwitch("Table2Brightness", "ON");
         }
 
         public async Task CloseKitchen()
         {
             var cmds = new List<string>();
             cmds.Add("0C 06 10 24 00 00");
+            await _listener.SendCommand(cmds);
+            await LightSwitch("KR1Brightness", "OFF");
+            await LightSwitch("KR2Brightness", "OFF");
+            await LightSwitch("KR3Brightness", "OFF");
+            await LightSwitch("KR4Brightness", "OFF");
+            await LightSwitch("Table1Brightness", "OFF");
+            await LightSwitch("Table2Brightness", "OFF");
+        }
+
+        public async Task OpenWorkroomAC()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 25 00 01");
+            await _listener.SendCommand(cmds);
+            await Task.CompletedTask;
+        }
+
+        public async Task CloseWorkroomAC()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 25 00 00");
+            await _listener.SendCommand(cmds);
+            await Task.CompletedTask;
+        }
+
+        public async Task OpenLivingroomAC()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 26 00 01");
+            await _listener.SendCommand(cmds);
+            await Task.CompletedTask;
+        }
+
+        public async Task CloseLivingroomAC()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 26 00 00");
             await _listener.SendCommand(cmds);
             await Task.CompletedTask;
         }
@@ -161,5 +234,13 @@ namespace TcpWebGateway.Tools
             var result = await client.PostAsync("http://192.168.50.245:38080/rest/items/" + itemname, content);
 
         }
+    }
+
+    public enum HVACSelected
+    {
+        WorkRoom,
+        LivingRoom,
+        Both,
+        None
     }
 }

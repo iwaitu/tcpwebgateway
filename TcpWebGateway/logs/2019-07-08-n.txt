@@ -99,3 +99,18 @@
 2019-07-08 23:21:38.4844|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 11 00 01 00 80 CF 6F 0C 20 10 11 00 01 00 FF 8E 
 2019-07-08 23:21:43.0508|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 12 00 01 00 80 8B 
 2019-07-08 23:21:44.0634|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 12 00 01 00 FF CA 
+2019-07-08 23:57:27.8703|DEBUG|TcpWebGateway.Program|init main 
+2019-07-08 23:57:29.8584|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-08 23:57:42.0969|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 14 00 01 00 00 02 
+2019-07-08 23:57:43.1135|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 14 00 01 00 7F 43 
+2019-07-08 23:57:43.1412|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0C0610240000CC1C 
+2019-07-08 23:57:45.8727|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 14 00 01 00 80 03 6F 0C 20 10 14 00 01 00 FF 42 
+2019-07-08 23:57:45.8727|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0C06102400010DDC 
+2019-07-08 23:57:55.1594|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 14 00 01 00 00 02 CF 0C 20 10 14 00 01 00 7F 43 
+2019-07-08 23:57:55.1594|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0C0610240000CC1C 
+2019-07-08 23:58:01.7611|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 14 00 01 00 80 03 
+2019-07-08 23:58:02.7644|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 14 00 01 00 FF 42 
+2019-07-08 23:58:02.7644|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0C06102400010DDC 
+2019-07-08 23:58:05.5972|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 14 00 01 00 00 02 
+2019-07-08 23:58:06.6073|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 14 00 01 00 7F 43 
+2019-07-08 23:58:06.6073|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0C0610240000CC1C 

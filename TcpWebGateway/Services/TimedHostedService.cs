@@ -10,7 +10,10 @@ using System.Threading.Tasks;
 
 namespace TcpWebGateway.Services
 {
-
+    /// <summary>
+    /// 主要是后台读取地暖温度计温度，然后publish 到mqtt总线上
+    /// 目前已经停止使用
+    /// </summary>
     internal class TimedHostedService : IHostedService, IDisposable
     {
         private readonly ILogger _logger;

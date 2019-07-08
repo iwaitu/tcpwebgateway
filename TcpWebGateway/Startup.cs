@@ -31,6 +31,8 @@ namespace TcpWebGateway
             ///注入mqtthelper
             services.AddSingleton<TcpHelper>();
             services.AddSingleton<MqttHelper>();
+
+            services.AddHostedService<SwitchListener>();
             //services.AddHostedService<TimedHostedService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -78,7 +80,6 @@ namespace TcpWebGateway
 
             app.UseHttpsRedirection();
             app.UseMvc();
-
         }
     }
 }

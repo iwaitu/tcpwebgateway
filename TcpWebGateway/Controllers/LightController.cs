@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MQTTnet.Client;
 using TcpWebGateway.Services;
+using TcpWebGateway.Tools;
 
 namespace TcpWebGateway.Controllers
 {
@@ -25,23 +26,44 @@ namespace TcpWebGateway.Controllers
         private IMqttClient _mqttClient;
         private readonly SwitchListener _listener;
 
-        private static readonly HttpClient client = new HttpClient();
+        private LightHelper _helper;
 
         public LightController(ILogger<HeatSystemController> logger, TcpHelper tcpHelper, IHostedService hostedService)
         {
             _logger = logger;
             _tcpHelper = tcpHelper;
             _listener = hostedService as SwitchListener;
+            _helper = new LightHelper(_listener);
+            
         }
 
         [HttpPost]
         [Route("LightupSwitch")]
-        public async Task LightupSwitch()
+        public async Task LightupSwitch([FromBody] string command)
         {
-            await _listener.SendCommand("0B 06 10 21 00 01");
+            await _listener.SendCommand(command);
         }
 
-        
+        [HttpPost]
+        [Route("HomeMode")]
+        public async Task HomeMode()
+        {
+            await _helper.HomeMode();
+        }
+
+        [HttpPost]
+        [Route("OutMode")]
+        public async Task OutMode()
+        {
+            await _helper.OutMode();
+        }
+
+        [HttpPost]
+        [Route("ReadMode")]
+        public async Task ReadMode()
+        {
+            await _helper.ReadMode();
+        }
 
         /// <summary>
         /// 明亮模式
@@ -51,28 +73,14 @@ namespace TcpWebGateway.Controllers
         [Route("OpenAll")]
         public async Task OpenAllLight()
         {
-            await LightSwitch("LR1_Brightness", "ON");
-            await LightSwitch("LR2_Brightness", "ON");
-            await LightSwitch("LR3_Brightness", "ON");
-            await LightSwitch("LR4_Brightness", "ON");
-            await LightSwitch("LR5_Brightness", "ON");
-            await LightSwitch("LR6_Brightness", "ON");
-            await LightSwitch("LR7_Brightness", "ON");
-            await LightSwitch("LR8_Brightness", "ON");
+            await _helper.OpenAll();
         }
 
         [HttpPost]
         [Route("CloseAll")]
         public async Task CloseAllLight()
         {
-            await LightSwitch("LR1_Brightness", "OFF");
-            await LightSwitch("LR2_Brightness", "OFF");
-            await LightSwitch("LR3_Brightness", "OFF");
-            await LightSwitch("LR4_Brightness", "OFF");
-            await LightSwitch("LR5_Brightness", "OFF");
-            await LightSwitch("LR6_Brightness", "OFF");
-            await LightSwitch("LR7_Brightness", "OFF");
-            await LightSwitch("LR8_Brightness", "OFF");
+            await _helper.CloseAll();
         }
 
 
@@ -81,7 +89,7 @@ namespace TcpWebGateway.Controllers
         [Route("OpenKitchen")]
         public async Task OpenKitchen()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
 
@@ -89,7 +97,7 @@ namespace TcpWebGateway.Controllers
         [Route("CloseKitchen")]
         public async Task CloseKitchen()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         #endregion
@@ -101,14 +109,14 @@ namespace TcpWebGateway.Controllers
         [Route("OpenLivingRoom")]
         public async Task OpenLivingRoom()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         [HttpPost]
         [Route("CloseLivingRoom")]
         public async Task CloseLivingRoom()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
         #endregion
 
@@ -119,14 +127,14 @@ namespace TcpWebGateway.Controllers
         [Route("OpenWorkRoom")]
         public async Task OpenWorkRoom()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         [HttpPost]
         [Route("CloseWorkRoom")]
         public async Task CloseWorkRoom()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         #endregion
@@ -137,14 +145,14 @@ namespace TcpWebGateway.Controllers
         [Route("OpenDiningTable")]
         public async Task OpenDiningTable()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         [HttpPost]
         [Route("CloseDiningTable")]
         public async Task CloseDiningTable()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         #endregion
@@ -155,14 +163,14 @@ namespace TcpWebGateway.Controllers
         [Route("OpenDoorLight")]
         public async Task OpenDoorLight()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         [HttpPost]
         [Route("CloseDoorLight")]
         public async Task CloseDoorLight()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         #endregion
@@ -173,32 +181,19 @@ namespace TcpWebGateway.Controllers
         [Route("OpenAisleLight")]
         public async Task OpenAisleLight()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         [HttpPost]
         [Route("CloseAisleLight")]
         public async Task CloseAisleLight()
         {
-            await LightSwitch("", "ON");
+            await Task.CompletedTask;
         }
 
         #endregion
 
         
-
-
-        private async Task LightSwitch(string itemname,string command)
-        {
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("User-Agent", "HomeGaywate");
-
-            var content = new StringContent(command, Encoding.UTF8, "text/plain");
-            var result  = await client.PostAsync("http://192.168.50.245:38080/rest/items/" + itemname, content);
-
-        }
 
 
     }

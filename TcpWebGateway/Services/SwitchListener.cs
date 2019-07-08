@@ -11,32 +11,10 @@ using System.Threading.Tasks;
 
 namespace TcpWebGateway.Services
 {
-    // State object for reading client data asynchronously  
-    public class StateObject
-    {
-        // Client  socket.  
-        public Socket workSocket = null;
-        // Size of receive buffer.  
-        public const int BufferSize = 1024;
-        // Receive buffer.  
-        public byte[] buffer = new byte[BufferSize];
-        // Received data string.  
-        public StringBuilder sb = new StringBuilder();
-    }
+    
     public class SwitchListener : BackgroundService
     {
         private const int port = 8002;
-
-        // ManualResetEvent instances signal completion.  
-        private static ManualResetEvent connectDone =
-            new ManualResetEvent(false);
-        private static ManualResetEvent sendDone =
-            new ManualResetEvent(false);
-        private static ManualResetEvent receiveDone =
-            new ManualResetEvent(false);
-
-        // The response from the remote device.  
-        private static String response = String.Empty;
 
         private readonly ILogger _logger;
 

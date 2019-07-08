@@ -101,6 +101,15 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LR8_Brightness", "ON");
             await LightSwitch("LR9_Brightness", "ON");
             await LightSwitch("LR10_Brightness", "ON");
+            await LightSwitch("LRStripTvColorTemperature", "ON");
+            await LightSwitch("LRStrip1ColorTemperature", "ON");
+            await LightSwitch("LRStrip2ColorTemperature", "ON");
+            await LightSwitch("LRStrip3ColorTemperature", "ON");
+            await LightSwitch("LRStrip4ColorTemperature", "ON");
+            await LightSwitch("LRStrip5ColorTemperature", "ON");
+            await LightSwitch("LRStrip6ColorTemperature", "ON");
+            await LightSwitch("KitchenSripColorTemperature", "ON");
+
         }
 
         public async Task CloseAll()
@@ -115,6 +124,14 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LR8_Brightness", "OFF");
             await LightSwitch("LR9_Brightness", "OFF");
             await LightSwitch("LR10_Brightness", "OFF");
+            await LightSwitch("LRStripTvColorTemperature", "OFF");
+            await LightSwitch("LRStrip1ColorTemperature", "OFF");
+            await LightSwitch("LRStrip2ColorTemperature", "OFF");
+            await LightSwitch("LRStrip3ColorTemperature", "OFF");
+            await LightSwitch("LRStrip4ColorTemperature", "OFF");
+            await LightSwitch("LRStrip5ColorTemperature", "OFF");
+            await LightSwitch("LRStrip6ColorTemperature", "OFF");
+            await LightSwitch("KitchenSripColorTemperature", "OFF");
         }
 
         public async Task OpenKitchen()

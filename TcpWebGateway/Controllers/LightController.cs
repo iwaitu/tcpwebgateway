@@ -4,9 +4,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MQTTnet.Client;
 using TcpWebGateway.Services;
@@ -21,14 +23,25 @@ namespace TcpWebGateway.Controllers
         private readonly TcpHelper _tcpHelper;
 
         private IMqttClient _mqttClient;
+        private readonly SwitchListener _listener;
 
         private static readonly HttpClient client = new HttpClient();
 
-        public LightController(ILogger<HeatSystemController> logger, TcpHelper tcpHelper)
+        public LightController(ILogger<HeatSystemController> logger, TcpHelper tcpHelper, IHostedService hostedService)
         {
             _logger = logger;
             _tcpHelper = tcpHelper;
+            _listener = hostedService as SwitchListener;
         }
+
+        [HttpPost]
+        [Route("LightupSwitch")]
+        public async Task LightupSwitch()
+        {
+            await _listener.SendCommand("0B 06 10 21 00 01");
+        }
+
+        
 
         /// <summary>
         /// 明亮模式
@@ -172,7 +185,7 @@ namespace TcpWebGateway.Controllers
 
         #endregion
 
-
+        
 
 
         private async Task LightSwitch(string itemname,string command)

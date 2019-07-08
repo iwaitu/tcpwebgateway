@@ -1,3 +1,0 @@
-2019-07-05 21:32:07.8330|DEBUG|TcpWebGateway.Program|init main 
-2019-07-05 21:35:12.9960|DEBUG|TcpWebGateway.Program|init main 
-2019-07-05 21:50:19.4447|DEBUG|TcpWebGateway.Program|init main 

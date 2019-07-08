@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TcpWebGateway.Tools;
 
 namespace TcpWebGateway.Services
 {
@@ -17,11 +18,10 @@ namespace TcpWebGateway.Services
         private const int port = 8002;
 
         private readonly ILogger _logger;
-
-        private Task _backgroundTask;
         public CancellationToken token;
         private IPEndPoint remoteEP;
         private IPAddress ipAddress;
+        private LightHelper _helper;
 
         public SwitchListener()
         {
@@ -29,6 +29,7 @@ namespace TcpWebGateway.Services
 
             ipAddress = IPAddress.Parse("192.168.50.17");
             remoteEP = new IPEndPoint(ipAddress, port);
+            _helper = new LightHelper(this);
 
         }
 
@@ -44,13 +45,14 @@ namespace TcpWebGateway.Services
                 _logger.Error("Can not connect.");
                 return;
             }
-
+            
             while (!cancellationToken.IsCancellationRequested)
             {
                 var response = await ReceiveAsync(client);
                 if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
                 {
-                    _logger.Info(response);
+                    _logger.Info("Receive:" + response);
+                    await _helper.OnReceiveCommand(response);
                 }
                 await Task.Delay(1000,cancellationToken);
             }
@@ -91,7 +93,7 @@ namespace TcpWebGateway.Services
             {
                 if (client.Available > 0)
                     break;
-                await Task.Delay(1000).ConfigureAwait(false);
+                await Task.Delay(100).ConfigureAwait(false);
             }
 
             if (client.Available < 1)
@@ -148,6 +150,32 @@ namespace TcpWebGateway.Services
             client.Shutdown(SocketShutdown.Both);
             client.Close();
             return ret;
+        }
+
+        public async Task SendCommand(List<string> data)
+        {
+            Socket client = new Socket(ipAddress.AddressFamily,
+                SocketType.Stream, ProtocolType.Tcp);
+            var isConnect = await ConnectAsync(client, remoteEP);
+            if (!isConnect)
+            {
+                _logger.Error("Can not connect.");
+                return ;
+            }
+            foreach (var singlecmd in data)
+            {
+                var cmd = StringToByteArray(singlecmd.Replace(" ", ""));
+                var cmdCRC = CRCHelper.get_CRC16_C(cmd);
+                var cmd1 = new byte[cmd.Length + 2];
+                cmd.CopyTo(cmd1, 0);
+                cmdCRC.CopyTo(cmd1, cmd.Length);
+                var str = CRCHelper.byteToHexStr(cmd1, cmd1.Length);
+                _logger.Info("SendCmd : " + str);
+                var ret = await SendAsync(client, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
+                await Task.Delay(100).ConfigureAwait(false);
+            }
+            client.Shutdown(SocketShutdown.Both);
+            client.Close();
         }
 
         private Task<int> SendAsync(Socket client, byte[] buffer, int offset,

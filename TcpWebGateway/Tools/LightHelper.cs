@@ -18,38 +18,75 @@ namespace TcpWebGateway.Tools
             _listener = listener;
         }
 
-        public void OnReceiveCommand(string Command)
+        public async Task OnReceiveCommand(string Command)
         {
-            
+            //面板OB
+            if (Command.IndexOf("0B 20 10 11 00 01 00 FF") >= 0) //面板OB松开回家模式按键
+            {
+                await HomeMode();
+            }
+            else if(Command.IndexOf("0B 20 10 12 00 01 00 FF")>= 0) //松开外出模式按键
+            {
+                await OutMode();
+            }
+            else if (Command.IndexOf("0B 20 10 13 00 01 00 FF")>=0) //松开阅读模式按键
+            {
+                await ReadMode();
+            }
+            //面板OC
+            else if (Command.IndexOf("0C 20 10 11 00 01 00 FF") >= 0) //松开全开按钮
+            {
+                await OpenAll();
+            }
+            else if(Command.IndexOf("0C 20 10 12 00 01 00 FF") >= 0) //松开全关按钮
+            {
+                await CloseAll();
+            }
+            else if (Command.IndexOf("0C 20 10 12 00 01 00 FF") >= 0) //松开全关按钮
+            {
+                await CloseAll();
+            }
+            else if (Command.IndexOf("0C 20 10 13 00 01 00 FF") >= 0) //松开观影按钮
+            {
+                //await CloseAll();
+            }
+            else if (Command.IndexOf("0C 20 10 14 00 01 00 FF") >= 0) //打开餐厨按钮
+            {
+                await OpenKitchen();
+            }
+            else if (Command.IndexOf("0C 20 10 14 00 01 00 7F") >= 0) //关闭餐厨按钮
+            {
+                await CloseKitchen();
+            }
         }
 
         public async Task HomeMode()
         {
-            await _listener.SendCommand("0B 06 10 22 00 00");
-            await Task.Delay(100);
-            await _listener.SendCommand("0B 06 10 23 00 00");
-            await Task.Delay(100);
-            await _listener.SendCommand("0B 06 10 21 00 01");
+            var cmds = new List<string>();
+            cmds.Add("0B 06 10 22 00 00");
+            cmds.Add("0B 06 10 23 00 00");
+            cmds.Add("0B 06 10 21 00 01");
+            await _listener.SendCommand(cmds);
         }
 
 
         public async Task OutMode()
         {
-            await _listener.SendCommand("0B 06 10 21 00 00");
-            await Task.Delay(100);
-            await _listener.SendCommand("0B 06 10 23 00 00");
-            await Task.Delay(100);
-            await _listener.SendCommand("0B 06 10 22 00 01");
+            var cmds = new List<string>();
+            cmds.Add("0B 06 10 21 00 00");
+            cmds.Add("0B 06 10 23 00 00");
+            cmds.Add("0B 06 10 22 00 01");
+            await _listener.SendCommand(cmds);
         }
 
 
         public async Task ReadMode()
         {
-            await _listener.SendCommand("0B 06 10 21 00 00");
-            await Task.Delay(100);
-            await _listener.SendCommand("0B 06 10 22 00 00");
-            await Task.Delay(100);
-            await _listener.SendCommand("0B 06 10 23 00 01");
+            var cmds = new List<string>();
+            cmds.Add("0B 06 10 21 00 00");
+            cmds.Add("0B 06 10 22 00 00");
+            cmds.Add("0B 06 10 23 00 01");
+            await _listener.SendCommand(cmds);
         }
 
         public async Task OpenAll()
@@ -62,6 +99,8 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LR6_Brightness", "ON");
             await LightSwitch("LR7_Brightness", "ON");
             await LightSwitch("LR8_Brightness", "ON");
+            await LightSwitch("LR9_Brightness", "ON");
+            await LightSwitch("LR10_Brightness", "ON");
         }
 
         public async Task CloseAll()
@@ -74,15 +113,23 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LR6_Brightness", "OFF");
             await LightSwitch("LR7_Brightness", "OFF");
             await LightSwitch("LR8_Brightness", "OFF");
+            await LightSwitch("LR9_Brightness", "OFF");
+            await LightSwitch("LR10_Brightness", "OFF");
         }
 
         public async Task OpenKitchen()
         {
+            var cmds = new List<string>();
+            cmds.Add("0C 06 10 24 00 01");
+            await _listener.SendCommand(cmds);
             await Task.CompletedTask;
         }
 
         public async Task CloseKitchen()
         {
+            var cmds = new List<string>();
+            cmds.Add("0C 06 10 24 00 00");
+            await _listener.SendCommand(cmds);
             await Task.CompletedTask;
         }
 

@@ -223,6 +223,66 @@ namespace TcpWebGateway.Tools
             await Task.CompletedTask;
         }
 
+        /// <summary>
+        /// 打开书房灯光
+        /// </summary>
+        /// <returns></returns>
+        public async Task OpenWorkroom()
+        {
+            //var cmds = new List<string>();
+            //cmds.Add("0D 06 10 26 00 00");
+            //await _listener.SendCommand(cmds);
+            await LightSwitch("WR1Brightness", "ON");
+            await LightSwitch("WR2Brightness", "ON");
+            await Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 关闭书房灯光
+        /// </summary>
+        /// <returns></returns>
+        public async Task CloseWorkroom()
+        {
+            //var cmds = new List<string>();
+            //cmds.Add("0D 06 10 26 00 00");
+            //await _listener.SendCommand(cmds);
+            await LightSwitch("WR1Brightness", "OFF");
+            await LightSwitch("WR2Brightness", "OFF");
+            await Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// 打开过道灯光
+        /// </summary>
+        /// <returns></returns>
+        public async Task OpenAisle()
+        {
+            await LightSwitch("Aisle1Brightness", "ON");
+            await LightSwitch("Aisle2Brightness", "ON");
+        }
+
+        public async Task CloseAisle()
+        {
+            await LightSwitch("Aisle1Brightness", "OFF");
+            await LightSwitch("Aisle2Brightness", "OFF");
+        }
+
+        /// <summary>
+        /// 打开门道灯光
+        /// </summary>
+        /// <returns></returns>
+        public async Task OpenDoor()
+        {
+            await LightSwitch("Door1Brightness", "ON");
+            await LightSwitch("Door2Brightness", "ON");
+        }
+
+        public async Task CloseDoor()
+        {
+            await LightSwitch("Door1Brightness", "OFF");
+            await LightSwitch("Door2Brightness", "OFF");
+        }
+
         private async Task LightSwitch(string itemname, string command)
         {
             client.DefaultRequestHeaders.Accept.Clear();

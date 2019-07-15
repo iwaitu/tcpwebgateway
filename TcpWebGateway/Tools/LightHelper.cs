@@ -122,24 +122,34 @@ namespace TcpWebGateway.Tools
 
         public async Task OpenAll()
         {
-            await LightSwitch("LR1_Brightness", "ON");
-            await LightSwitch("LR2_Brightness", "ON");
-            await LightSwitch("LR3_Brightness", "ON");
-            await LightSwitch("LR4_Brightness", "ON");
-            await LightSwitch("LR5_Brightness", "ON");
-            await LightSwitch("LR6_Brightness", "ON");
-            await LightSwitch("LR7_Brightness", "ON");
-            await LightSwitch("LR8_Brightness", "ON");
-            await LightSwitch("LR9_Brightness", "ON");
-            await LightSwitch("LR10_Brightness", "ON");
-            await LightSwitch("LRStripTvColorTemperature", "ON");
-            await LightSwitch("LRStrip1ColorTemperature", "ON");
-            await LightSwitch("LRStrip2ColorTemperature", "ON");
-            await LightSwitch("LRStrip3ColorTemperature", "ON");
-            await LightSwitch("LRStrip4ColorTemperature", "ON");
-            await LightSwitch("LRStrip5ColorTemperature", "ON");
-            await LightSwitch("LRStrip6ColorTemperature", "ON");
-            await LightSwitch("KitchenSripColorTemperature", "ON");
+            await LightSwitch("LR1_Brightness", "100");
+            await LightSwitch("LR1_ColorTemperature", "50");
+            await LightSwitch("LR2_Brightness", "100");
+            await LightSwitch("LR2_ColorTemperature", "50");
+            await LightSwitch("LR3_Brightness", "100");
+            await LightSwitch("LR3_ColorTemperature", "50");
+            await LightSwitch("LR4_Brightness", "100");
+            await LightSwitch("LR4_ColorTemperature", "50");
+            await LightSwitch("LR5_Brightness", "100");
+            await LightSwitch("LR5_ColorTemperature", "50");
+            await LightSwitch("LR6_Brightness", "100");
+            await LightSwitch("LR6_ColorTemperature", "50");
+            await LightSwitch("LR7_Brightness", "100");
+            await LightSwitch("LR7_ColorTemperature", "50");
+            await LightSwitch("LR8_Brightness", "100");
+            await LightSwitch("LR8_ColorTemperature", "50");
+            await LightSwitch("LR9_Brightness", "100");
+            await LightSwitch("LR9_ColorTemperature", "50");
+            await LightSwitch("LR10_Brightness", "100");
+            await LightSwitch("LR10_ColorTemperature", "50");
+            await LightSwitch("LRStripTvColorTemperature", "30,80,100");
+            await LightSwitch("LRStrip1ColorTemperature", "30,80,100");
+            await LightSwitch("LRStrip2ColorTemperature", "30,80,100");
+            await LightSwitch("LRStrip3ColorTemperature", "30,80,100");
+            await LightSwitch("LRStrip4ColorTemperature", "30,80,100");
+            await LightSwitch("LRStrip5ColorTemperature", "30,80,100");
+            await LightSwitch("LRStrip6ColorTemperature", "30,80,100");
+            await LightSwitch("KitchenSripColorTemperature", "30,80,100");
 
         }
 
@@ -170,12 +180,12 @@ namespace TcpWebGateway.Tools
             var cmds = new List<string>();
             cmds.Add("0C 06 10 24 00 01");
             await _listener.SendCommand(cmds);
-            await LightSwitch("KR1Brightness", "ON");
-            await LightSwitch("KR2Brightness", "ON");
-            await LightSwitch("KR3Brightness", "ON");
-            await LightSwitch("KR4Brightness", "ON");
-            await LightSwitch("Table1Brightness", "ON");
-            await LightSwitch("Table2Brightness", "ON");
+            await LightSwitch("KR1Brightness", "100");
+            await LightSwitch("KR2Brightness", "100");
+            await LightSwitch("KR3Brightness", "100");
+            await LightSwitch("KR4Brightness", "100");
+            await LightSwitch("Table1Brightness", "100");
+            await LightSwitch("Table2Brightness", "100");
         }
 
         public async Task CloseKitchen()

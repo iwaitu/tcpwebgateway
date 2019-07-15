@@ -142,14 +142,23 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LR9_ColorTemperature", "50");
             await LightSwitch("LR10_Brightness", "100");
             await LightSwitch("LR10_ColorTemperature", "50");
-            await LightSwitch("LRStripTvColorTemperature", "30,80,100");
-            await LightSwitch("LRStrip1ColorTemperature", "30,80,100");
-            await LightSwitch("LRStrip2ColorTemperature", "30,80,100");
-            await LightSwitch("LRStrip3ColorTemperature", "30,80,100");
-            await LightSwitch("LRStrip4ColorTemperature", "30,80,100");
-            await LightSwitch("LRStrip5ColorTemperature", "30,80,100");
-            await LightSwitch("LRStrip6ColorTemperature", "30,80,100");
-            await LightSwitch("KitchenSripColorTemperature", "30,80,100");
+
+            await LightSwitch("LRStripTvColor", "50,50,100");
+            await LightSwitch("LRStripTvColorTemperature", "50");
+            await LightSwitch("LRStrip1Color", "50,50,100");
+            await LightSwitch("LRStrip1ColorTemperature", "50");
+            await LightSwitch("LRStrip2Color", "50,50,100");
+            await LightSwitch("LRStrip2ColorTemperature", "50");
+            await LightSwitch("LRStrip3Color", "50,50,100");
+            await LightSwitch("LRStrip3ColorTemperature", "50");
+            await LightSwitch("LRStrip4Color", "50,50,100");
+            await LightSwitch("LRStrip4ColorTemperature", "50");
+            await LightSwitch("LRStrip5Color", "50,50,100");
+            await LightSwitch("LRStrip5ColorTemperature", "50");
+            await LightSwitch("LRStrip6Color", "50,50,100");
+            await LightSwitch("LRStrip6ColorTemperature", "50");
+            await LightSwitch("KitchenSripColor", "50,50,100");
+            await LightSwitch("KitchenSripColorTemperature", "50");
 
         }
 
@@ -181,11 +190,17 @@ namespace TcpWebGateway.Tools
             cmds.Add("0C 06 10 24 00 01");
             await _listener.SendCommand(cmds);
             await LightSwitch("KR1Brightness", "100");
+            await LightSwitch("KR1ColorTemperature", "50");
             await LightSwitch("KR2Brightness", "100");
+            await LightSwitch("KR2ColorTemperature", "50");
             await LightSwitch("KR3Brightness", "100");
+            await LightSwitch("KR3ColorTemperature", "50");
             await LightSwitch("KR4Brightness", "100");
+            await LightSwitch("KR4ColorTemperature", "50");
             await LightSwitch("Table1Brightness", "100");
+            await LightSwitch("Table1ColorTemperature", "50");
             await LightSwitch("Table2Brightness", "100");
+            await LightSwitch("Table2ColorTemperature", "50");
         }
 
         public async Task CloseKitchen()

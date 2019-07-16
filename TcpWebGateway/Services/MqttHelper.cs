@@ -315,7 +315,7 @@ namespace TcpWebGateway.Services
         }
 
 
-        public void Dispose()
+        public override void Dispose()
         {
             if (_mqttClient != null)
             {

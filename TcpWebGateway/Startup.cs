@@ -30,8 +30,8 @@ namespace TcpWebGateway
         {
             ///注入mqtthelper
             services.AddSingleton<TcpHelper>();
-            services.AddSingleton<MqttHelper>();
 
+            services.AddHostedService<MqttHelper>();
             services.AddHostedService<SwitchListener>();
             //services.AddHostedService<TimedHostedService>();
 

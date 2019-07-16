@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace TcpWebGateway.Services
 {
-    public class MqttHelper : IMqttHelper
+    public class MqttHelper : BackgroundService
     {
         private IMqttClientOptions options = new MqttClientOptionsBuilder()
             .WithClientId("MqttNetCoreClient1")
@@ -102,7 +102,7 @@ namespace TcpWebGateway.Services
                    .Build();
                     Task.Run(async () => { await Publish(message); });
                 }
-                else if (e.ApplicationMessage.Topic == "Home/Curtain2")
+                else if (e.ApplicationMessage.Topic == "Home/Curtain2/Command")
                 {
 
                     if (sVal == "open")
@@ -117,6 +117,7 @@ namespace TcpWebGateway.Services
                     {
                         
                         Task.Run(async () => { await _tcpHelper.StopCurtain(2);  });
+                        Task.Delay(100);
                         Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(2); });
                         var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain2/Status")
                         .WithPayload(ret.ToString())
@@ -126,7 +127,7 @@ namespace TcpWebGateway.Services
                         Task.Run(async () => { await Publish(message); });
                     }
                 }
-                else if (e.ApplicationMessage.Topic == "Home/Curtain3")
+                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Command")
                 {
 
                     if (sVal == "open")
@@ -141,6 +142,7 @@ namespace TcpWebGateway.Services
                     {
 
                         Task.Run(async () => { await _tcpHelper.StopCurtain(3); });
+                        Task.Delay(100);
                         Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(3); });
                         var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain3/Status")
                         .WithPayload(ret.ToString())
@@ -248,12 +250,7 @@ namespace TcpWebGateway.Services
                 SetupSubscribe();
             });
 
-            var result = _mqttClient.ConnectAsync(options).Result;
-            if (result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
-            {
-                SetupSubscribe();
-            }
-            Started = true;
+            
         }
 
 
@@ -283,12 +280,12 @@ namespace TcpWebGateway.Services
 
         private void SetupSubscribe()
         {
-            Subscribe("Home/Curtain2/Set");
-            Subscribe("Home/Curtain3/Set");
+            Subscribe("Home/Curtain2/Set"); //设置窗帘开合百分比
+            Subscribe("Home/Curtain3/Set"); //设置窗帘开合百分比
             Subscribe("Home/Curtain2/Get");
             Subscribe("Home/Curtain3/Get");
-            Subscribe("Home/Curtain3");
-            Subscribe("Home/Curtain2");
+            Subscribe("Home/Curtain3/Command"); //接收命令:open,close,stop
+            Subscribe("Home/Curtain2/Command"); //接收命令:open,close,stop
             Subscribe("Home/Hailin1/GetCurrent");
             Subscribe("Home/Hailin2/GetCurrent");
             Subscribe("Home/Hailin3/GetCurrent");
@@ -329,6 +326,13 @@ namespace TcpWebGateway.Services
                 }
                 _mqttClient.Dispose();
             }
+        }
+
+        protected override Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            return StartAsync();
+
+
         }
     }
 }

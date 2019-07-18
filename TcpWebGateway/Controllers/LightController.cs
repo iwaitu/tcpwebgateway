@@ -25,16 +25,19 @@ namespace TcpWebGateway.Controllers
 
         private IMqttClient _mqttClient;
         private readonly SwitchListener _listener;
+        private readonly SensorListener _sensorlistener;
 
         private LightHelper _helper;
+        private SensorHelper _sensorHelper;
 
-        public LightController(ILogger<HeatSystemController> logger, TcpHelper tcpHelper, IHostedService hostedService)
+        public LightController(ILogger<HeatSystemController> logger, TcpHelper tcpHelper, IHostedService hostedService, IHostedService hostedService1)
         {
             _logger = logger;
             _tcpHelper = tcpHelper;
             _listener = hostedService as SwitchListener;
+            _sensorlistener = hostedService1 as SensorListener;
             _helper = new LightHelper(_listener);
-            
+            _sensorHelper = new SensorHelper(_sensorlistener);
         }
 
         [HttpPost]
@@ -193,7 +196,27 @@ namespace TcpWebGateway.Controllers
 
         #endregion
 
-        
+        #region ## 主灯 ##
+
+        [HttpPost]
+        [Route("OpenMainLight")]
+        public async Task OpenMainLight()
+        {
+            _sensorHelper.OpenMainLight();
+            await Task.CompletedTask;
+        }
+
+        [HttpPost]
+        [Route("CloseMainLight")]
+        public async Task CloseMainLight()
+        {
+            _sensorHelper.CloseMainLight();
+            await Task.CompletedTask;
+        }
+
+        #endregion
+
+
 
 
     }

@@ -33,6 +33,7 @@ namespace TcpWebGateway
 
             services.AddHostedService<MqttHelper>();
             services.AddHostedService<SwitchListener>();
+            services.AddHostedService<SensorListener>();
             //services.AddHostedService<TimedHostedService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

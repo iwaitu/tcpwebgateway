@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,23 +9,32 @@ using System.Threading.Tasks;
 
 namespace TcpWebGateway.Services
 {
+    /// <summary>
+    /// 主要控制窗帘闭合电机
+    /// </summary>
     public class TcpHelper : IDisposable
     {
         private TcpClient _clientCurtain;
-        private TcpClient _clientHailin;
         private NetworkStream _streamCurtain;
-        private NetworkStream _streamHailin;
+
+        //private TcpClient _clientHailin;
+        //private NetworkStream _streamHailin;
 
         private readonly ILogger _logger;
+        private readonly IConfiguration _config;
 
-        public TcpHelper(ILogger<TcpHelper> logger)
+        public TcpHelper(ILogger<TcpHelper> logger, IConfiguration configuration)
         {
-            _clientCurtain = new TcpClient("192.168.50.17", 8001);
-            _clientHailin = new TcpClient("192.168.50.17", 502);
-            _streamCurtain = _clientCurtain.GetStream();
-            _streamHailin = _clientHailin.GetStream();
-
+            _config = configuration;
             _logger = logger;
+            var hostip = _config.GetValue<string>("ipGateway:Gateway");
+            var port = _config.GetValue<int>("ipGateway:portCurtain");
+            _clientCurtain = new TcpClient(hostip, port);
+            _streamCurtain = _clientCurtain.GetStream();
+
+            //_clientHailin = new TcpClient("192.168.50.17", 502);
+            //_streamHailin = _clientHailin.GetStream();
+
         }
         
         public async Task<int> GetCurtainStatus(int id)
@@ -88,6 +98,8 @@ namespace TcpWebGateway.Services
             await _streamCurtain.FlushAsync();
         }
 
+        #region 地暖已经使用modbus 通讯,不在此控制
+        /*
         /// <summary>
         /// 获取地暖恒温器的室内温度
         /// </summary>
@@ -115,7 +127,7 @@ namespace TcpWebGateway.Services
                 _logger.LogError(ex.Source + ":" + ex.Message);
                 return 0;
             }
-            
+
         }
 
         /// <summary>
@@ -144,7 +156,7 @@ namespace TcpWebGateway.Services
                 _logger.LogError(ex.Source + ":" + ex.Message);
                 return 0;
             }
-           
+
         }
 
 
@@ -176,13 +188,14 @@ namespace TcpWebGateway.Services
             }
             return false;
         }
-
+        */
+        #endregion
         public void Dispose()
         {
             _streamCurtain.Close();
-            _streamHailin.Close();
+            //_streamHailin.Close();
             _clientCurtain.Dispose();
-            _clientHailin.Dispose();
+            //_clientHailin.Dispose();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using MQTTnet;
 using MQTTnet.Client;
@@ -12,22 +13,35 @@ using System.Threading.Tasks;
 
 namespace TcpWebGateway.Services
 {
+    /// <summary>
+    /// mqtt 消息总线
+    /// </summary>
     public class MqttHelper : BackgroundService
     {
-        private IMqttClientOptions options = new MqttClientOptionsBuilder()
-            .WithClientId("MqttNetCoreClient1")
-            .WithTcpServer("192.168.50.245", 1883)
-            .Build();
-
-        private MqttClient _mqttClient;
+        
         private readonly ILogger _logger;
+        private readonly IConfiguration _config;
         private readonly TcpHelper _tcpHelper;
-        private bool Started = false;
 
-        public MqttHelper(TcpHelper tcpHelper)
+
+        private bool Started = false;
+        private IMqttClientOptions options;
+        private MqttClient _mqttClient;
+
+        public MqttHelper(TcpHelper tcpHelper, IConfiguration configuration)
         {
+            _config = configuration;
             _logger = LogManager.GetCurrentClassLogger();
             _tcpHelper = tcpHelper;
+
+            var mqtthost = _config.GetValue<string>("mqttBroken:Hostip");
+            var port = _config.GetValue<int>("mqttBroken:port");
+
+            options = new MqttClientOptionsBuilder()
+           .WithClientId("MqttNetCoreClient1")
+           .WithTcpServer(mqtthost, port)
+           .Build();
+
             int ret = 0;
             MqttFactory factory = new MqttFactory();
             _mqttClient = factory.CreateMqttClient() as MqttClient;
@@ -152,6 +166,8 @@ namespace TcpWebGateway.Services
                         Task.Run(async () => { await Publish(message); });
                     }
                 }
+                #region 海林地暖已经使用modbus 直接连接，不在此控制
+                /*
                 else if (e.ApplicationMessage.Topic == "Home/Hailin1/Set")
                 {
 
@@ -242,7 +258,8 @@ namespace TcpWebGateway.Services
                    .Build();
                     Task.Run(async () => { await Publish(message); });
                 }
-
+                */
+                #endregion
             });
 
             _mqttClient.UseDisconnectedHandler(async e => {

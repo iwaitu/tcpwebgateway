@@ -28,6 +28,8 @@ namespace TcpWebGateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //注入配置信息(appsettings.json)
+            services.AddSingleton<IConfiguration>(Configuration);
             ///注入mqtthelper
             services.AddSingleton<TcpHelper>();
 

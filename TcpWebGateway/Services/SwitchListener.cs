@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using NLog;
 using System;
 using System.Collections.Generic;
@@ -12,23 +13,31 @@ using TcpWebGateway.Tools;
 
 namespace TcpWebGateway.Services
 {
-    
-    public class SwitchListener : BackgroundService
-    {
-        private const int port = 8002;
 
+    /// <summary>
+    /// 主要负责和智能面板通讯并监听按键事件
+    /// 
+    /// </summary>
+    public class SwitchListener : BackgroundService
+    {    
         private readonly ILogger _logger;
+        private readonly IConfiguration _config;
+
         public CancellationToken token;
         private IPEndPoint remoteEP;
         private IPAddress ipAddress;
         private LightHelper _helper;
 
-        public SwitchListener()
+        public SwitchListener(IConfiguration configuration)
         {
             _logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+            _config = configuration;
 
-            ipAddress = IPAddress.Parse("192.168.50.17");
+            var hostip = _config.GetValue<string>("ipGateway:Gateway");
+            var port = _config.GetValue<int>("ipGateway:portSwitch");
+            ipAddress = IPAddress.Parse(hostip);
             remoteEP = new IPEndPoint(ipAddress, port);
+
             _helper = new LightHelper(this);
 
         }

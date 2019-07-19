@@ -108,5 +108,7 @@ namespace TcpWebGateway.Tools
             var result = await client.PostAsync("http://192.168.50.245:38080/rest/items/" + itemname, content);
 
         }
+
+        
     }
 }

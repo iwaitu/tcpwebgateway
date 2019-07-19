@@ -17,16 +17,16 @@ namespace TcpWebGateway.Controllers
     public class HeatSystemController : ControllerBase
     {
         private readonly ILogger _logger;
-        private readonly TcpHelper _tcpHelper;
+        private readonly ModbusService _modbus;
         /// <summary>
         ///  构造函数
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="tcpHelper"></param>
-        public HeatSystemController(ILogger<HeatSystemController> logger,TcpHelper tcpHelper)
+        public HeatSystemController(ILogger<HeatSystemController> logger, ModbusService tcpHelper)
         {
             _logger = logger;
-            _tcpHelper = tcpHelper;
+            _modbus = tcpHelper;
         }
 
 
@@ -41,7 +41,7 @@ namespace TcpWebGateway.Controllers
         {
             try
             {
-                var ret = await _tcpHelper.GetTemperature(id) / 10;
+                var ret = await _modbus.GetTemperature(id) / 10;
                 return ret;
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace TcpWebGateway.Controllers
         {
             try
             {
-                return await _tcpHelper.SetTemperature(id, (Int16)(temp * 10));
+                return await _modbus.SetTemperature(id, (Int16)(temp * 10));
             }
             catch (Exception ex)
             {

@@ -1,8 +1,10 @@
 ﻿
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -27,6 +29,11 @@ namespace TcpWebGateway.Services
         public StringBuilder sb = new StringBuilder();
     }
 
+
+    /// <summary>
+    /// 这是一个socket server ，端口 8010
+    /// 用于接收传感器消息和控制主灯继电器
+    /// </summary>
     public class SensorListener : BackgroundService
     {
         // Thread signal.  
@@ -36,23 +43,24 @@ namespace TcpWebGateway.Services
 
         public static SensorHelper _helper ;
 
-        public SensorListener()
+        private int port;
+        public SensorListener(IConfiguration configuration)
         {
+            port = configuration.GetValue<int>("socketServer:port");
             _helper = new SensorHelper(this);
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            return Task.Run(() => StartListening()); 
+            return Task.Run(() => StartListening(port)); 
         }
 
-        public static void StartListening()
+        public static void StartListening(int port)
         {
             ILogger logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
 
-            //IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
-            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 8010);
+            IPAddress ipAddress = IPAddress.Any;
+            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, port);
 
             Socket listener = new Socket(ipAddress.AddressFamily,
                 SocketType.Stream, ProtocolType.Tcp);
@@ -138,8 +146,7 @@ namespace TcpWebGateway.Services
 
         private static void Send(Socket handler, String data)
         {
-            byte[] byteData = Encoding.ASCII.GetBytes(data);
-
+            byte[] byteData = StringToByteArray(data.Replace(" ", ""));
 
             handler.BeginSend(byteData, 0, byteData.Length, 0,
                 new AsyncCallback(SendCallback), handler);
@@ -161,6 +168,14 @@ namespace TcpWebGateway.Services
             {
                 logger.Error(e.ToString());
             }
+        }
+
+        public static byte[] StringToByteArray(string hex)
+        {
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
         }
 
     }

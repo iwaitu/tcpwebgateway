@@ -48,7 +48,7 @@ namespace TcpWebGateway.Services
             
             Socket client = new Socket(ipAddress.AddressFamily,
                 SocketType.Stream, ProtocolType.Tcp);
-            _logger.Info("Connecting to 192.168.50.17:8002");
+            _logger.Info("Connecting to {0}:{1}",ipAddress.ToString(),remoteEP.Port);
             var isConnect = await ConnectAsync(client, remoteEP);
             if (!isConnect)
             {

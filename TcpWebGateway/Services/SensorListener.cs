@@ -77,7 +77,7 @@ namespace TcpWebGateway.Services
                     // Set the event to nonsignaled state.  
                     allDone.Reset();
 
-                    logger.Info("正在等待连接...");
+                    logger.Info("监听端口{0}等待连接...",port);
                     listener.BeginAccept(
                         new AsyncCallback(AcceptCallback),
                         listener);
@@ -109,7 +109,7 @@ namespace TcpWebGateway.Services
                 new AsyncCallback(ReadCallback), state);
 
             ILogger logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
-            logger.Info("{0} is connected.", handler.RemoteEndPoint.AddressFamily);
+            logger.Info("{0} is connected.", handler.RemoteEndPoint.ToString());
             clientStateObjects.Add(state);
         }
 

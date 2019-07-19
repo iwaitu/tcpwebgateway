@@ -28,7 +28,7 @@ namespace TcpWebGateway.Services
         private IPAddress ipAddress;
         private LightHelper _helper;
 
-        public SwitchListener(IConfiguration configuration)
+        public SwitchListener(IConfiguration configuration, LightHelper helper)
         {
             _logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
             _config = configuration;
@@ -38,7 +38,8 @@ namespace TcpWebGateway.Services
             ipAddress = IPAddress.Parse(hostip);
             remoteEP = new IPEndPoint(ipAddress, port);
 
-            _helper = new LightHelper(this);
+            _helper = helper;
+            _helper.SetListener(this);
 
         }
 

@@ -14,7 +14,7 @@ namespace TcpWebGateway.Tools
         private static readonly HttpClient client = new HttpClient();
         private SwitchListener _listener;
         private HVACSelected _hVacSelected = HVACSelected.None;
-        public LightHelper(SwitchListener listener)
+        public void SetListener(SwitchListener listener)
         {
             _listener = listener;
         }

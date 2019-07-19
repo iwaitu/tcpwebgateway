@@ -44,10 +44,11 @@ namespace TcpWebGateway.Services
         public static SensorHelper _helper ;
 
         private int port;
-        public SensorListener(IConfiguration configuration)
+        public SensorListener(IConfiguration configuration, SensorHelper helper)
         {
             port = configuration.GetValue<int>("socketServer:port");
-            _helper = new SensorHelper(this);
+            _helper = helper;
+            _helper.SetListener(this);
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -107,6 +108,8 @@ namespace TcpWebGateway.Services
             handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
                 new AsyncCallback(ReadCallback), state);
 
+            ILogger logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+            logger.Info("{0} is connected.", handler.RemoteEndPoint.AddressFamily);
             clientStateObjects.Add(state);
         }
 

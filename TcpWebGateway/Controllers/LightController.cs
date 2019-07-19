@@ -30,14 +30,19 @@ namespace TcpWebGateway.Controllers
         private LightHelper _helper;
         private SensorHelper _sensorHelper;
 
-        public LightController(ILogger<HeatSystemController> logger, TcpHelper tcpHelper, IHostedService hostedService, IHostedService hostedService1)
+        public LightController(ILogger<HeatSystemController> logger,
+            TcpHelper tcpHelper,
+            LightHelper lightHelper,
+            SensorHelper sensorHelper,
+            IHostedService hostedService, 
+            IHostedService hostedService1)
         {
             _logger = logger;
             _tcpHelper = tcpHelper;
             _listener = hostedService as SwitchListener;
             _sensorlistener = hostedService1 as SensorListener;
-            _helper = new LightHelper(_listener);
-            _sensorHelper = new SensorHelper(_sensorlistener);
+            _helper = lightHelper;
+            _sensorHelper = sensorHelper;
         }
 
         [HttpPost]

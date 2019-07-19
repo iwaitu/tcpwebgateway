@@ -13,6 +13,7 @@ using System.IO;
 using System.Net;
 using System.Reflection;
 using TcpWebGateway.Services;
+using TcpWebGateway.Tools;
 
 namespace TcpWebGateway
 {
@@ -30,13 +31,17 @@ namespace TcpWebGateway
         {
             //注入配置信息(appsettings.json)
             services.AddSingleton<IConfiguration>(Configuration);
-            ///注入mqtthelper
+            
             services.AddSingleton<TcpHelper>();
+            services.AddSingleton<HvacHelper>();
+            services.AddSingleton<LightHelper>();
+            services.AddSingleton<SensorHelper>();
 
             services.AddHostedService<MqttHelper>();
             services.AddHostedService<SwitchListener>();
             services.AddHostedService<SensorListener>();
-            //services.AddHostedService<TimedHostedService>();
+            services.AddHostedService<HvacListener>();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

@@ -90,6 +90,24 @@ namespace TcpWebGateway
             
         }
 
+        /// <summary>
+        /// 累加校验和
+        /// </summary>
+        /// <param name="memorySpage">需要校验的数据</param>
+        /// <returns>返回校验和结果</returns>
+        public static Int16 Checksum(byte[] memorySpage)
+        {
+            int num = 0;
+            for (int i = 0; i < memorySpage.Length; i++)
+            {
+                num = (num + memorySpage[i]) % 0xffff;
+            }
+            //实际上num 这里已经是结果了，如果只是取int 可以直接返回了
+            memorySpage = BitConverter.GetBytes(num);
+            //返回累加校验和
+            return BitConverter.ToInt16(new byte[] { memorySpage[0], memorySpage[1] }, 0);
+        }
+
         
     }
 }

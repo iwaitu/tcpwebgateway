@@ -14,7 +14,7 @@ namespace TcpWebGateway.Tools
         private static readonly HttpClient client = new HttpClient();
         private SensorListener _listener;
 
-        public SensorHelper(SensorListener listener)
+        public void SetListener(SensorListener listener)
         {
             _listener = listener;
         }

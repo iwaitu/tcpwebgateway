@@ -37,6 +37,10 @@ namespace TcpWebGateway.Services
         {
             //_logger.LogInformation("sync ac stateobject.");
             Task.Run(async () => { await _hvacHelper.SyncAllState(); });
+            if(_lightHelper.CurrentStateMode == StateMode.Home)
+            {
+
+            }
         }
     }
 }

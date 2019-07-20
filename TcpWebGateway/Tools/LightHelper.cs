@@ -173,7 +173,7 @@ namespace TcpWebGateway.Tools
             {
                 //切换温控面板数据连接到客厅空调
                 //_logger.LogInformation("长按切换温控板数据");
-                await FlashWorkroomBackgroundLight();
+                await FlashLivingroomBackgroundLight();
                 await OpenACPanel(3);
                 _hVacSelected = HVACSelected.LivingRoom;
             }

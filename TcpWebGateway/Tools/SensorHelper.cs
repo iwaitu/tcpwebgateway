@@ -13,6 +13,12 @@ namespace TcpWebGateway.Tools
     {
         private static readonly HttpClient client = new HttpClient();
         private SensorListener _listener;
+        private LightHelper _lightHelper;
+
+        public SensorHelper(LightHelper lightHelper)
+        {
+            _lightHelper = lightHelper;
+        }
 
         public void SetListener(SensorListener listener)
         {
@@ -71,8 +77,24 @@ namespace TcpWebGateway.Tools
         /// <returns></returns>
         public async Task OpenAisle()
         {
-            await LightSwitch("Aisle1Brightness", "ON");
-            await LightSwitch("Aisle2Brightness", "ON");
+
+            switch (_lightHelper.CurrentStateMode)
+            {
+                case StateMode.Home:
+                    await LightSwitch("Aisle1Brightness", "80");
+                    await LightSwitch("Aisle2Brightness", "80");
+                    break;
+                case StateMode.Out:
+                    //开始报警
+                    await LightSwitch("Aisle1Brightness", "40");
+                    await LightSwitch("Aisle2Brightness", "40");
+                    break;
+                case StateMode.Read:
+                    await LightSwitch("Aisle1Brightness", "40");
+                    await LightSwitch("Aisle2Brightness", "40");
+                    break;
+            }
+            
         }
 
         public async Task CloseAisle()
@@ -87,8 +109,23 @@ namespace TcpWebGateway.Tools
         /// <returns></returns>
         public async Task OpenDoor()
         {
-            await LightSwitch("Door1Brightness", "ON");
-            await LightSwitch("Door2Brightness", "ON");
+            switch (_lightHelper.CurrentStateMode)
+            {
+                case StateMode.Home:
+                    await LightSwitch("Door1Brightness", "80");
+                    await LightSwitch("Door2Brightness", "80");
+                    break;
+                case StateMode.Out:
+                    //开始报警
+                    await LightSwitch("Door1Brightness", "40");
+                    await LightSwitch("Door2Brightness", "40");
+                    break;
+                case StateMode.Read:
+                    await LightSwitch("Door1Brightness", "40");
+                    await LightSwitch("Door2Brightness", "40");
+                    break;
+            }
+            
         }
 
         public async Task CloseDoor()

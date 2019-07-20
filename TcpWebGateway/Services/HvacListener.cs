@@ -61,7 +61,7 @@ namespace TcpWebGateway.Services
                 var response = await ReceiveAsync(_client,1);
                 if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
                 {
-                    _logger.LogInformation("Receive:" + response);
+                    //_logger.LogInformation("Receive:" + response);
                     await _helper.OnReceiveData(response);
                 }
                 await Task.Delay(50, cancellationToken);
@@ -171,7 +171,7 @@ namespace TcpWebGateway.Services
                 cmd.CopyTo(cmd1, 0);
                 cmd1[cmd.Length] = (byte)cmdCRC;
                 var str = BitConverter.ToString(cmd1, 0, cmd1.Length).Replace("-", " ");
-                _logger.LogInformation("SendCmd : " + str);
+                //_logger.LogInformation("SendCmd : " + str);
                 var ret = await SendAsync(_client, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
                 await Task.Delay(500).ConfigureAwait(false);
             }

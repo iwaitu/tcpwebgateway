@@ -61,11 +61,21 @@ namespace TcpWebGateway.Tools
         public async Task TurnOnAC(int id)
         {
             await _listener.SendCommand(string.Format("01 31 01 01 01 {0}" , id.ToString("X2")));
+            var obj = stateobjs.FirstOrDefault(p => p.Id == id.ToString("X2"));
+            if(obj != null)
+            {
+                obj.Switch = SwitchState.open;
+            }
         }
 
         public async Task TurnOffAC(int id)
         {
             await _listener.SendCommand(string.Format("01 31 02 01 01 {0}" , id.ToString("X2")));
+            var obj = stateobjs.FirstOrDefault(p => p.Id == id.ToString("X2"));
+            if (obj != null)
+            {
+                obj.Switch = SwitchState.close;
+            }
         }
 
         public async Task SetTemperature(int id,float temperature)
@@ -83,7 +93,7 @@ namespace TcpWebGateway.Tools
         public async Task SetFanspeed(int id, Fanspeed speed)
         {
             int iSpeed = (int)speed;
-            await _listener.SendCommand(string.Format("01 33 {0} 01 {1}", iSpeed.ToString("X2"), id.ToString("X2")));
+            await _listener.SendCommand(string.Format("01 34 {0} 01 {1}", iSpeed.ToString("X2"), id.ToString("X2")));
         }
 
         public HvacStateObject GetACStateObject(int id)

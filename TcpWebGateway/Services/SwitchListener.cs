@@ -64,7 +64,7 @@ namespace TcpWebGateway.Services
                     _logger.Info("Receive:" + response);
                     await _helper.OnReceiveCommand(response);
                 }
-                await Task.Delay(200,cancellationToken);
+                await Task.Delay(50,cancellationToken);
             }
 
             client.Shutdown(SocketShutdown.Both);

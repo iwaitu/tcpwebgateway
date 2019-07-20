@@ -32,6 +32,7 @@ namespace TcpWebGateway
             //注入配置信息(appsettings.json)
             services.AddSingleton<IConfiguration>(Configuration);
             
+            ///注入顺序不能变
             services.AddSingleton<TcpHelper>();
             services.AddSingleton<HvacHelper>();
             services.AddSingleton<LightHelper>();
@@ -41,6 +42,8 @@ namespace TcpWebGateway
             services.AddHostedService<SwitchListener>();
             services.AddHostedService<SensorListener>();
             services.AddHostedService<HvacListener>();
+
+            services.AddHostedService<SmartService>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

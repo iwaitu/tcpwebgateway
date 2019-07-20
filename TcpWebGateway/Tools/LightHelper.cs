@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -9,11 +10,32 @@ using TcpWebGateway.Services;
 
 namespace TcpWebGateway.Tools
 {
+    /// <summary>
+    /// 负责和智能面板通讯
+    /// </summary>
     public class LightHelper
     {
+        private readonly ILogger _logger;
         private static readonly HttpClient client = new HttpClient();
         private SwitchListener _listener;
         private HVACSelected _hVacSelected = HVACSelected.None;
+        private readonly HvacHelper _hvacHelper;
+        private readonly TcpHelper _tcpHelper;
+        private DateTime _lastHomeButonReceive;
+        private DateTime _lastOutButonReceive;
+        private DateTime _lastReadButonReceive;
+        private DateTime _lastWorkRoomACButonReceive;
+        private DateTime _lastLivingRoomACButonReceive;
+
+        public StateMode CurrentStateMode { get; set; }
+
+        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper, TcpHelper tcpHelper)
+        {
+            _logger = logger;
+            _hvacHelper = hvacHelper;
+            _tcpHelper = tcpHelper;
+        }
+
         public void SetListener(SwitchListener listener)
         {
             _listener = listener;
@@ -24,17 +46,70 @@ namespace TcpWebGateway.Tools
             //面板OB
             if (Command.IndexOf("0B 20 10 11 00 01 00 FF") >= 0) //面板OB松开回家模式按键
             {
+                _logger.LogInformation("时间:" + DateTime.Now);
+                
                 await HomeMode();
+            }
+            else if (Command.IndexOf("0B 20 10 11 00 01 00 00 8F") >= 0) //点亮回家模式时再按回家按钮
+            {
+                _logger.LogInformation("时间:" + DateTime.Now);
+                if (_lastHomeButonReceive.Year == 1)
+                {
+                    _lastHomeButonReceive = DateTime.Now;
+                }
+                else
+                {
+                    var ts = DateTime.Now - _lastHomeButonReceive;
+                    if (ts.TotalMilliseconds < 1000)
+                    {
+                        //表示双击
+                        _logger.LogInformation("Home 双击" + ts.TotalMilliseconds);
+
+                    }
+                    else
+                    {
+                        _logger.LogInformation("Home 单击" + ts.TotalMilliseconds);
+                    }
+                    _lastHomeButonReceive = DateTime.Now;
+                }
             }
             else if(Command.IndexOf("0B 20 10 12 00 01 00 FF")>= 0) //松开外出模式按键
             {
+                if (_lastOutButonReceive.Year == 1)
+                {
+                    _lastOutButonReceive = DateTime.Now;
+                }
+                else
+                {
+                    var ts = DateTime.Now - _lastOutButonReceive;
+                    if (ts.TotalMilliseconds < 1000)
+                    {
+                        //表示双击
+                        _logger.LogInformation("Out 双击");
+                    }
+                    _lastOutButonReceive = DateTime.Now;
+                }
                 await OutMode();
             }
             else if (Command.IndexOf("0B 20 10 13 00 01 00 FF")>=0) //松开阅读模式按键
             {
+                if (_lastReadButonReceive.Year == 1)
+                {
+                    _lastReadButonReceive = DateTime.Now;
+                }
+                else
+                {
+                    var ts = DateTime.Now - _lastOutButonReceive;
+                    if (ts.TotalMilliseconds < 1000)
+                    {
+                        //表示双击
+                        _logger.LogInformation("Read 双击");
+                    }
+                    _lastReadButonReceive = DateTime.Now;
+                }
                 await ReadMode();
             }
-            //面板OC
+            //面板OC -------------------------------------------------
             else if (Command.IndexOf("0C 20 10 11 00 01 00 FF") >= 0) //松开全开按钮
             {
                 await OpenAll();
@@ -59,38 +134,124 @@ namespace TcpWebGateway.Tools
             {
                 await CloseKitchen();
             }
-            //OD
-            else if (Command.IndexOf("0D 20 10 15 00 01 00 FF") >= 0) //打开书房空调
+
+            //OD 面板 -----------------------------------------------------
+            #region 书房空调按钮
+            else if (Command.IndexOf("0D 20 10 15 00 01 00 FF") >= 0) //非点亮状态打开书房空调
             {
-                await OpenWorkroomAC();
+                await OpenWorkroomAC(); //打开空调
+                await OpenACPanel(2);
+                _hVacSelected = HVACSelected.WorkRoom;
             }
-            else if (Command.IndexOf("0D 20 10 15 00 01 00 7F") >= 0) //关闭书房按钮
+            else if (Command.IndexOf("0D 20 10 15 00 01 00 7F") >= 0) //点亮状态下点击按钮
             {
                 await CloseWorkroomAC();
+                await CloseACPanel();
             }
+            else if( Command.IndexOf("0D 20 10 15 00 01 00 01") >= 0) // 点亮状态下长按
+            {
+                //切换温控面板数据连接到书房空调
+                //_logger.LogInformation("长按切换温控板数据");
+                await FlashWorkroomBackgroundLight();
+                await OpenACPanel(2);
+                _hVacSelected = HVACSelected.WorkRoom;
+            }
+            #endregion
+            #region 客厅空调按钮
             else if (Command.IndexOf("0D 20 10 16 00 01 00 FF") >= 0) //打开客厅空调
             {
                 await OpenLivingroomAC();
+                await OpenACPanel(3);
+                _hVacSelected = HVACSelected.LivingRoom;
             }
             else if (Command.IndexOf("0D 20 10 16 00 01 00 7F") >= 0) //关闭客厅按钮
             {
                 await CloseLivingroomAC();
+                await CloseACPanel();
             }
+            else if (Command.IndexOf("0D 20 10 16 00 01 00 01") >= 0) // 点亮状态下长按
+            {
+                //切换温控面板数据连接到客厅空调
+                //_logger.LogInformation("长按切换温控板数据");
+                await FlashWorkroomBackgroundLight();
+                await OpenACPanel(3);
+                _hVacSelected = HVACSelected.LivingRoom;
+            }
+            #endregion
+
             else if (Command.IndexOf("0D 20 10 11 00 01 00 FF") >= 0) //新风开
             {
                 //await CloseLivingroomAC();
+                await OpenAirController();
             }
             else if (Command.IndexOf("0D 20 10 12 00 01 00 FF") >= 0) //新风关
             {
                 //await CloseLivingroomAC();
+                await CloseAirController();
             }
-            //OF温控面板
-            else if(Command.IndexOf("0F 20 00 39 00 01 00 01 2D") >= 0)
+
+            else if (Command.IndexOf("0D 20 10 13 00 01 00 FF") >= 0) //地暖开
             {
-                
+                await OpenHeatSystem();
             }
+            else if (Command.IndexOf("0D 20 10 14 00 01 00 FF") >= 0) //地暖关
+            {
+                await CloseHeatSystem();
+            }
+
+
+
+            //OF温控面板 -----------------------------------------------------
+            else if(Command.IndexOf("0F 20 00 36 00 01 00 00") >= 0)    //关闭温控器 关闭全家空调
+            {
+                await _hvacHelper.TurnOffAC(0);
+                await _hvacHelper.TurnOffAC(1);
+                await CloseLivingroomAC();
+                await CloseWorkroomAC();
+            }
+            else if(Command.IndexOf("0F 20 00 36 00 01 00 01") >= 0)   //打开空调温按钮,默认打开书房空调
+            {
+                await OpenWorkroomAC(); //打开空调
+                await OpenACPanel(2);
+            }
+            else if(Command.IndexOf("0F 20 00 32 00 01 00 01") >= 0)   //面板切换制热模式
+            {
+                if(_hVacSelected == HVACSelected.WorkRoom)
+                {
+                    await _hvacHelper.SetMode(2, WorkMode.Heat);
+                }else if(_hVacSelected == HVACSelected.LivingRoom)
+                {
+                    await _hvacHelper.SetMode(3, WorkMode.Heat);
+                }
+            }
+            else if (Command.IndexOf("0F 20 00 32 00 01 00 02") >= 0)   //面板切换换气模式
+            {
+                if (_hVacSelected == HVACSelected.WorkRoom)
+                {
+                    await _hvacHelper.SetMode(2, WorkMode.Fan);
+                }
+                else if (_hVacSelected == HVACSelected.LivingRoom)
+                {
+                    await _hvacHelper.SetMode(3, WorkMode.Fan);
+                }
+            }
+            else if (Command.IndexOf("0F 20 00 32 00 01 00 03") >= 0)   //面板切换抽湿模式
+            {
+                if (_hVacSelected == HVACSelected.WorkRoom)
+                {
+                    await _hvacHelper.SetMode(2, WorkMode.Dry);
+                }
+                else if (_hVacSelected == HVACSelected.LivingRoom)
+                {
+                    await _hvacHelper.SetMode(3, WorkMode.Dry);
+                }
+            }
+            
+
         }
 
+
+        #region ===== 控制函数 =======
         public async Task HomeMode()
         {
             var cmds = new List<string>();
@@ -98,6 +259,7 @@ namespace TcpWebGateway.Tools
             cmds.Add("0B 06 10 23 00 00");
             cmds.Add("0B 06 10 21 00 01");
             await _listener.SendCommand(cmds);
+            CurrentStateMode = StateMode.Home;
         }
 
 
@@ -108,6 +270,7 @@ namespace TcpWebGateway.Tools
             cmds.Add("0B 06 10 23 00 00");
             cmds.Add("0B 06 10 22 00 01");
             await _listener.SendCommand(cmds);
+            CurrentStateMode = StateMode.Out;
         }
 
 
@@ -118,6 +281,7 @@ namespace TcpWebGateway.Tools
             cmds.Add("0B 06 10 22 00 00");
             cmds.Add("0B 06 10 23 00 01");
             await _listener.SendCommand(cmds);
+            CurrentStateMode = StateMode.Read;
         }
 
         public async Task OpenAll()
@@ -143,21 +307,21 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LR10_Brightness", "100");
             await LightSwitch("LR10_ColorTemperature", "50");
 
-            await LightSwitch("LRStripTvColor", "50,50,100");
+            await LightSwitch("LRStripTvColor", "35,50,100");
             await LightSwitch("LRStripTvColorTemperature", "50");
-            await LightSwitch("LRStrip1Color", "50,50,100");
+            await LightSwitch("LRStrip1Color", "35,50,100");
             await LightSwitch("LRStrip1ColorTemperature", "50");
-            await LightSwitch("LRStrip2Color", "50,50,100");
+            await LightSwitch("LRStrip2Color", "35,50,100");
             await LightSwitch("LRStrip2ColorTemperature", "50");
-            await LightSwitch("LRStrip3Color", "50,50,100");
+            await LightSwitch("LRStrip3Color", "35,50,100");
             await LightSwitch("LRStrip3ColorTemperature", "50");
-            await LightSwitch("LRStrip4Color", "50,50,100");
+            await LightSwitch("LRStrip4Color", "35,50,100");
             await LightSwitch("LRStrip4ColorTemperature", "50");
-            await LightSwitch("LRStrip5Color", "50,50,100");
+            await LightSwitch("LRStrip5Color", "35,50,100");
             await LightSwitch("LRStrip5ColorTemperature", "50");
-            await LightSwitch("LRStrip6Color", "50,50,100");
+            await LightSwitch("LRStrip6Color", "35,50,100");
             await LightSwitch("LRStrip6ColorTemperature", "50");
-            await LightSwitch("KitchenSripColor", "50,50,100");
+            await LightSwitch("KitchenSripColor", "35,50,100");
             await LightSwitch("KitchenSripColorTemperature", "50");
 
         }
@@ -216,12 +380,25 @@ namespace TcpWebGateway.Tools
             await LightSwitch("Table2Brightness", "OFF");
         }
 
+        #region 空调
         public async Task OpenWorkroomAC()
         {
             var cmds = new List<string>();
             cmds.Add("0D 06 10 25 00 01");
             await _listener.SendCommand(cmds);
-            await Task.CompletedTask;
+            _hVacSelected = HVACSelected.WorkRoom;
+            await _hvacHelper.TurnOnAC(2);
+        }
+
+        public async Task FlashWorkroomBackgroundLight()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 25 00 00");
+            await _listener.SendCommand(cmds);
+            await Task.Delay(500);
+            cmds.Clear();
+            cmds.Add("0D 06 10 25 00 01");
+            await _listener.SendCommand(cmds);
         }
 
         public async Task CloseWorkroomAC()
@@ -229,7 +406,8 @@ namespace TcpWebGateway.Tools
             var cmds = new List<string>();
             cmds.Add("0D 06 10 25 00 00");
             await _listener.SendCommand(cmds);
-            await Task.CompletedTask;
+            _hVacSelected = HVACSelected.None;
+            await _hvacHelper.TurnOffAC(2);
         }
 
         public async Task OpenLivingroomAC()
@@ -237,7 +415,19 @@ namespace TcpWebGateway.Tools
             var cmds = new List<string>();
             cmds.Add("0D 06 10 26 00 01");
             await _listener.SendCommand(cmds);
-            await Task.CompletedTask;
+            _hVacSelected = HVACSelected.LivingRoom;
+            await _hvacHelper.TurnOnAC(3);
+        }
+
+        public async Task FlashLivingroomBackgroundLight()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 26 00 00");
+            await _listener.SendCommand(cmds);
+            await Task.Delay(500);
+            cmds.Clear();
+            cmds.Add("0D 06 10 26 00 01");
+            await _listener.SendCommand(cmds);
         }
 
         public async Task CloseLivingroomAC()
@@ -245,7 +435,41 @@ namespace TcpWebGateway.Tools
             var cmds = new List<string>();
             cmds.Add("0D 06 10 26 00 00");
             await _listener.SendCommand(cmds);
-            await Task.CompletedTask;
+            _hVacSelected = HVACSelected.WorkRoom;
+            await _hvacHelper.TurnOffAC(3);
+        }
+        #endregion
+
+        public async Task OpenHeatSystem()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 24 00 00");
+            cmds.Add("0D 06 10 23 00 01");
+            await _listener.SendCommand(cmds);
+        }
+
+        public async Task CloseHeatSystem()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 23 00 00");
+            cmds.Add("0D 06 10 24 00 01");
+            await _listener.SendCommand(cmds);
+        }
+
+        public async Task OpenAirController()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 22 00 00");
+            cmds.Add("0D 06 10 21 00 01");
+            await _listener.SendCommand(cmds);
+        }
+
+        public async Task CloseAirController()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0D 06 10 21 00 00");
+            cmds.Add("0D 06 10 22 00 01");
+            await _listener.SendCommand(cmds);
         }
 
         /// <summary>
@@ -308,6 +532,84 @@ namespace TcpWebGateway.Tools
             await LightSwitch("Door2Brightness", "OFF");
         }
 
+        public async Task OpenACPanel(int id)
+        {
+            var obj = _hvacHelper.GetACStateObject(id);
+            if(obj != null)
+            {
+                var cmds = new List<string>();
+                cmds.Add("0F 06 00 36 00 01");
+                switch (obj.Mode)
+                {
+                    case WorkMode.Cool:
+                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
+                        break;
+                    case WorkMode.Heat:
+                        cmds.Add("0F 06 00 32 00 01");  //设定模式为制热
+                        break;
+                    case WorkMode.Fan:
+                        cmds.Add("0F 06 00 32 00 02");  //设定模式为换气
+                        break;
+                    case WorkMode.Dry:
+                        cmds.Add("0F 06 00 32 00 03");  //设定模式为除湿
+                        break;
+                    default:
+                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
+                        break;
+                }
+                cmds.Add("0F 06 00 35 00 " + obj.TemperatureSet.ToString("X2"));
+                switch (obj.Fan)
+                {
+                    case Fanspeed.Hight:
+                        cmds.Add("0F 06 00 33 00 03");  //设定风速为高
+                        break;
+                    case Fanspeed.Middle:
+                        cmds.Add("0F 06 00 33 00 02");
+                        break;
+                    case Fanspeed.Low:
+                        cmds.Add("0F 06 00 33 00 01");
+                        break;
+                    default:
+                        cmds.Add("0F 06 00 33 00 01");
+                        break;
+                }
+                await _listener.SendCommand(cmds);
+            }
+        }
+
+        public async Task CloseACPanel()
+        {
+            var obj1 = _hvacHelper.GetACStateObject(2);
+            var obj2 = _hvacHelper.GetACStateObject(3);
+            var cmds = new List<string>();
+
+            if(obj1.Switch == SwitchState.close && obj2.Switch == SwitchState.close)
+            {
+                cmds.Add("0F 06 00 36 00 00");
+                await _listener.SendCommand(cmds);
+                return;
+            }
+            else
+            {
+                if(obj1.Switch == SwitchState.open)
+                {
+                    _logger.LogInformation("书房");
+                    await OpenACPanel(2);
+                    return;
+                }
+                if(obj2.Switch == SwitchState.open)
+                {
+                    _logger.LogInformation("客厅");
+                    await OpenACPanel(3);
+                    return;
+                }
+                cmds.Add("0F 06 00 36 00 00");
+                await _listener.SendCommand(cmds);
+            }
+        }
+
+        #endregion
+
         private async Task LightSwitch(string itemname, string command)
         {
             client.DefaultRequestHeaders.Accept.Clear();
@@ -317,15 +619,21 @@ namespace TcpWebGateway.Tools
 
             var content = new StringContent(command, Encoding.UTF8, "text/plain");
             var result = await client.PostAsync("http://192.168.50.245:38080/rest/items/" + itemname, content);
-
         }
     }
 
+    public enum StateMode
+    {
+        Home,
+        Out,
+        Read,
+        Alert
+    }
     public enum HVACSelected
     {
-        WorkRoom,
-        LivingRoom,
-        Both,
-        None
+        WorkRoom = 2,
+        LivingRoom =3,
+        Both = 1,
+        None = 0
     }
 }

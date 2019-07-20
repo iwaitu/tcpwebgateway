@@ -35,7 +35,7 @@ namespace TcpWebGateway.Services
 
         private void DoWork(object state)
         {
-            _logger.LogInformation("sync ac stateobject.");
+            //_logger.LogInformation("sync ac stateobject.");
             Task.Run(async () => { await _hvacHelper.SyncAllState(); });
         }
     }

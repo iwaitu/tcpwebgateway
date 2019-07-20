@@ -45,7 +45,7 @@ namespace TcpWebGateway.Services
 
         public async Task StartClient(CancellationToken cancellationToken)
         {
-            
+            //await Task.Delay(2000);
             Socket client = new Socket(ipAddress.AddressFamily,
                 SocketType.Stream, ProtocolType.Tcp);
             _logger.Info("Connecting to {0}:{1}",ipAddress.ToString(),remoteEP.Port);
@@ -199,6 +199,7 @@ namespace TcpWebGateway.Services
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            
             return StartClient(stoppingToken);
         }
     }

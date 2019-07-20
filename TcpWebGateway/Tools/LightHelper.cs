@@ -157,6 +157,7 @@ namespace TcpWebGateway.Tools
                 _hVacSelected = HVACSelected.WorkRoom;
             }
             #endregion
+
             #region 客厅空调按钮
             else if (Command.IndexOf("0D 20 10 16 00 01 00 FF") >= 0) //打开客厅空调
             {
@@ -246,8 +247,31 @@ namespace TcpWebGateway.Tools
                     await _hvacHelper.SetMode(3, WorkMode.Dry);
                 }
             }
+            else if(Command.IndexOf("0F 20 00 35 00 01 00") == 0)
+            {
+                var data = StringToByteArray(Command);
+                _logger.LogInformation("设置温度:" + data[7]);
+                if(_hVacSelected == HVACSelected.LivingRoom)
+                {
+                    await _hvacHelper.SetTemperature(3, (float)data[7]);
+                }
+                else if(_hVacSelected == HVACSelected.WorkRoom)
+                {
+                    await _hvacHelper.SetTemperature(2, (float)data[7]);
+                }
+                
+            }
             
 
+        }
+
+        public static byte[] StringToByteArray(string hex)
+        {
+            hex = hex.Replace(" ", "");
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
         }
 
 

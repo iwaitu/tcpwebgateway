@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -9,14 +10,19 @@ namespace TcpWebGateway.Tools
 {
     public class HvacHelper
     {
+        private readonly ILogger _logger;
         private HvacListener _listener;
         private List<HvacStateObject> stateobjs = new List<HvacStateObject>();
 
-        
+        public HvacHelper(ILogger<HvacHelper> logger)
+        {
+            _logger = logger;
+        }
 
         public void SetListener(HvacListener listener)
         {
             _listener = listener;
+            
         }
 
         public async Task SyncAllState()
@@ -81,13 +87,15 @@ namespace TcpWebGateway.Tools
         public async Task SetTemperature(int id,float temperature)
         {
             int iTemperature = (int)temperature;
-            await _listener.SendCommand(string.Format("01 32 {0} 01 {1}",iTemperature.ToString("X2"),id.ToString("X2")));
+            var cmd = string.Format("01 32 {0} 01 01 {1}", iTemperature.ToString("X2"), id.ToString("X2"));
+            //_logger.LogInformation("SendCMD:" + cmd);
+            await _listener.SendCommand(cmd);
         }
 
         public async Task SetMode(int id, WorkMode mode)
         {
             int iMode = (int)mode;
-            await _listener.SendCommand(string.Format("01 33 {0} 01 {1}", iMode.ToString("X2"), id.ToString("X2")));
+            await _listener.SendCommand(string.Format("01 33 {0} 01 01 {1}", iMode.ToString("X2"), id.ToString("X2")));
         }
 
         public async Task SetFanspeed(int id, Fanspeed speed)

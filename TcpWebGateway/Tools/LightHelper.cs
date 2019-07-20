@@ -21,6 +21,7 @@ namespace TcpWebGateway.Tools
         private HVACSelected _hVacSelected = HVACSelected.None;
         private readonly HvacHelper _hvacHelper;
         private readonly TcpHelper _tcpHelper;
+        private readonly SensorHelper _sensorHelper;
         private DateTime _lastHomeButonReceive;
         private DateTime _lastOutButonReceive;
         private DateTime _lastReadButonReceive;
@@ -29,11 +30,12 @@ namespace TcpWebGateway.Tools
 
         public StateMode CurrentStateMode { get; set; }
 
-        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper, TcpHelper tcpHelper)
+        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper, TcpHelper tcpHelper ,SensorHelper sensorHelper)
         {
             _logger = logger;
             _hvacHelper = hvacHelper;
             _tcpHelper = tcpHelper;
+            _sensorHelper = sensorHelper;
         }
 
         public void SetListener(SwitchListener listener)
@@ -133,6 +135,22 @@ namespace TcpWebGateway.Tools
             else if (Command.IndexOf("0C 20 10 14 00 01 00 7F") >= 0) //关闭餐厨按钮
             {
                 await CloseKitchen();
+            }
+            else if (Command.IndexOf("0C 20 10 15 00 01 00 FF") >= 0) //筒灯-- 放松模式
+            {
+                
+            }
+            else if (Command.IndexOf("0C 20 10 15 00 01 00 FF") >= 0) //筒灯-- 取消放松模式
+            {
+                
+            }
+            else if (Command.IndexOf("0C 20 10 16 00 01 00 7F") >= 0) //主灯关
+            {
+                _sensorHelper.CloseMainLight();
+            }
+            else if (Command.IndexOf("0C 20 10 16 00 01 00 FF") >= 0) //主灯开
+            {
+                _sensorHelper.OpenMainLight();
             }
 
             //OD 面板 -----------------------------------------------------

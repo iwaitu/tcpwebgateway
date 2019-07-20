@@ -16,6 +16,9 @@ using TcpWebGateway.Tools;
 
 namespace TcpWebGateway.Controllers
 {
+    /// <summary>
+    /// 灯光控制器
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class LightController : ControllerBase

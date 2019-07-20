@@ -18,6 +18,7 @@ namespace TcpWebGateway.Tools
         public SensorHelper(LightHelper lightHelper)
         {
             _lightHelper = lightHelper;
+            _lightHelper.SetSensorHelper(this);
         }
 
         public void SetListener(SensorListener listener)

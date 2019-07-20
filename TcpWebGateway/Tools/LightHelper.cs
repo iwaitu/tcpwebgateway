@@ -21,7 +21,7 @@ namespace TcpWebGateway.Tools
         private HVACSelected _hVacSelected = HVACSelected.None;
         private readonly HvacHelper _hvacHelper;
         private readonly TcpHelper _tcpHelper;
-        private readonly SensorHelper _sensorHelper;
+        private SensorHelper _sensorHelper;
         private DateTime _lastHomeButonReceive;
         private DateTime _lastOutButonReceive;
         private DateTime _lastReadButonReceive;
@@ -30,17 +30,21 @@ namespace TcpWebGateway.Tools
 
         public StateMode CurrentStateMode { get; set; }
 
-        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper, TcpHelper tcpHelper ,SensorHelper sensorHelper)
+        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper, TcpHelper tcpHelper)
         {
             _logger = logger;
             _hvacHelper = hvacHelper;
             _tcpHelper = tcpHelper;
-            _sensorHelper = sensorHelper;
         }
 
         public void SetListener(SwitchListener listener)
         {
             _listener = listener;
+        }
+
+        public void SetSensorHelper(SensorHelper sensorHelper)
+        {
+            _sensorHelper = sensorHelper;
         }
 
         public async Task OnReceiveCommand(string Command)
@@ -146,11 +150,11 @@ namespace TcpWebGateway.Tools
             }
             else if (Command.IndexOf("0C 20 10 16 00 01 00 7F") >= 0) //主灯关
             {
-                _sensorHelper.CloseMainLight();
+                await CloseMainLight();
             }
             else if (Command.IndexOf("0C 20 10 16 00 01 00 FF") >= 0) //主灯开
             {
-                _sensorHelper.OpenMainLight();
+                await OpenMainLight();
             }
 
             //OD 面板 -----------------------------------------------------
@@ -512,6 +516,22 @@ namespace TcpWebGateway.Tools
             cmds.Add("0D 06 10 21 00 00");
             cmds.Add("0D 06 10 22 00 01");
             await _listener.SendCommand(cmds);
+        }
+
+        public async Task OpenMainLight()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0C 06 10 26 00 01");
+            await _listener.SendCommand(cmds);
+            _sensorHelper.OpenMainLight();
+        }
+
+        public async Task CloseMainLight()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0C 06 10 26 00 00");
+            await _listener.SendCommand(cmds);
+            _sensorHelper.CloseMainLight();
         }
 
         /// <summary>

@@ -5,6 +5,9 @@ using TcpWebGateway.Tools;
 
 namespace TcpWebGateway.Controllers
 {
+    /// <summary>
+    /// VRV多联机空调控制器
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CoolSystemController : ControllerBase

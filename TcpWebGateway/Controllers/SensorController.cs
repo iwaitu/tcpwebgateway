@@ -8,6 +8,9 @@ using Microsoft.Extensions.Logging;
 
 namespace TcpWebGateway.Controllers
 {
+    /// <summary>
+    /// 传感器控制器
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class SensorController : ControllerBase

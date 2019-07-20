@@ -247,7 +247,7 @@ namespace TcpWebGateway.Tools
                     await _hvacHelper.SetMode(3, WorkMode.Dry);
                 }
             }
-            else if(Command.IndexOf("0F 20 00 35 00 01 00") == 0)
+            else if(Command.IndexOf("0F 20 00 35 00 01 00") == 0)   //设置温度
             {
                 var data = StringToByteArray(Command);
                 _logger.LogInformation("设置温度:" + data[7]);

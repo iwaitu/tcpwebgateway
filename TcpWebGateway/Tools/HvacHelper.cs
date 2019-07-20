@@ -101,7 +101,7 @@ namespace TcpWebGateway.Tools
         public async Task SetFanspeed(int id, Fanspeed speed)
         {
             int iSpeed = (int)speed;
-            await _listener.SendCommand(string.Format("01 34 {0} 01 {1}", iSpeed.ToString("X2"), id.ToString("X2")));
+            await _listener.SendCommand(string.Format("01 34 {0} 01 01 {1}", iSpeed.ToString("X2"), id.ToString("X2")));
         }
 
         public HvacStateObject GetACStateObject(int id)

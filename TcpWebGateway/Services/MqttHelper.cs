@@ -1,15 +1,18 @@
 ﻿
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Client.Options;
 using MQTTnet.Protocol;
+using Newtonsoft.Json;
 using NLog;
 using System;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TcpWebGateway.Tools;
 
 namespace TcpWebGateway.Services
 {
@@ -21,24 +24,28 @@ namespace TcpWebGateway.Services
         
         private readonly ILogger _logger;
         private readonly IConfiguration _config;
-        private readonly TcpHelper _tcpHelper;
-
+        private readonly CurtainHelper _curtainHelper;
+        private readonly HvacHelper _hvacHelper;
 
         private bool Started = false;
         private IMqttClientOptions options;
         private MqttClient _mqttClient;
 
-        public MqttHelper(TcpHelper tcpHelper, IConfiguration configuration)
+        public MqttHelper(CurtainHelper curtainHelper, HvacHelper hvacHelper, IConfiguration configuration)
         {
             _config = configuration;
             _logger = LogManager.GetCurrentClassLogger();
-            _tcpHelper = tcpHelper;
+            _curtainHelper = curtainHelper;
+            _hvacHelper = hvacHelper;
+            _hvacHelper.SetMqttListener(this);
+            _curtainHelper.SetMqttListener(this);
+
 
             var mqtthost = _config.GetValue<string>("mqttBroken:Hostip");
             var port = _config.GetValue<int>("mqttBroken:port");
 
             options = new MqttClientOptionsBuilder()
-           .WithClientId("MqttNetCoreClient1")
+           .WithClientId(Guid.NewGuid().ToString())
            .WithTcpServer(mqtthost, port)
            .Build();
 
@@ -58,114 +65,52 @@ namespace TcpWebGateway.Services
                 _logger.Info($"+ Retain = {e.ApplicationMessage.Retain}");
                 _logger.Info("");
 
-                if (e.ApplicationMessage.Topic == "Home/Curtain2/Set")
+                /*   窗帘  */
+                if (e.ApplicationMessage.Topic == "Home/Curtain/Set")
                 {
+                    //var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
+                    //Task.Run(async () => { await _tcpHelper.SetCurtainStatus(obj.Id,obj.Status); });
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain/GetStatus")
+                {
+                   // var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
+                   // obj.Status = _tcpHelper.GetCurtainStatus(obj.Id).Result;
+                   // var message = new MqttApplicationMessageBuilder()
+                   //.WithTopic("Home/Curtain/Status")
+                   //.WithPayload(JsonConvert.SerializeObject(obj))
+                   //.WithAtLeastOnceQoS()
+                   //.Build();
+                   // Task.Run(async () => { await Publish(message); });
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Curtain/Command")
+                {
+                    //var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
+                    //if (obj.Command == "open")
+                    //{
+                    //    Task.Run(async () => { await _tcpHelper.OpenCurtain(obj.Id); });
+                    //}
+                    //else if (obj.Command == "close")
+                    //{
+                    //    Task.Run(async () => { await _tcpHelper.CloseCurtain(obj.Id); });
+                    //}
+                    //else if (obj.Command == "stop")
+                    //{
 
-                    if (Convert.ToInt32(sVal) == -1)
-                    {
-                        Task.Run(async () => { await _tcpHelper.StopCurtain(2); });
-                        Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(2); });
-                        
-                        var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain2/Status")
-                        .WithPayload(ret.ToString())
-                        .WithAtLeastOnceQoS()
-                        .Build();
-                        Task.Run(async () => { await Publish(message); });
-                    }
-                    else
-                    {
-                        Task.Run(async () => { await _tcpHelper.SetCurtainStatus(2, Convert.ToInt32(sVal)); });
-                    }
+                    //    var task1 = Task.Run(async () => {
+                    //        await _tcpHelper.StopCurtain(obj.Id);
+                    //        await Task.Delay(100);
+                    //        await _tcpHelper.PublishStatus(obj.Id);
+                    //    });
+                    //}
+                }
+                /*   空调  */
+                else if (e.ApplicationMessage.Topic == "Home/Mitsubishi/Command")
+                {
+                    var obj = JsonConvert.DeserializeObject<HvacStateObject>(sVal);
+                    Task.Run(async () => { await _hvacHelper.UpdateStateObject(obj); });
                     
                 }
-                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Set")
-                {
 
-                    if (Convert.ToInt32(sVal) == -1)
-                    {
-                        Task.Run(async () => { await _tcpHelper.StopCurtain(3); });
-                        Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(3); });
-                        var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain2/Status")
-                        .WithPayload(ret.ToString())
-                        .WithAtLeastOnceQoS()
-                        .Build();
-                        Task.Run(async () => { await Publish(message); });
-                    }
-                    else
-                    {
-                        Task.Run(async () => { await _tcpHelper.SetCurtainStatus(3, Convert.ToInt32(sVal)); });
-                    }
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Get")
-                {
-                    Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(3); });
-                    var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Curtain3/Status")
-                   .WithPayload(ret.ToString())
-                   .WithAtLeastOnceQoS()
-                   .Build();
-                    Task.Run(async () => { await Publish(message); });
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Curtain2/Get")
-                {
-                    Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(2); });
-                    var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Curtain2/Status")
-                   .WithPayload(ret.ToString())
-                   .WithAtLeastOnceQoS()
-                   .Build();
-                    Task.Run(async () => { await Publish(message); });
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Curtain2/Command")
-                {
-
-                    if (sVal == "open")
-                    {
-                        Task.Run(async () => { await _tcpHelper.OpenCurtain(2); });
-                    }
-                    else if (sVal == "close")
-                    {
-                        Task.Run(async () => { await _tcpHelper.CloseCurtain(2); });
-                    }
-                    else if (sVal == "stop")
-                    {
-                        
-                        Task.Run(async () => { await _tcpHelper.StopCurtain(2);  });
-                        Task.Delay(100);
-                        Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(2); });
-                        var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain2/Status")
-                        .WithPayload(ret.ToString())
-                        .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
-                        .WithRetainFlag(false)
-                        .Build();
-                        Task.Run(async () => { await Publish(message); });
-                    }
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Curtain3/Command")
-                {
-
-                    if (sVal == "open")
-                    {
-                        Task.Run(async () => { await _tcpHelper.OpenCurtain(3); });
-                    }
-                    else if (sVal == "close")
-                    {
-                        Task.Run(async () => { await _tcpHelper.CloseCurtain(3); });
-                    }
-                    else if (sVal == "stop")
-                    {
-
-                        Task.Run(async () => { await _tcpHelper.StopCurtain(3); });
-                        Task.Delay(100);
-                        Task.Run(async () => { ret = await _tcpHelper.GetCurtainStatus(3); });
-                        var message = new MqttApplicationMessageBuilder().WithTopic("Home/Curtain3/Status")
-                        .WithPayload(ret.ToString())
-                        .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
-                        .WithRetainFlag(false)
-                        .Build();
-                        Task.Run(async () => { await Publish(message); });
-                    }
-                }
                 #region 海林地暖已经使用modbus 直接连接，不在此控制
                 /*
                 else if (e.ApplicationMessage.Topic == "Home/Hailin1/Set")
@@ -297,21 +242,12 @@ namespace TcpWebGateway.Services
 
         private void SetupSubscribe()
         {
-            Subscribe("Home/Curtain2/Set"); //设置窗帘开合百分比
-            Subscribe("Home/Curtain3/Set"); //设置窗帘开合百分比
-            Subscribe("Home/Curtain2/Get");
-            Subscribe("Home/Curtain3/Get");
-            Subscribe("Home/Curtain3/Command"); //接收命令:open,close,stop
-            Subscribe("Home/Curtain2/Command"); //接收命令:open,close,stop
-            Subscribe("Home/Hailin1/GetCurrent");
-            Subscribe("Home/Hailin2/GetCurrent");
-            Subscribe("Home/Hailin3/GetCurrent");
-            Subscribe("Home/Hailin1/GetSetResult");
-            Subscribe("Home/Hailin2/GetSetResult");
-            Subscribe("Home/Hailin3/GetSetResult");
-            Subscribe("Home/Hailin1/Set");
-            Subscribe("Home/Hailin2/Set");
-            Subscribe("Home/Hailin3/Set");
+            Subscribe("Home/Curtain/Set"); //设置窗帘开合百分比
+            Subscribe("Home/Curtain/GetStatus");
+            Subscribe("Home/Curtain/Command"); //接收命令:open,close,stop
+            Subscribe("Home/Hailin/GetState");
+            Subscribe("Home/Hailin/Command");
+            Subscribe("Home/Mitsubishi/Command");
         }
 
         public async Task StartAsync()

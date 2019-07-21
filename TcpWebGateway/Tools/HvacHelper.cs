@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using System;
+using MQTTnet;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
 using System.Threading.Tasks;
 using TcpWebGateway.Services;
 
@@ -13,16 +13,22 @@ namespace TcpWebGateway.Tools
         private readonly ILogger _logger;
         private HvacListener _listener;
         private List<HvacStateObject> stateobjs = new List<HvacStateObject>();
+        private MqttHelper _mqttHelper;
 
         public HvacHelper(ILogger<HvacHelper> logger)
         {
             _logger = logger;
+            
         }
 
         public void SetListener(HvacListener listener)
         {
             _listener = listener;
-            
+        }
+
+        public void SetMqttListener(MqttHelper mqttHelper)
+        {
+            _mqttHelper = mqttHelper;
         }
 
         public async Task SyncAllState()
@@ -51,6 +57,11 @@ namespace TcpWebGateway.Tools
                     obj.Fan = (Fanspeed)int.Parse(codes[9]);
                     obj.CurrentTemperature = int.Parse(codes[10], System.Globalization.NumberStyles.HexNumber);
                     stateobjs.Add(obj);
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/" + codes[5] + "/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
                 else
                 {
@@ -60,7 +71,14 @@ namespace TcpWebGateway.Tools
                     obj.Mode = (WorkMode)int.Parse(codes[8]);
                     obj.Fan = (Fanspeed)int.Parse(codes[9]);
                     obj.CurrentTemperature = int.Parse(codes[10], System.Globalization.NumberStyles.HexNumber);
+
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/" + codes[5] + "/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
+               
             }
         }
 
@@ -108,6 +126,31 @@ namespace TcpWebGateway.Tools
         {
             var obj = stateobjs.FirstOrDefault(p => p.Id == id.ToString("X2"));
             return obj;
+        }
+
+        public async Task UpdateStateObject(HvacStateObject target)
+        {
+            var obj = stateobjs.FirstOrDefault(p => p.Id == target.Id);
+            if(obj != null)
+            {
+                if(obj.Switch != target.Switch)
+                {
+                    obj.Switch = target.Switch;
+                    await TurnOnAC(int.Parse(obj.Id));
+                }else if(obj.Mode != target.Mode)
+                {
+                    obj.Mode = target.Mode;
+                    await SetMode(int.Parse(obj.Id), (WorkMode)target.Mode);
+                }else if(obj.Fan != target.Fan)
+                {
+                    obj.Fan = target.Fan;
+                    await SetFanspeed(int.Parse(obj.Id), (Fanspeed)target.Fan);
+                }else if(obj.TemperatureSet != target.TemperatureSet)
+                {
+                    obj.TemperatureSet = target.TemperatureSet;
+                    await SetTemperature(int.Parse(obj.Id), target.TemperatureSet);
+                }
+            }
         }
     }
 

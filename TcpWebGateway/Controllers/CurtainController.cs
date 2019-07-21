@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using MQTTnet.Client;
-using TcpWebGateway.Services;
+using TcpWebGateway.Tools;
+using static TcpWebGateway.Tools.CurtainHelper;
 
 namespace TcpWebGateway.Controllers
 {
@@ -14,15 +16,16 @@ namespace TcpWebGateway.Controllers
     public class CurtainController : ControllerBase
     {
         private readonly ILogger _logger;
-        private readonly TcpHelper _tcpHelper;
+        private readonly IMemoryCache _cache;
+        private readonly CurtainHelper _curtainHelper;
 
         private IMqttClient _mqttClient;
 
-        public CurtainController(ILogger<HeatSystemController> logger, TcpHelper tcpHelper)
+        public CurtainController(ILogger<CurtainController> logger,IMemoryCache cache, CurtainHelper curtainHelper)
         {
             _logger = logger;
-            _tcpHelper = tcpHelper;
-
+            _cache = cache;
+            _curtainHelper = curtainHelper;
         }
 
 
@@ -39,10 +42,15 @@ namespace TcpWebGateway.Controllers
             {
                 return 0;
             }
-            int retPercent = await _tcpHelper.GetCurtainStatus(id);
-
-            
-            return retPercent;
+            await _curtainHelper.GetCurtainStatus(id);
+            await Task.Delay(500).ConfigureAwait(false);
+            var obj = new CurtainStateObject();
+            while(_cache.TryGetValue(id,out obj)==false)
+            {
+                await Task.Delay(100).ConfigureAwait(false);
+            }
+            //return retPercent;
+            return obj.Status;
 
         }
 
@@ -54,7 +62,7 @@ namespace TcpWebGateway.Controllers
         [HttpPost]
         public async Task SetPosition(int id, int value)
         {
-            await _tcpHelper.SetCurtainStatus(id, value);
+            await _curtainHelper.SetCurtain(id, value);
         }
 
         /// <summary>
@@ -65,7 +73,7 @@ namespace TcpWebGateway.Controllers
         [Route("Stop")]
         public async Task Stop(int id)
         {
-            await _tcpHelper.StopCurtain(id);
+            await _curtainHelper.Stop(id);
         }
 
         /// <summary>
@@ -76,7 +84,7 @@ namespace TcpWebGateway.Controllers
         [Route("Open")]
         public async Task Open(int id)
         {
-            await _tcpHelper.OpenCurtain(id);
+            await _curtainHelper.Open(id);
         }
 
         /// <summary>
@@ -87,7 +95,7 @@ namespace TcpWebGateway.Controllers
         [Route("Close")]
         public async Task Close(int id)
         {
-            await _tcpHelper.CloseCurtain(id);
+            await _curtainHelper.Close(id);
         }
 
     }

@@ -31,14 +31,15 @@ namespace TcpWebGateway
         {
             //注入配置信息(appsettings.json)
             services.AddSingleton<IConfiguration>(Configuration);
-            
+            services.AddMemoryCache();
             ///注入顺序不能变
-            services.AddSingleton<TcpHelper>();
+            services.AddSingleton<CurtainHelper>();
             services.AddSingleton<HvacHelper>();
             services.AddSingleton<LightHelper>();
             services.AddSingleton<SensorHelper>();
 
             services.AddHostedService<MqttHelper>();
+            services.AddHostedService<CurtainListener>();
             services.AddHostedService<SwitchListener>();
             services.AddHostedService<SensorListener>();
             services.AddHostedService<HvacListener>();

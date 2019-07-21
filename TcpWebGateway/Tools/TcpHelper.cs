@@ -1,13 +1,16 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MQTTnet;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using TcpWebGateway.Services;
 
-namespace TcpWebGateway.Services
+namespace TcpWebGateway.Tools
 {
     /// <summary>
     /// 主要控制窗帘闭合电机
@@ -23,6 +26,10 @@ namespace TcpWebGateway.Services
         private readonly ILogger _logger;
         private readonly IConfiguration _config;
 
+        //public IList<CurtainStateObject> stateObjects = new List<CurtainStateObject>();
+
+        private MqttHelper _mqttHelper;
+
         public TcpHelper(ILogger<TcpHelper> logger, IConfiguration configuration)
         {
             _config = configuration;
@@ -34,12 +41,28 @@ namespace TcpWebGateway.Services
 
             //_clientHailin = new TcpClient("192.168.50.17", 502);
             //_streamHailin = _clientHailin.GetStream();
-
         }
+
+        public void SetMqttListener(MqttHelper mqttHelper)
+        {
+            _mqttHelper = mqttHelper;
+        }
+
         
+        
+        public async Task PublishStatus(int id)
+        {
+            var obj = stateObjects.FirstOrDefault(p => p.Id == id);
+            obj.Status = await GetCurtainStatus(obj.Id);
+            var message = new MqttApplicationMessageBuilder()
+                   .WithTopic("Home/Curtain/" + obj.Id.ToString() + "/Status")
+                   .WithPayload(JsonConvert.SerializeObject(obj))
+                   .WithAtLeastOnceQoS()
+                   .Build();
+            await _mqttHelper.Publish(message);
+        }
         public async Task<int> GetCurtainStatus(int id)
         {
-            
             int retPercent = 0;
             byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x55, 0x01, (byte)id, 0x01, 0x02, 0x01 };
             await _streamCurtain.WriteAsync(data, 0, data.Length);
@@ -93,10 +116,13 @@ namespace TcpWebGateway.Services
             byte[] data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x55, 0x01, (byte)id, 0x03, 0x03 };
             await _streamCurtain.WriteAsync(data, 0, data.Length);
 
-            data = new Byte[12];
-            Int32 ret = await _streamCurtain.ReadAsync(data, 0, data.Length);
+            //data = new Byte[12];
+            //Int32 ret = await _streamCurtain.ReadAsync(data, 0, data.Length).ConfigureAwait(true);
             await _streamCurtain.FlushAsync();
         }
+
+
+        
 
         #region 地暖已经使用modbus 通讯,不在此控制
         /*

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -14,9 +15,11 @@ namespace TcpWebGateway.Tools
         private static readonly HttpClient client = new HttpClient();
         private SensorListener _listener;
         private LightHelper _lightHelper;
+        private readonly ILogger _logger;
 
-        public SensorHelper(LightHelper lightHelper)
+        public SensorHelper(ILogger<SensorHelper> logger, LightHelper lightHelper)
         {
+            _logger = logger;
             _lightHelper = lightHelper;
             _lightHelper.SetSensorHelper(this);
         }
@@ -46,11 +49,11 @@ namespace TcpWebGateway.Tools
             }
             else if (Command == "03 01 0D") //烟雾探测器报警
             {
-
+                _logger.LogInformation("烟雾探测器报警");
             }
             else if (Command == "03 00 0D") 
             {
-
+                _logger.LogInformation("烟雾探测器取消报警");
             }
             else if (Command == "04 01 0D") //主灯打开成功
             {

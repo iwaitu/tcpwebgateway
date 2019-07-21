@@ -24,7 +24,6 @@ namespace TcpWebGateway.Controllers
     public class LightController : ControllerBase
     {
         private readonly ILogger _logger;
-        private readonly TcpHelper _tcpHelper;
 
         private IMqttClient _mqttClient;
         private readonly SwitchListener _listener;
@@ -34,14 +33,12 @@ namespace TcpWebGateway.Controllers
         private SensorHelper _sensorHelper;
 
         public LightController(ILogger<HeatSystemController> logger,
-            TcpHelper tcpHelper,
             LightHelper lightHelper,
             SensorHelper sensorHelper,
             IHostedService hostedService, 
             IHostedService hostedService1)
         {
             _logger = logger;
-            _tcpHelper = tcpHelper;
             _listener = hostedService as SwitchListener;
             _sensorlistener = hostedService1 as SensorListener;
             _helper = lightHelper;

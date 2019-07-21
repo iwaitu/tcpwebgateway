@@ -20,7 +20,6 @@ namespace TcpWebGateway.Tools
         private SwitchListener _listener;
         private HVACSelected _hVacSelected = HVACSelected.None;
         private readonly HvacHelper _hvacHelper;
-        private readonly TcpHelper _tcpHelper;
         private SensorHelper _sensorHelper;
         private DateTime _lastHomeButonReceive;
         private DateTime _lastOutButonReceive;
@@ -30,11 +29,10 @@ namespace TcpWebGateway.Tools
 
         public StateMode CurrentStateMode { get; set; }
 
-        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper, TcpHelper tcpHelper)
+        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper)
         {
             _logger = logger;
             _hvacHelper = hvacHelper;
-            _tcpHelper = tcpHelper;
         }
 
         public void SetListener(SwitchListener listener)

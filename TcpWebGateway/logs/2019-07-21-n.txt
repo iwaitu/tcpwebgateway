@@ -1,0 +1,1424 @@
+2019-07-21 08:36:28.4097|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 08:36:31.3277|ERROR|TcpWebGateway.Program|Stopped program because of exception System.InvalidOperationException: Unable to resolve service for type 'TcpWebGateway.Services.MqttHelper' while attempting to activate 'TcpWebGateway.Tools.HvacHelper'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token, String shutdownMessage)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.Run(IWebHost host)
+   at TcpWebGateway.Program.Main(String[] args) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Program.cs:line 24
+2019-07-21 08:40:40.1983|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 08:40:42.8309|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 08:40:42.8587|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 08:40:42.8810|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 08:40:42.9043|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 08:41:28.4337|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 08:41:28.4337|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 08:41:28.4337|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop"} 
+2019-07-21 08:41:28.4434|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 08:41:28.4434|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 08:41:28.4434|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 08:42:15.5351|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 08:42:15.5351|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 08:42:15.5351|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop"} 
+2019-07-21 08:42:15.5351|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 08:42:15.5351|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 08:42:15.5351|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 08:54:02.8424|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 08:54:05.3549|ERROR|TcpWebGateway.Program|Stopped program because of exception System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.Logger`1[TcpWebGateway.Tools.SensorHelper]' while attempting to activate 'TcpWebGateway.Tools.SensorHelper'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token, String shutdownMessage)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.Run(IWebHost host)
+   at TcpWebGateway.Program.Main(String[] args) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Program.cs:line 24
+2019-07-21 08:55:12.4345|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 08:55:14.6229|ERROR|TcpWebGateway.Program|Stopped program because of exception System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.Logger`1[TcpWebGateway.Tools.SensorHelper]' while attempting to activate 'TcpWebGateway.Tools.SensorHelper'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateEnumerable(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token, String shutdownMessage)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.RunAsync(IWebHost host, CancellationToken token)
+   at Microsoft.AspNetCore.Hosting.WebHostExtensions.Run(IWebHost host)
+   at TcpWebGateway.Program.Main(String[] args) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Program.cs:line 24
+2019-07-21 08:56:50.0731|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 08:56:52.3850|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 08:56:52.4207|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 08:56:52.4579|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 08:56:52.4579|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 09:38:22.9829|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 09:38:25.0978|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 09:38:25.1331|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 09:38:25.1331|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 09:38:25.1483|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 09:38:40.0753|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 09:38:40.0753|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 09:38:40.0753|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 09:38:40.0753|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 09:38:40.0753|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 09:38:40.0753|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 09:40:41.9752|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 09:44:15.4210|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 09:44:17.4116|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 09:44:17.4289|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 09:44:17.4289|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 09:44:17.4667|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 09:44:40.2970|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 09:44:40.2970|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 09:44:40.2970|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 09:44:40.3065|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 09:44:40.3065|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 09:44:40.3065|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 09:49:29.3341|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 09:49:31.3364|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 09:49:31.3737|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 09:49:31.3781|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 09:49:31.3781|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 09:49:42.8356|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 09:49:42.8356|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 09:49:42.8356|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 09:49:42.8356|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 09:49:42.8356|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 09:49:42.8356|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 09:49:54.8650|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 09:50:04.9565|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 09:50:15.0442|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 09:50:25.1448|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 09:50:35.2383|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 09:53:10.0367|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 09:53:12.0946|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 09:53:12.1147|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 09:53:12.1147|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 09:53:12.1493|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 09:53:24.8432|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 09:53:24.8432|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 09:53:24.8432|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 09:53:24.8432|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 09:53:24.8432|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 09:53:24.8459|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 09:53:38.3179|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 09:53:38.3550|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=19] [ReasonCode=]' at an unexpected time. 
+2019-07-21 10:01:40.1472|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:01:42.0227|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:01:42.0572|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:01:42.0572|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:01:42.0838|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:01:59.0129|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:01:59.0129|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:01:59.0129|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:01:59.0129|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:01:59.0129|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:01:59.0129|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:02:14.0435|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:02:24.1259|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:02:34.2192|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:02:44.3239|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:06:24.3127|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:06:26.2834|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:06:26.3125|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:06:26.3125|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:06:26.3199|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:06:36.2386|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:06:36.2386|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:06:36.2386|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:06:36.2386|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:06:36.2386|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:06:36.2386|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:06:53.5999|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:06:53.6320|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=15] [ReasonCode=]' at an unexpected time. 
+2019-07-21 10:06:55.9309|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:06:55.9309|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:06:55.9309|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:06:55.9309|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:06:55.9309|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:06:55.9309|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:08:34.6287|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:08:36.6293|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:08:36.6617|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:08:36.6617|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:08:36.6997|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:08:43.4884|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:08:43.4884|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:08:43.4884|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:08:43.4884|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:08:43.4884|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:08:43.4884|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:10:02.9564|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:10:04.8985|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:10:04.9388|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:10:04.9376|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:10:04.9679|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:10:13.9948|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:10:13.9948|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:10:13.9948|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:10:13.9948|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:10:13.9948|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:10:13.9948|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:10:26.3873|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:10:36.4706|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:15:46.0020|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:15:48.0134|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:15:48.0389|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:15:48.0389|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:15:48.0389|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:16:00.7950|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:16:00.7950|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:16:00.7950|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:16:00.7950|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:16:00.7950|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:16:00.7950|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:16:13.6505|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:16:23.7327|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:17:03.0718|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:17:04.9863|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:17:05.0243|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:17:05.0243|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:17:05.0409|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:17:10.8728|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:17:10.8728|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:17:10.8728|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:17:10.8728|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:17:10.8728|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:17:10.8728|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:17:37.2926|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:17:57.2592|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 10:17:57.2884|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=13] [ReasonCode=]' at an unexpected time. 
+2019-07-21 10:17:59.7265|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:17:59.7265|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:17:59.7265|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:17:59.7265|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:17:59.7265|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:17:59.7265|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:18:14.6967|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:18:22.1924|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=15] [ReasonCode=]' at an unexpected time. 
+2019-07-21 10:18:22.1924|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=15] [ReasonCode=]' at an unexpected time. 
+2019-07-21 10:20:30.5296|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:20:32.5055|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:20:32.5213|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:20:32.5213|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:20:32.5371|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:20:38.6352|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:20:38.6352|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:20:38.6352|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:20:38.6352|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:20:38.6352|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:20:38.6352|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:21:01.7509|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:21:01.7959|ERROR|TcpWebGateway.Services.MqttHelper|The operation was canceled. 
+2019-07-21 10:21:03.9587|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:21:03.9587|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:21:03.9587|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:21:03.9587|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:21:03.9587|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:21:03.9587|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:21:41.9160|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:21:43.9488|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:21:43.9721|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:21:43.9721|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:21:43.9984|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:21:57.5602|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:21:57.5602|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:21:57.5602|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:21:57.5602|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:21:57.5602|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:21:57.5602|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:22:19.2635|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:22:19.3023|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=16] [ReasonCode=]' at an unexpected time. 
+2019-07-21 10:22:19.3434|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 10:22:22.2459|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:22:22.2459|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:22:22.2459|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 10:22:22.2522|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:22:22.2522|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:22:22.2522|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:22:29.7039|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:22:29.7039|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:22:29.7050|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:22:29.7050|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:22:29.7050|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:22:29.7050|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:22:30.7872|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:22:30.7872|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:22:30.7872|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:22:30.7872|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:22:30.7872|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:22:30.7872|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:22:39.1375|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:22:39.1375|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:22:39.1375|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:22:39.1375|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:22:39.1375|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:22:39.1375|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:22:54.5964|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:22:54.5964|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:22:54.5964|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 10:22:54.5964|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:22:54.5964|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:22:54.5964|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:23:08.3317|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:23:55.5681|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:23:57.5794|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:23:57.6049|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:23:57.6202|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:23:57.6453|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:24:05.7329|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:05.7329|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:05.7329|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:24:05.7329|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:05.7329|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:05.7329|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:24:07.2586|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:07.2586|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:07.2586|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 10:24:07.2586|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:07.2586|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:07.2586|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:24:07.7700|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:07.7700|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:07.7700|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 10:24:07.7700|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:07.7700|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:07.7700|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:24:08.8727|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:08.8727|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:08.8727|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:24:08.8727|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:08.8727|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:08.8727|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:24:09.3237|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:09.3237|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:09.3237|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:24:09.3237|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:09.3237|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:09.3237|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:24:09.7249|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:09.7249|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:09.7249|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:24:09.7249|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:09.7249|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:09.7249|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:24:10.1461|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:10.1461|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:10.1461|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:24:10.1461|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:10.1461|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:10.1461|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:24:10.6275|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:10.6275|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:10.6275|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:24:10.6437|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:10.6437|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:10.6437|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:24:20.2112|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:24:20.2112|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:24:20.2112|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:24:20.2112|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:24:20.2112|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:24:20.2112|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:27:58.4665|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:28:00.5573|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:28:00.5908|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:28:00.5908|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:28:00.5989|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:28:11.5385|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:28:11.5385|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:28:11.5385|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:28:11.5385|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:28:11.5385|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:28:11.5385|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:33:22.8112|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:33:24.8624|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:33:24.8833|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:33:24.8944|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:33:24.9206|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:33:33.7581|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:33:33.7581|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:33:33.7581|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:33:33.7581|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:33:33.7581|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:33:33.7581|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:34:07.8623|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:34:09.8045|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:34:09.8413|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:34:09.8521|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:34:09.8864|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:34:16.7759|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:34:16.7759|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:34:16.7759|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:34:16.7759|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:34:16.7759|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:34:16.7759|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:34:30.0539|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:34:40.1439|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:34:50.2368|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:35:00.3407|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:35:10.4218|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:35:20.5127|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:35:30.5927|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:35:40.6727|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:35:50.7494|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:52:05.6695|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:52:07.7557|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:52:07.7765|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:52:07.7912|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:52:07.8063|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:52:15.7153|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:52:15.7153|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:52:15.7153|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:52:15.7153|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:52:15.7153|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:52:15.7153|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:52:28.7007|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:52:28.7007|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:52:28.7007|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:52:28.7007|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:52:28.7007|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:52:28.7007|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:52:42.8767|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:53:28.8869|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:53:30.9374|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:53:31.0202|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:53:31.0379|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:53:31.0610|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:53:43.6267|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:53:43.6267|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:53:43.6267|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"close"} 
+2019-07-21 10:53:43.6267|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:53:43.6267|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:53:43.6267|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:53:45.6438|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:53:45.6438|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:53:45.6438|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:53:45.6438|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:53:45.6438|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:53:45.6438|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:55:48.0253|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:55:50.0905|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:55:50.1213|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:55:50.1213|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:55:50.1486|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:55:57.2275|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:55:57.2275|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:55:57.2275|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:55:57.2275|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:55:57.2275|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:55:57.2275|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:56:11.2367|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:56:21.3321|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:57:44.2588|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:57:46.3119|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:57:46.3399|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:57:46.3399|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:57:46.3399|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 10:57:59.4175|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 10:57:59.4175|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 10:57:59.4175|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 10:57:59.4175|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 10:57:59.4175|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 10:57:59.4175|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 10:58:13.9523|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:58:24.0545|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:58:34.1531|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 10:59:40.0455|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 10:59:42.1002|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 10:59:42.1242|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 10:59:42.1242|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 10:59:42.1399|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:00:46.6167|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:00:46.6176|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:00:46.6176|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:00:46.6176|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:00:46.6346|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:00:46.6346|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:08:11.2988|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:08:13.4054|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:08:13.4334|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:08:13.4334|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:08:13.4601|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:08:21.1220|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:08:21.1220|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:08:21.1220|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:08:21.1220|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:08:21.1220|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:08:21.1220|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:08:37.4850|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 11:09:02.4758|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:09:04.4796|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:09:04.5091|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:09:04.5079|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:09:04.5091|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:09:11.3242|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:09:11.3242|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:09:11.3242|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:09:11.3242|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:09:11.3242|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:09:11.3242|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:10:12.2281|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:10:14.3216|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:10:14.3540|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:10:14.3540|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:10:14.3540|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:10:22.8631|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:10:22.8631|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:10:22.8631|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:10:22.8631|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:10:22.8631|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:10:22.8631|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:10:36.6102|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:10:36.6102|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:10:36.6102|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:10:36.6102|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:10:36.6102|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:10:36.6102|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:25:26.7202|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:25:28.7257|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:25:28.7488|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:25:28.7784|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:25:28.7784|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:25:36.9872|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:25:36.9872|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:25:36.9872|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:25:36.9872|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:25:36.9872|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:25:36.9872|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:28:02.8427|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:28:04.9628|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:28:04.9950|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:28:04.9950|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:28:13.9299|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:28:13.9299|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:28:13.9299|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:28:13.9299|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:28:13.9299|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:28:13.9299|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:28:27.0509|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 11:29:16.9076|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:29:18.9421|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:29:18.9720|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:29:18.9720|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:29:18.9881|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:29:24.6482|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:29:24.6489|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:29:24.6489|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:29:24.6489|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:29:24.6489|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:29:24.6489|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:29:40.2897|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:29:40.2897|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:29:40.2897|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:29:40.2897|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:29:40.2897|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:29:40.2897|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:29:49.5329|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:29:49.5329|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:29:49.5329|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:29:49.5329|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:29:49.5329|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:29:49.5329|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:30:13.6508|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 11:30:18.5234|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=23] [ReasonCode=]' at an unexpected time. 
+2019-07-21 11:30:18.5234|ERROR|TcpWebGateway.Services.MqttHelper|Received packet 'PubAck: [PacketIdentifier=23] [ReasonCode=]' at an unexpected time. 
+2019-07-21 11:30:27.2675|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:30:27.2675|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:30:27.2675|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:30:27.2675|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:30:27.2675|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:30:27.2675|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:30:28.6413|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:30:28.6413|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:30:28.6520|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:30:28.6520|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:30:28.6520|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:30:28.6520|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:30:29.1924|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:30:29.1924|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:30:29.1924|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:30:29.1924|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:30:29.1961|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:30:29.1961|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:30:29.6438|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:30:29.6438|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:30:29.6603|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:30:29.6603|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:30:29.6603|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:30:29.6603|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:30:30.0244|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:30:30.0244|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:30:30.0244|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:30:30.0244|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:30:30.0244|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:30:30.0244|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:30:30.4456|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:30:30.4456|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:30:30.4456|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:30:30.4456|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:30:30.4456|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:30:30.4456|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:31:00.8823|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:31:00.8852|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:31:00.8852|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:31:00.8852|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:31:00.9165|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:31:00.9165|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:31:09.5840|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:31:09.5840|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:31:09.5861|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:31:09.5861|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:31:09.5861|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:31:09.5861|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:34:46.5069|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:34:48.5070|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:34:48.5487|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:34:48.5622|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:34:48.5820|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:34:57.9352|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:34:57.9352|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:34:57.9352|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:34:57.9352|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:34:57.9352|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:34:57.9352|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:34:59.5307|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:34:59.5307|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:34:59.5307|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:34:59.5307|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:34:59.5307|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:34:59.5307|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:02.0675|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:02.0675|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:02.0717|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:35:02.0717|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:02.0717|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:02.0717|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:04.0019|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:04.0019|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:04.0019|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:35:04.0019|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:04.0019|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:04.0019|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:05.1151|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:05.1151|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:05.1197|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:35:05.1197|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:05.1197|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:05.1197|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:05.8682|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:05.8682|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:05.8682|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:35:05.8682|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:05.8682|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:05.8682|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:07.0095|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:07.0095|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:07.0095|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:35:07.0095|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:07.0095|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:07.0095|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:07.6109|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:07.6109|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:07.6109|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:35:07.6109|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:07.6109|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:07.6109|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:08.0520|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:08.0520|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:08.0520|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 11:35:08.0520|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:08.0520|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:08.0520|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:08.9341|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:08.9341|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:08.9341|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:35:08.9341|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:08.9341|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:08.9341|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:35:09.4761|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:35:09.4761|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:35:09.4793|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:35:09.4793|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:35:09.4793|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:35:09.4793|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:37:05.8255|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:37:07.8711|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:37:07.9088|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:37:07.9088|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:37:07.9180|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:37:22.4279|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:37:22.4279|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:37:22.4279|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:37:22.4371|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:37:22.4371|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:37:22.4371|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:38:17.8805|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 11:39:15.6248|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:39:17.6381|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:39:17.6644|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:39:17.6644|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:39:17.6644|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:40:08.8772|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:40:17.1953|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:40:17.2177|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:40:17.2177|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:40:17.2283|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:40:26.4174|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 11:40:26.4174|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 11:40:26.4174|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 11:40:26.4174|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 11:40:26.4174|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 11:40:26.4174|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 11:41:51.6539|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 11:41:53.7299|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 11:41:53.7552|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 11:41:53.7614|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 11:41:53.7614|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 11:52:02.5345|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 11 00 01 00 80 CF 
+2019-07-21 11:52:02.7143|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 11 00 01 00 FF 8E 
+2019-07-21 12:00:05.0859|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 15 00 01 00 80 3E 
+2019-07-21 12:00:06.2379|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 15 00 01 00 81 FF 
+2019-07-21 12:00:06.6024|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 15 00 01 00 81 FF 6F 0C 20 10 15 00 01 00 FD FE 
+2019-07-21 12:00:07.7765|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 11 00 01 00 80 CF 
+2019-07-21 12:00:07.9452|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 11 00 01 00 FF 8E 
+2019-07-21 12:00:10.3672|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 12 00 01 00 80 8B 
+2019-07-21 12:00:10.5447|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 12 00 01 00 FF CA 
+2019-07-21 12:00:13.5569|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 11 00 01 00 80 CF 
+2019-07-21 12:00:13.8364|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 11 00 01 00 FF 8E 
+2019-07-21 12:00:18.1870|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 15 00 01 00 80 3E 
+2019-07-21 12:00:18.3512|INFO|TcpWebGateway.Services.SwitchListener|Receive:0C 20 10 15 00 01 00 FF 7F 
+2019-07-21 12:12:19.5673|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:12:19.5673|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:12:19.5760|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:12:19.5760|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:12:19.5760|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:12:19.6099|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:13:19.2482|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 12:13:21.2329|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 12:13:21.2622|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 12:13:21.2622|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 12:13:21.2800|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 12:13:29.4711|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:13:29.4711|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:13:29.4711|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:13:29.4711|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:13:29.4711|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:13:29.4711|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:13:42.1174|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:13:42.1174|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:13:42.1174|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:13:42.1174|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:13:42.1174|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:13:42.1174|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:14:34.8814|ERROR|TcpWebGateway.Services.MqttHelper|A task was canceled. 
+2019-07-21 12:14:34.9459|ERROR|TcpWebGateway.Services.MqttHelper|Object reference not set to an instance of an object. 
+2019-07-21 12:14:38.1874|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 12:14:58.6410|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 12:15:01.1284|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 12:15:01.1659|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 12:15:01.1659|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 12:15:01.1840|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 12:15:19.9464|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:19.9464|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:19.9464|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 12:15:19.9464|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:19.9464|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:19.9464|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:21.5573|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:21.5573|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:21.5573|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"open"} 
+2019-07-21 12:15:21.5573|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:21.5573|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:21.5573|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:24.1533|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:24.1533|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:24.1533|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 12:15:24.1533|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:24.1533|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:24.1533|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:25.7175|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:25.7175|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:25.7175|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":2,"Command":"stop"} 
+2019-07-21 12:15:25.7175|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:25.7175|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:25.7175|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:30.4990|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:30.4990|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:30.4990|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"close"} 
+2019-07-21 12:15:30.4990|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:30.4990|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:30.4990|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:31.6724|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:31.6724|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:31.6724|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:31.6724|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:31.6724|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:31.6724|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:33.2361|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:33.2361|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:33.2361|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:33.2361|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:33.2361|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:33.2361|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:34.4598|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:34.4615|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:34.4615|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"open","Status":0} 
+2019-07-21 12:15:34.4615|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:34.4615|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:34.4615|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:38.3190|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:38.3228|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:38.3228|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:38.3228|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:38.3228|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:38.3228|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:39.7434|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:39.7434|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:39.7434|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:39.7434|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:39.7434|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:39.7434|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:40.5950|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:40.5950|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:40.6056|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:40.6056|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:40.6056|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:40.6056|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:41.2061|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:41.2061|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:41.2061|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:41.2061|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:41.2061|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:41.2061|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:41.4265|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:41.4265|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:41.4265|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:41.4265|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:41.4265|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:41.4301|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:41.6875|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:41.6875|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:41.6875|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:41.6875|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:41.6875|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:41.6875|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:42.0586|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:42.0586|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:42.0586|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:42.0586|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:42.0586|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:42.0586|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:42.8001|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:42.8001|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:42.8001|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:42.8001|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:42.8001|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:42.8052|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:43.0911|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:43.0911|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:43.0911|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:43.0911|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:43.0911|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:43.0911|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:43.3013|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:43.3013|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:43.3013|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:43.3013|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:43.3013|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:43.3059|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:43.7925|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:43.7925|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:43.7925|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:43.7925|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:43.7925|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:43.7925|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:43.9630|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:43.9630|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:43.9630|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:43.9630|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:43.9630|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:43.9630|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:44.1736|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:44.1736|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:44.1736|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:44.1736|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:44.1736|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:44.1801|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:44.4943|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:44.4943|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:44.4943|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:44.4943|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:44.4943|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:44.4943|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:44.6747|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:44.6747|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:44.6747|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:44.6747|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:44.6747|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:44.6747|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:44.8953|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:44.8953|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:44.8953|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:44.8953|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:44.8953|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:44.8953|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:45.1565|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:45.1565|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:45.1565|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:45.1565|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:45.1565|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:45.1565|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:45.3265|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:45.3265|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:45.3265|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:45.3265|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:45.3265|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:45.3265|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:46.0185|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:46.0185|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:46.0272|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:46.0272|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:46.0272|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:46.0272|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:46.6196|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:46.6196|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:46.6196|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:46.6196|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:46.6196|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:46.6196|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:46.8201|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:46.8201|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:46.8201|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:46.8201|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:46.8201|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:46.8201|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:47.0006|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:47.0006|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:47.0006|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:47.0006|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:47.0006|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:47.0006|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:47.1824|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:47.1824|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:47.1824|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:47.1824|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:47.1824|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:47.1824|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:47.3816|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:47.3816|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:47.3835|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:47.3835|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:47.3835|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:47.3835|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:47.7223|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:47.7223|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:47.7223|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:47.7223|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:47.7223|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:47.7223|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:48.0235|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:48.0235|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:48.0235|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:48.0235|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:48.0235|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:48.0235|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:48.2042|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:48.2042|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:48.2042|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:48.2042|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:48.2042|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:48.2042|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:48.5444|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:48.5444|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:48.5444|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:48.5444|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:48.5444|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:48.5444|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:15:55.2314|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:15:55.2314|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:15:55.2314|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:15:55.2314|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:15:55.2314|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:15:55.2314|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:16:07.0607|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:16:07.0607|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:16:07.0607|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:16:07.0607|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:16:07.0607|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:16:07.0607|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:16:53.6370|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 12:16:55.7325|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 12:16:55.7484|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 12:16:55.7484|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 12:16:55.7656|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 12:17:07.1482|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:07.1482|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:07.1482|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"close"} 
+2019-07-21 12:17:07.1482|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:07.1482|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:07.1482|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:09.1868|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:09.1868|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:09.1868|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:17:09.1868|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:09.1868|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:09.1868|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:10.7506|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:10.7506|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:10.7506|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:17:10.7506|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:10.7506|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:10.7506|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:12.6253|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:12.6253|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:12.6253|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"open","Status":0} 
+2019-07-21 12:17:12.6253|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:12.6253|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:12.6253|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:16.5653|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:16.5653|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:16.5653|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:17:16.5653|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:16.5653|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:16.5653|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:19.5928|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:19.5928|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:19.5928|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:17:19.5928|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:19.5928|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:19.5928|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:21.6981|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:21.6981|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:21.6981|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:17:21.6981|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:21.6981|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:21.6981|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:31.8135|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:31.8135|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:31.8135|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:17:31.8135|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:31.8135|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:31.8135|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:38.0494|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:38.0494|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:38.0494|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:17:38.0587|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:38.0587|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:38.0587|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:17:43.2125|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:17:43.2125|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:17:43.2125|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:17:43.2125|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:17:43.2125|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:17:43.2125|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:18:45.1143|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 12:18:47.1594|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 12:18:47.1963|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 12:18:47.1963|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 12:18:47.2281|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 12:18:58.7383|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:18:58.7383|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:18:58.7383|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:18:58.7517|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:18:58.7517|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:18:58.7517|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:19:00.4560|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:19:00.4560|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:19:00.4560|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:19:00.4560|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:19:00.4560|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:19:00.4560|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:19:08.2554|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:19:08.2554|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:19:08.2554|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:19:08.2554|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:19:08.2554|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:19:08.2554|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:19:12.0950|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:19:12.0950|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:19:12.0950|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:19:12.0950|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:19:12.0950|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:19:12.0950|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:29:08.0318|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 12:29:09.9506|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 12:29:09.9754|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 12:29:09.9754|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 12:29:09.9836|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 12:30:03.1858|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:30:03.1858|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:30:03.1858|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"close"} 
+2019-07-21 12:30:03.1858|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:30:03.1956|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:30:03.1956|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:30:05.7852|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 12:30:05.7852|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 12:30:05.7852|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 12:30:05.7852|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 12:30:05.7852|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 12:30:05.7852|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 12:54:08.0304|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 12:54:10.0611|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 12:54:10.0815|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 12:54:10.0977|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 12:54:10.1218|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 13:11:18.6770|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 13:11:20.6952|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 13:11:20.7196|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 13:11:20.7196|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 13:11:20.7341|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 13:13:17.7160|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 13:13:19.8498|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 13:13:19.8825|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 13:13:19.8956|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 13:13:19.9117|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 13:13:56.3364|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 13:13:58.3532|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 13:13:58.3903|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 13:13:58.3903|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 13:13:58.4094|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 13:15:40.8992|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 13:15:56.4197|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.4197|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.4372|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.4550|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.4664|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.4664|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.4912|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.5078|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.5078|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.5618|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.5618|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.5376|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.5000|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.5618|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.4550|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.6220|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.6220|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.6654|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.6654|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.6857|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.7044|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.7232|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.7681|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.7681|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.7681|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.8111|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.8297|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:15:56.8494|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 13:16:31.7017|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 13:16:33.6138|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 13:16:33.6512|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 13:16:33.6512|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 13:16:33.6512|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 13:19:13.9573|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 13:19:15.8677|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 13:19:16.0084|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 13:19:16.0084|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 13:19:16.0084|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 13:22:37.2142|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 13:22:39.2697|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 13:22:39.2939|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 13:22:39.2939|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 13:22:39.3047|INFO|TcpWebGateway.Tools.TcpHelper|Init Curtain Data... 
+2019-07-21 13:23:22.8104|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:23:22.8104|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:23:22.8104|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 13:23:22.8104|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 13:23:22.8104|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:23:22.8104|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 13:23:26.3235|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:23:26.3235|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:23:26.3235|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 13:23:26.3235|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 13:23:26.3235|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:23:26.3235|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 13:23:28.6083|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:23:28.6083|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:23:28.6083|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 13:23:28.6083|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 13:23:28.6083|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:23:28.6083|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 13:23:31.4754|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:23:31.4754|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:23:31.4754|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 13:23:31.4769|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 13:23:31.4769|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:23:31.4769|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 13:24:24.1575|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:24:24.1575|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:24:24.1575|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":3,"Command":"stop","Status":0} 
+2019-07-21 13:24:24.1575|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-21 13:24:24.1575|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:24:24.1575|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 13:28:56.7691|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:28:56.7691|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:28:56.7691|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {'Id':3,'Status':0,'Command':'stop'} 
+2019-07-21 13:28:56.7691|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-21 13:28:56.7742|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:28:56.7742|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 13:29:08.9880|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:29:08.9880|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:29:09.0012|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {'Id':3,'Status':0,'Command':'stop'} 
+2019-07-21 13:29:09.0012|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-21 13:29:09.0160|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:29:09.0160|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 13:29:40.8710|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:29:40.8710|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:29:40.8710|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {'Id':3,'Status':0,'Command':'stop'} 
+2019-07-21 13:29:40.8710|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-21 13:29:40.8710|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:29:40.8710|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 13:30:01.0899|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-21 13:30:01.0899|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Curtain/Command 
+2019-07-21 13:30:01.0899|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {'Id':3,'Status':0,'Command':'stop'} 
+2019-07-21 13:30:01.0899|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtMostOnce 
+2019-07-21 13:30:01.1047|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-21 13:30:01.1047|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-21 16:50:15.9486|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 16:50:18.1002|INFO|TcpWebGateway.Services.CurtainListener|Socket connected to 192.168.50.17:8001 
+2019-07-21 16:50:18.1834|INFO|TcpWebGateway.Services.CurtainListener|System.Net.Sockets.SocketException (10057): 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+   at System.Net.Sockets.Socket.BeginReceive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
+   at TcpWebGateway.Services.CurtainListener.Receive(Socket client) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\CurtainListener.cs:line 88 
+2019-07-21 16:51:12.3881|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 16:52:05.8117|INFO|TcpWebGateway.Services.CurtainListener|Socket connected to 192.168.50.17:8001 
+2019-07-21 16:52:51.4962|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 16:52:56.8776|INFO|TcpWebGateway.Services.CurtainListener|Socket connected to 192.168.50.17:8001 
+2019-07-21 17:52:13.8262|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 17:52:15.7774|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-21 17:52:15.7953|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 17:52:15.8147|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 17:52:15.8469|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 18:21:22.3077|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 18:21:24.3204|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-21 18:21:24.3204|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 18:21:24.3571|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 18:21:24.3703|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 18:21:44.1179|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.NullReferenceException: Object reference not set to an instance of an object.
+   at TcpWebGateway.Tools.CurtainHelper.Open(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\CurtainHelper.cs:line 74
+   at TcpWebGateway.Controllers.CurtainController.Open(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Controllers\CurtainController.cs:line 87
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-21 18:21:58.7456|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.NullReferenceException: Object reference not set to an instance of an object.
+   at TcpWebGateway.Tools.CurtainHelper.Open(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\CurtainHelper.cs:line 74
+   at TcpWebGateway.Controllers.CurtainController.Open(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Controllers\CurtainController.cs:line 87
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-21 18:23:16.2759|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 18:23:18.3217|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 18:23:18.3217|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.NullReferenceException: Object reference not set to an instance of an object.
+   at TcpWebGateway.Tools.CurtainHelper.Stop(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\CurtainHelper.cs:line 86
+   at TcpWebGateway.Controllers.CurtainController.Stop(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Controllers\CurtainController.cs:line 76
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-21 18:23:28.4499|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 18:23:49.1302|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.NullReferenceException: Object reference not set to an instance of an object.
+   at TcpWebGateway.Tools.CurtainHelper.Stop(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\CurtainHelper.cs:line 86
+   at TcpWebGateway.Controllers.CurtainController.Stop(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Controllers\CurtainController.cs:line 76
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-21 18:25:03.9291|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request. System.NullReferenceException: Object reference not set to an instance of an object.
+   at TcpWebGateway.Tools.CurtainHelper.Stop(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\CurtainHelper.cs:line 86
+   at TcpWebGateway.Controllers.CurtainController.Stop(Int32 id) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Controllers\CurtainController.cs:line 76
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-21 18:26:38.1653|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 18:26:40.4734|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-21 18:26:40.4872|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 18:26:40.5111|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 18:26:40.5111|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 18:27:09.2254|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 05 55 01 03 03 03 
+2019-07-21 18:27:20.6217|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 05 55 01 03 03 
+2019-07-21 18:27:30.4703|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 05 55 01 03 03 01 
+2019-07-21 18:27:30.5875|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 05 55 01 03 03 
+2019-07-21 18:27:35.2162|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 05 55 01 03 03 03 
+2019-07-21 18:27:35.3878|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 05 55 01 03 03 
+2019-07-21 18:27:52.5754|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 06 55 01 02 01 02 01 
+2019-07-21 18:27:52.7006|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 06 55 01 02 01 01 
+2019-07-21 18:30:54.8157|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 06 55 01 02 01 02 01 
+2019-07-21 18:30:58.8905|ERROR|TcpWebGateway.Services.MqttHelper|Exception of type 'MQTTnet.Exceptions.MqttCommunicationTimedOutException' was thrown. 
+2019-07-21 18:30:58.9015|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 06 55 01 02 01 01 
+2019-07-21 18:31:03.0718|ERROR|TcpWebGateway.Services.MqttHelper|The client is not connected. 
+2019-07-21 18:31:54.5874|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 06 55 01 02 01 02 01 
+2019-07-21 18:31:58.8388|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 06 55 01 02 01 01 
+2019-07-21 18:32:07.3475|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 18:32:09.3429|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-21 18:32:09.3637|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 18:32:09.3785|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 18:32:09.4001|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 18:32:24.6901|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 06 55 01 03 01 02 01 
+2019-07-21 18:32:24.8680|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 06 55 01 03 01 01 
+2019-07-21 18:34:04.8213|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 18:34:06.9025|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-21 18:34:06.9244|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 18:34:06.9364|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 18:34:06.9531|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 18:34:22.3737|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 06 55 01 03 01 02 01 
+2019-07-21 18:34:22.5313|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 06 55 01 03 01 01 58 
+2019-07-21 18:35:07.3218|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 06 55 01 03 01 02 01 
+2019-07-21 18:35:07.4017|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 06 55 01 03 01 01 58 
+2019-07-21 18:35:36.7499|DEBUG|TcpWebGateway.Program|init main 
+2019-07-21 18:35:38.7981|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-21 18:35:38.8248|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-21 18:35:38.8631|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-21 18:35:38.8763|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-21 18:35:53.9467|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 06 55 01 03 01 02 01 
+2019-07-21 18:35:54.0450|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 06 55 01 03 01 01 58 
+2019-07-21 18:36:14.3671|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 05 55 01 03 03 01 
+2019-07-21 18:36:14.5102|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 05 55 01 03 03 01 
+2019-07-21 18:36:17.3054|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 05 55 01 00 03 03 
+2019-07-21 18:36:22.3567|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 05 55 01 03 03 03 
+2019-07-21 18:36:22.4630|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 05 55 01 03 03 03 
+2019-07-21 18:36:35.4668|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 05 55 01 03 03 02 
+2019-07-21 18:36:35.6402|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 05 55 01 03 03 02 
+2019-07-21 18:36:39.5082|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 05 55 01 03 03 03 
+2019-07-21 18:36:39.6828|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 05 55 01 03 03 03 
+2019-07-21 18:36:42.4827|INFO|TcpWebGateway.Services.CurtainListener|SendCmd : 00 00 00 00 00 06 55 01 03 01 02 01 
+2019-07-21 18:36:42.6719|INFO|TcpWebGateway.Tools.CurtainHelper|00 00 00 00 00 06 55 01 03 01 01 3F 

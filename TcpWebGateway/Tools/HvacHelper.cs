@@ -14,6 +14,7 @@ namespace TcpWebGateway.Tools
         private HvacListener _listener;
         private List<HvacStateObject> stateobjs = new List<HvacStateObject>();
         private MqttHelper _mqttHelper;
+        private LightHelper _lightHelper;
 
         public HvacHelper(ILogger<HvacHelper> logger)
         {
@@ -29,6 +30,11 @@ namespace TcpWebGateway.Tools
         public void SetMqttListener(MqttHelper mqttHelper)
         {
             _mqttHelper = mqttHelper;
+        }
+
+        public void SetLightHelper(LightHelper lightHelper)
+        {
+            _lightHelper = lightHelper;
         }
 
         public async Task SyncAllState()
@@ -78,7 +84,7 @@ namespace TcpWebGateway.Tools
                        .Build();
                     await _mqttHelper.Publish(message);
                 }
-               
+                await _lightHelper.UpdateACPanel();
             }
         }
 
@@ -125,6 +131,12 @@ namespace TcpWebGateway.Tools
         public HvacStateObject GetACStateObject(int id)
         {
             var obj = stateobjs.FirstOrDefault(p => p.Id == id.ToString("X2"));
+            return obj;
+        }
+
+        public HvacStateObject GetACStateObject(string id)
+        {
+            var obj = stateobjs.FirstOrDefault(p => p.Id == id);
             return obj;
         }
 

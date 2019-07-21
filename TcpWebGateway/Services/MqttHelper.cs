@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TcpWebGateway.Tools;
+using static TcpWebGateway.Tools.CurtainHelper;
 
 namespace TcpWebGateway.Services
 {
@@ -68,40 +69,30 @@ namespace TcpWebGateway.Services
                 /*   窗帘  */
                 if (e.ApplicationMessage.Topic == "Home/Curtain/Set")
                 {
-                    //var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
-                    //Task.Run(async () => { await _tcpHelper.SetCurtainStatus(obj.Id,obj.Status); });
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Curtain/GetStatus")
-                {
-                   // var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
-                   // obj.Status = _tcpHelper.GetCurtainStatus(obj.Id).Result;
-                   // var message = new MqttApplicationMessageBuilder()
-                   //.WithTopic("Home/Curtain/Status")
-                   //.WithPayload(JsonConvert.SerializeObject(obj))
-                   //.WithAtLeastOnceQoS()
-                   //.Build();
-                   // Task.Run(async () => { await Publish(message); });
+                    var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
+                    Task.Run(async () => { await _curtainHelper.SetCurtain(obj.Id,obj.Status); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Curtain/Command")
                 {
-                    //var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
-                    //if (obj.Command == "open")
-                    //{
-                    //    Task.Run(async () => { await _tcpHelper.OpenCurtain(obj.Id); });
-                    //}
-                    //else if (obj.Command == "close")
-                    //{
-                    //    Task.Run(async () => { await _tcpHelper.CloseCurtain(obj.Id); });
-                    //}
-                    //else if (obj.Command == "stop")
-                    //{
+                    var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
+                    if (obj.Command == "open")
+                    {
+                        Task.Run(async () => { await _curtainHelper.Open(obj.Id); });
+                    }
+                    else if (obj.Command == "close")
+                    {
+                        Task.Run(async () => { await _curtainHelper.Close(obj.Id); });
+                    }
+                    else if (obj.Command == "stop")
+                    {
 
-                    //    var task1 = Task.Run(async () => {
-                    //        await _tcpHelper.StopCurtain(obj.Id);
-                    //        await Task.Delay(100);
-                    //        await _tcpHelper.PublishStatus(obj.Id);
-                    //    });
-                    //}
+                        var task1 = Task.Run(async () =>
+                        {
+                            await _curtainHelper.Stop(obj.Id);
+                            await Task.Delay(100);
+                            await _curtainHelper.GetCurtainStatus(obj.Id);
+                        });
+                    }
                 }
                 /*   空调  */
                 else if (e.ApplicationMessage.Topic == "Home/Mitsubishi/Command")

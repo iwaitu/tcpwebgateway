@@ -150,14 +150,36 @@ namespace TcpWebGateway.Tools
                     obj.Switch = target.Switch;
                     if(obj.Id == "02")
                     {
-                        await _lightHelper.OpenWorkroomAC();
+                        if(obj.Switch == SwitchState.open)
+                        {
+                            await _lightHelper.OpenWorkroomAC();
+                        }
+                        else
+                        {
+                            await _lightHelper.CloseWorkroomAC();
+                        }
+                        
                     }else if(obj.Id == "03")
                     {
-                        await _lightHelper.OpenLivingroomAC();
+                        if (obj.Switch == SwitchState.open)
+                        {
+                            await _lightHelper.OpenWorkroomAC();
+                        }
+                        else
+                        {
+                            await _lightHelper.CloseWorkroomAC();
+                        }
                     }
                     else
                     {
-                        await TurnOnAC(int.Parse(obj.Id));
+                        if(obj.Switch == SwitchState.open)
+                        {
+                            await TurnOnAC(int.Parse(obj.Id));
+                        }
+                        else
+                        {
+                            await TurnOffAC(int.Parse(obj.Id));
+                        }
                     }
                 }else if(obj.Mode != target.Mode)
                 {

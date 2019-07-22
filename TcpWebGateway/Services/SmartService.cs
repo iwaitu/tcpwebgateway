@@ -26,9 +26,9 @@ namespace TcpWebGateway.Services
         }
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            Task.Delay(3000);
+            Task.Delay(5000);
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
-            TimeSpan.FromSeconds(10));
+            TimeSpan.FromSeconds(5));
             return Task.CompletedTask;
         }
 

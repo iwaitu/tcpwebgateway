@@ -45,37 +45,8 @@ namespace TcpWebGateway.Services
 
         public async Task StartClient(CancellationToken cancellationToken)
         {
-            //await Task.Delay(2000);
-            Socket client = new Socket(ipAddress.AddressFamily,
-                SocketType.Stream, ProtocolType.Tcp);
-            _logger.Info("Connecting to {0}:{1}",ipAddress.ToString(),remoteEP.Port);
-            var isConnect = await ConnectAsync(client, remoteEP);
-            if (!isConnect)
-            {
-                _logger.Error("Can not connect.");
-                return;
-            }
-            try
-            {
-                while (!cancellationToken.IsCancellationRequested)
-                {
-                    var response = await ReceiveAsync(client);
-                    if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
-                    {
-                        _logger.Info("Receive:" + response);
-                        await _helper.OnReceiveCommand(response);
-                    }
-                    await Task.Delay(50, cancellationToken);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex.ToString());
-                client.Shutdown(SocketShutdown.Both);
-                client.Close();
-            }
             
-
+            _logger.Info("Connecting to {0}:{1}",ipAddress.ToString(),remoteEP.Port);
             
         }
 
@@ -147,7 +118,7 @@ namespace TcpWebGateway.Services
                              .ToArray();
         }
 
-        public async Task<int> SendCommand(string data)
+        public async Task SendCommand(string data)
         {
             var cmd = StringToByteArray(data.Replace(" ",""));
             var cmdCRC = CRCHelper.get_CRC16_C(cmd);
@@ -156,44 +127,26 @@ namespace TcpWebGateway.Services
             cmdCRC.CopyTo(cmd1, cmd.Length);
             var str = CRCHelper.byteToHexStr(cmd1, cmd1.Length);
             _logger.Info("SendCmd : " + str);
-            Socket client = new Socket(ipAddress.AddressFamily,
-                SocketType.Stream, ProtocolType.Tcp);
-            var isConnect = await ConnectAsync(client, remoteEP);
-            if (!isConnect)
+            using(var socket = SafeSocket.ConnectSocket(remoteEP))
             {
-                _logger.Error("Can not connect.");
-                return 0;
+                var ret = await SendAsync(socket, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
+                var response = await ReceiveAsync(socket);
+                _logger.Info("Receive : " + response);
+                if(_helper != null)
+                {
+                    await _helper.OnReceiveCommand(response);
+                }
             }
-            var ret = await SendAsync(client, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
-            client.Shutdown(SocketShutdown.Both);
-            client.Close();
-            return ret;
+            
         }
 
         public async Task SendCommand(List<string> data)
         {
-            Socket client = new Socket(ipAddress.AddressFamily,
-                SocketType.Stream, ProtocolType.Tcp);
-            var isConnect = await ConnectAsync(client, remoteEP);
-            if (!isConnect)
-            {
-                _logger.Error("Can not connect.");
-                return ;
-            }
             foreach (var singlecmd in data)
             {
-                var cmd = StringToByteArray(singlecmd.Replace(" ", ""));
-                var cmdCRC = CRCHelper.get_CRC16_C(cmd);
-                var cmd1 = new byte[cmd.Length + 2];
-                cmd.CopyTo(cmd1, 0);
-                cmdCRC.CopyTo(cmd1, cmd.Length);
-                var str = CRCHelper.byteToHexStr(cmd1, cmd1.Length);
-                _logger.Info("SendCmd : " + str);
-                var ret = await SendAsync(client, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
-                await Task.Delay(100).ConfigureAwait(false);
+                await SendCommand(singlecmd);
+                await Task.Delay(500);
             }
-            client.Shutdown(SocketShutdown.Both);
-            client.Close();
         }
 
         private Task<int> SendAsync(Socket client, byte[] buffer, int offset,

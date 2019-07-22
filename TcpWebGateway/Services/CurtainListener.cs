@@ -46,37 +46,7 @@ namespace TcpWebGateway.Services
 
         private async Task StartClient(CancellationToken stoppingToken)
         {
-            _client = new Socket(ipAddress.AddressFamily,
-                SocketType.Stream, ProtocolType.Tcp);
-            _logger.LogInformation("Connecting to {0}:{1}", ipAddress.ToString(), remoteEP.Port);
-            var isConnect = await ConnectAsync(_client, remoteEP);
-            if (!isConnect)
-            {
-                _logger.LogError("Can not connect.");
-                return;
-            }
-            try
-            {
-                while (!stoppingToken.IsCancellationRequested)
-                {
-                    var response = await ReceiveAsync(_client, 1);
-                    if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
-                    {
-                        //_logger.LogInformation("Receive:" + response);
-                        await _curtainHelper.OnReceiveData(response);
-                    }
-                    await Task.Delay(50, stoppingToken);
-                }
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e.ToString());
-                _client.Shutdown(SocketShutdown.Both);
-                _client.Close();
-            }
-            
-
-            
+            _logger.LogInformation("Connecting to {0}:{1}", ipAddress.ToString(), remoteEP.Port);            
         }
 
         private async Task<string> ReceiveAsync(Socket client, int waitForFirstDelaySeconds = 3)
@@ -133,21 +103,22 @@ namespace TcpWebGateway.Services
             }
         }
 
-        public async Task<int> SendCommand(string data)
+        public async Task SendCommand(string data)
         {
             var cmd = CRCHelper.StringToByteArray(data.Replace(" ", ""));
 
             var str = BitConverter.ToString(cmd, 0, cmd.Length).Replace("-", " ");
             _logger.LogInformation("SendCmd : " + str);
-
-            if (!_client.Connected)
+            using(var socket = SafeSocket.ConnectSocket(remoteEP))
             {
-                _logger.LogError("Can not connect.");
-                return 0;
+                await SendAsync(socket, cmd, 0, cmd.Length, 0).ConfigureAwait(false);
+                var response = await ReceiveAsync(socket);
+                if(_curtainHelper != null)
+                {
+                    await _curtainHelper.OnReceiveData(response);
+                }
             }
-            var ret = await SendAsync(_client, cmd, 0, cmd.Length, 0).ConfigureAwait(false);
-
-            return ret;
+            
         }
 
         private Task<int> SendAsync(Socket client, byte[] buffer, int offset,

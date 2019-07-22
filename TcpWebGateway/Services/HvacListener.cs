@@ -25,7 +25,6 @@ namespace TcpWebGateway.Services
 
         private HvacHelper _helper;
 
-        private Socket _client;
 
         public HvacListener(ILogger<HvacListener> logger, IConfiguration configuration, HvacHelper helper)
         {
@@ -43,38 +42,8 @@ namespace TcpWebGateway.Services
 
         public async Task StartClient(CancellationToken cancellationToken)
         {
-
-            _client = new Socket(ipAddress.AddressFamily,
-                SocketType.Stream, ProtocolType.Tcp);
-            _logger.LogInformation("Connecting to {0}:{1}", ipAddress.ToString(),remoteEP.Port);
-            var isConnect = await ConnectAsync(_client, remoteEP);
-            if (!isConnect)
-            {
-                _logger.LogError("Can not connect.");
-                return;
-            }
-
-            //await _helper.SyncAllState();
-            try
-            {
-                while (!cancellationToken.IsCancellationRequested)
-                {
-                    var response = await ReceiveAsync(_client, 1);
-                    if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
-                    {
-                        //_logger.LogInformation("Receive:" + response);
-                        await _helper.OnReceiveData(response);
-                    }
-                    await Task.Delay(50, cancellationToken).ConfigureAwait(false);
-                }
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e.ToString());
-                _client.Shutdown(SocketShutdown.Both);
-                _client.Close();
-            }
-            
+            _logger.LogInformation("Connect to {0}:{1}", remoteEP.Address.ToString(), remoteEP.Port);
+            //await _helper.SyncAllState();            
         }
 
         private Task<bool> ConnectAsync(Socket client, IPEndPoint remoteEndPoint)
@@ -141,7 +110,7 @@ namespace TcpWebGateway.Services
                              .ToArray();
         }
 
-        public async Task<int> SendCommand(string data)
+        public async Task SendCommand(string data)
         {
             var cmd = StringToByteArray(data.Replace(" ", ""));
             var cmdCRC = CRCHelper.Checksum(cmd);
@@ -150,35 +119,25 @@ namespace TcpWebGateway.Services
             cmd1[cmd.Length] = (byte)cmdCRC;
             var str = BitConverter.ToString(cmd1, 0, cmd1.Length).Replace("-", " ");
             _logger.LogInformation("SendCmd : " + str);
-
-            if (!_client.Connected)
+            using(var s = SafeSocket.ConnectSocket(remoteEP))
             {
-                _logger.LogError("Can not connect.");
-                return 0;
-            }
-            var ret = await SendAsync(_client, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
+                var ret = await SendAsync(s, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
 
-            return ret;
+                var response = await ReceiveAsync(s);
+                _logger.LogInformation("Receive : " + response);
+                if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
+                {
+                    await _helper.OnReceiveData(response);
+                }
+            }
         }
 
         public async Task SendCommand(List<string> data)
         {
 
-            if (!_client.Connected)
-            {
-                _logger.LogError("Can not connect.");
-                return;
-            }
             foreach (var singlecmd in data)
             {
-                var cmd = StringToByteArray(singlecmd.Replace(" ", ""));
-                var cmdCRC = CRCHelper.Checksum(cmd);
-                var cmd1 = new byte[cmd.Length + 1];
-                cmd.CopyTo(cmd1, 0);
-                cmd1[cmd.Length] = (byte)cmdCRC;
-                var str = BitConverter.ToString(cmd1, 0, cmd1.Length).Replace("-", " ");
-                //_logger.LogInformation("SendCmd : " + str);
-                var ret = await SendAsync(_client, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
+                await SendCommand(singlecmd);
                 await Task.Delay(500).ConfigureAwait(false);
             }
         }
@@ -187,8 +146,8 @@ namespace TcpWebGateway.Services
             int size, SocketFlags socketFlags)
         {
             if (client == null) throw new ArgumentNullException(nameof(client));
-
             return Task.Run(() => client.Send(buffer, offset, size, socketFlags));
+            
         }
 
 

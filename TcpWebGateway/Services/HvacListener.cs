@@ -110,7 +110,7 @@ namespace TcpWebGateway.Services
                              .ToArray();
         }
 
-        public async Task SendCommand(string data)
+        public async Task SendCommand(string data,bool debug = false)
         {
             var cmd = StringToByteArray(data.Replace(" ", ""));
             var cmdCRC = CRCHelper.Checksum(cmd);
@@ -118,17 +118,20 @@ namespace TcpWebGateway.Services
             cmd.CopyTo(cmd1, 0);
             cmd1[cmd.Length] = (byte)cmdCRC;
             var str = BitConverter.ToString(cmd1, 0, cmd1.Length).Replace("-", " ");
-#if DEBUG
-            _logger.LogInformation("SendCmd : " + str);
-#endif
+            if(debug)
+            {
+                _logger.LogInformation("SendCmd : " + str);
+            }
             using(var s = SafeSocket.ConnectSocket(remoteEP))
             {
                 var ret = await SendAsync(s, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
 
                 var response = await ReceiveAsync(s);
-#if DEBUG
-                _logger.LogInformation("Receive : " + response);
-#endif
+                if (debug)
+                {
+                    _logger.LogInformation("Receive : " + response);
+                }
+
                 if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
                 {
                     await _helper.OnReceiveData(response);

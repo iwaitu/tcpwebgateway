@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using MQTTnet;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,7 @@ namespace TcpWebGateway.Tools
         private SwitchListener _listener;
         private HVACSelected _hVacSelected = HVACSelected.None;
         private readonly HvacHelper _hvacHelper;
+        private MqttHelper _mqttHelper;
         private SensorHelper _sensorHelper;
         private DateTime _lastHomeButonReceive;
         private DateTime _lastOutButonReceive;
@@ -41,6 +44,11 @@ namespace TcpWebGateway.Tools
         public void SetSensorHelper(SensorHelper sensorHelper)
         {
             _sensorHelper = sensorHelper;
+        }
+
+        public void SetMqttListener(MqttHelper helper)
+        {
+            _mqttHelper = helper;
         }
 
         public async Task OnReceiveCommand(string Command)
@@ -276,6 +284,18 @@ namespace TcpWebGateway.Tools
                 }
                 
             }
+            else if(Command.IndexOf("0F 20 00 34 00 01 00 1D 01 84") == 0)
+            {
+                var data = StringToByteArray(Command);
+                if (_mqttHelper != null)
+                {
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Panel/Temperature")
+                       .WithPayload(data[7].ToString())
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
+                }
+            }
             
 
         }
@@ -312,6 +332,12 @@ namespace TcpWebGateway.Tools
             CurrentStateMode = StateMode.Out;
         }
 
+        public async Task GetPanelTemperature()
+        {
+            var cmds = new List<string>();
+            cmds.Add("0F 20 00 34 00 01");
+            await _listener.SendCommand(cmds);
+        }
 
         public async Task ReadMode()
         {

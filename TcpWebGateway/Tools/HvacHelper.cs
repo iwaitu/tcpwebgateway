@@ -148,19 +148,32 @@ namespace TcpWebGateway.Tools
                 if(obj.Switch != target.Switch)
                 {
                     obj.Switch = target.Switch;
-                    await TurnOnAC(int.Parse(obj.Id));
+                    if(obj.Id == "02")
+                    {
+                        await _lightHelper.OpenWorkroomAC();
+                    }else if(obj.Id == "03")
+                    {
+                        await _lightHelper.OpenLivingroomAC();
+                    }
+                    else
+                    {
+                        await TurnOnAC(int.Parse(obj.Id));
+                    }
                 }else if(obj.Mode != target.Mode)
                 {
-                    obj.Mode = target.Mode;
                     await SetMode(int.Parse(obj.Id), (WorkMode)target.Mode);
+                    await _lightHelper.UpdateACPanel();
                 }else if(obj.Fan != target.Fan)
                 {
                     obj.Fan = target.Fan;
                     await SetFanspeed(int.Parse(obj.Id), (Fanspeed)target.Fan);
+                    await _lightHelper.UpdateACPanel();
+
                 }else if(obj.TemperatureSet != target.TemperatureSet)
                 {
                     obj.TemperatureSet = target.TemperatureSet;
                     await SetTemperature(int.Parse(obj.Id), target.TemperatureSet);
+                    await _lightHelper.UpdateACPanel();
                 }
             }
         }

@@ -45,9 +45,39 @@ namespace TcpWebGateway.Services
 
         public async Task StartClient(CancellationToken cancellationToken)
         {
-            
-            _logger.Info("Connecting to {0}:{1}",ipAddress.ToString(),remoteEP.Port);
-            
+
+            Socket client = new Socket(ipAddress.AddressFamily,
+                SocketType.Stream, ProtocolType.Tcp);
+            _logger.Info("Connecting to {0}:{1}", ipAddress.ToString(), remoteEP.Port);
+            var isConnect = await ConnectAsync(client, remoteEP);
+            if (!isConnect)
+            {
+                _logger.Error("Can not connect.");
+                return;
+            }
+            try
+            {
+                while (!cancellationToken.IsCancellationRequested)
+                {
+                    var response = await ReceiveAsync(client);
+                    if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
+                    {
+                        _logger.Info("Receive:" + response);
+                        await _helper.OnReceiveCommand(response);
+                    }
+                    await Task.Delay(50, cancellationToken);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.ToString());
+            }
+            finally
+            {
+                client.Shutdown(SocketShutdown.Both);
+                client.Close();
+            }
+
         }
 
         private Task<bool> ConnectAsync(Socket client, IPEndPoint remoteEndPoint)

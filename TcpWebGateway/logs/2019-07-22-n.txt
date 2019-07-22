@@ -1098,3 +1098,23 @@ Parameter name: length
 2019-07-22 21:28:10.7094|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1C 01 02 20 00 00 00 94 
 2019-07-22 21:28:11.2113|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
 2019-07-22 21:28:11.3214|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 00 1A 01 04 20 00 00 00 95 
+2019-07-22 22:06:57.0306|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 22:06:59.0460|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-22 22:06:59.2112|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 22:06:59.2219|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 22:06:59.2295|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-22 22:06:59.2295|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 22:10:38.9812|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 22:10:40.8806|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-22 22:10:41.0838|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 22:10:41.0838|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 22:10:41.0951|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-22 22:10:41.0951|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 22:17:10.2445|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 22:17:11.9867|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-22 22:17:12.1320|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 22:17:12.1431|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 22:17:12.1431|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-22 22:17:12.1611|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 22:17:23.8003|INFO|TcpWebGateway.Services.SwitchListener|Receive:0B 20 10 11 00 01 00 00 8F 29 0B 20 10 11 00 01 00 7F CE 
+2019-07-22 22:17:23.8003|INFO|TcpWebGateway.Tools.LightHelper|时间:2019/7/22 22:17:23 

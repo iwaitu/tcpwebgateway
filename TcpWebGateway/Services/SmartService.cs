@@ -28,7 +28,7 @@ namespace TcpWebGateway.Services
         {
             Task.Delay(5000);
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
-            TimeSpan.FromSeconds(5));
+            TimeSpan.FromSeconds(10));
             return Task.CompletedTask;
         }
 

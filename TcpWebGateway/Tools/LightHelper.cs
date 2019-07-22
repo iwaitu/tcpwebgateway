@@ -34,6 +34,7 @@ namespace TcpWebGateway.Tools
         {
             _logger = logger;
             _hvacHelper = hvacHelper;
+            _hvacHelper.SetLightHelper(this);
         }
 
         public void SetListener(SwitchListener listener)
@@ -509,7 +510,156 @@ namespace TcpWebGateway.Tools
             await _hvacHelper.TurnOffAC(3);
             await CloseACPanel();
         }
+
+        public async Task OpenACPanel(int id)
+        {
+            var obj = _hvacHelper.GetACStateObject(id);
+            if (obj != null)
+            {
+                var cmds = new List<string>();
+                cmds.Add("0F 06 00 36 00 01");
+                switch (obj.Mode)
+                {
+                    case WorkMode.Cool:
+                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
+                        break;
+                    case WorkMode.Heat:
+                        cmds.Add("0F 06 00 32 00 01");  //设定模式为制热
+                        break;
+                    case WorkMode.Fan:
+                        cmds.Add("0F 06 00 32 00 02");  //设定模式为换气
+                        break;
+                    case WorkMode.Dry:
+                        cmds.Add("0F 06 00 32 00 03");  //设定模式为除湿
+                        break;
+                    default:
+                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
+                        break;
+                }
+                cmds.Add("0F 06 00 35 00 " + obj.TemperatureSet.ToString("X2"));
+                switch (obj.Fan)
+                {
+                    case Fanspeed.Hight:
+                        cmds.Add("0F 06 00 33 00 03");  //设定风速为高
+                        break;
+                    case Fanspeed.Middle:
+                        cmds.Add("0F 06 00 33 00 02");
+                        break;
+                    case Fanspeed.Low:
+                        cmds.Add("0F 06 00 33 00 01");
+                        break;
+                    default:
+                        cmds.Add("0F 06 00 33 00 01");
+                        break;
+                }
+                await _listener.SendCommand(cmds);
+            }
+        }
+
+        public async Task UpdateACPanel()
+        {
+            var selectedid = -1;
+            if (_hVacSelected == HVACSelected.WorkRoom)
+            {
+                selectedid = 2;
+            }
+            else if (_hVacSelected == HVACSelected.LivingRoom)
+            {
+                selectedid = 3;
+            }
+            else
+            {
+                return;
+            }
+            var obj = _hvacHelper.GetACStateObject(selectedid);
+            if (obj != null)
+            {
+                var cmds = new List<string>();
+                cmds.Add("0F 06 00 36 00 01");
+                switch (obj.Mode)
+                {
+                    case WorkMode.Cool:
+                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
+                        break;
+                    case WorkMode.Heat:
+                        cmds.Add("0F 06 00 32 00 01");  //设定模式为制热
+                        break;
+                    case WorkMode.Fan:
+                        cmds.Add("0F 06 00 32 00 02");  //设定模式为换气
+                        break;
+                    case WorkMode.Dry:
+                        cmds.Add("0F 06 00 32 00 03");  //设定模式为除湿
+                        break;
+                    default:
+                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
+                        break;
+                }
+                cmds.Add("0F 06 00 35 00 " + obj.TemperatureSet.ToString("X2"));
+                switch (obj.Fan)
+                {
+                    case Fanspeed.Hight:
+                        cmds.Add("0F 06 00 33 00 03");  //设定风速为高
+                        break;
+                    case Fanspeed.Middle:
+                        cmds.Add("0F 06 00 33 00 02");
+                        break;
+                    case Fanspeed.Low:
+                        cmds.Add("0F 06 00 33 00 01");
+                        break;
+                    default:
+                        cmds.Add("0F 06 00 33 00 01");
+                        break;
+                }
+                await _listener.SendCommand(cmds);
+            }
+        }
+
+
+        public async Task CloseACPanel()
+        {
+            var obj1 = _hvacHelper.GetACStateObject(2);
+            var obj2 = _hvacHelper.GetACStateObject(3);
+            var cmds = new List<string>();
+
+            if (obj1.Switch == SwitchState.close && obj2.Switch == SwitchState.close)
+            {
+                cmds.Add("0F 06 00 36 00 00");
+                await _listener.SendCommand(cmds);
+                return;
+            }
+            else
+            {
+                if (obj1.Switch == SwitchState.open)
+                {
+                    _logger.LogInformation("书房");
+                    await OpenACPanel(2);
+                    return;
+                }
+                if (obj2.Switch == SwitchState.open)
+                {
+                    _logger.LogInformation("客厅");
+                    await OpenACPanel(3);
+                    return;
+                }
+                cmds.Add("0F 06 00 36 00 00");
+                await _listener.SendCommand(cmds);
+            }
+        }
         #endregion
+
+        /// <summary>
+        /// 设置面板背景灯
+        /// </summary>
+        /// <param name="panelid">面板id,如：0B,0C,0D,0E,0F</param>
+        /// <param name="buttonid">按键id,如21,22,23,24,25,26</param>
+        /// <param name="value">01开,00关</param>
+        /// <returns></returns>
+        public async Task SetBackgroudLight(string panelid, string buttonid, int value)
+        {
+            var cmds = new List<string>();
+            cmds.Add(string.Format("{0} 06 10 {1} 00 {2}", panelid, buttonid, value));
+            await _listener.SendCommand(cmds);
+        }
 
         public async Task OpenHeatSystem()
         {
@@ -619,140 +769,8 @@ namespace TcpWebGateway.Tools
             await LightSwitch("Door2Brightness", "OFF");
         }
 
-        public async Task OpenACPanel(int id)
-        {
-            var obj = _hvacHelper.GetACStateObject(id);
-            if(obj != null)
-            {
-                var cmds = new List<string>();
-                cmds.Add("0F 06 00 36 00 01");
-                switch (obj.Mode)
-                {
-                    case WorkMode.Cool:
-                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
-                        break;
-                    case WorkMode.Heat:
-                        cmds.Add("0F 06 00 32 00 01");  //设定模式为制热
-                        break;
-                    case WorkMode.Fan:
-                        cmds.Add("0F 06 00 32 00 02");  //设定模式为换气
-                        break;
-                    case WorkMode.Dry:
-                        cmds.Add("0F 06 00 32 00 03");  //设定模式为除湿
-                        break;
-                    default:
-                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
-                        break;
-                }
-                cmds.Add("0F 06 00 35 00 " + obj.TemperatureSet.ToString("X2"));
-                switch (obj.Fan)
-                {
-                    case Fanspeed.Hight:
-                        cmds.Add("0F 06 00 33 00 03");  //设定风速为高
-                        break;
-                    case Fanspeed.Middle:
-                        cmds.Add("0F 06 00 33 00 02");
-                        break;
-                    case Fanspeed.Low:
-                        cmds.Add("0F 06 00 33 00 01");
-                        break;
-                    default:
-                        cmds.Add("0F 06 00 33 00 01");
-                        break;
-                }
-                await _listener.SendCommand(cmds);
-            }
-        }
 
-        public async Task UpdateACPanel()
-        {
-            var selectedid = -1;
-            if(_hVacSelected == HVACSelected.WorkRoom)
-            {
-                selectedid = 2;
-            }
-            else if(_hVacSelected == HVACSelected.LivingRoom)
-            {
-                selectedid = 3;
-            }
-            else
-            {
-                return;
-            }
-            var obj = _hvacHelper.GetACStateObject(selectedid);
-            if (obj != null)
-            {
-                var cmds = new List<string>();
-                cmds.Add("0F 06 00 36 00 01");
-                switch (obj.Mode)
-                {
-                    case WorkMode.Cool:
-                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
-                        break;
-                    case WorkMode.Heat:
-                        cmds.Add("0F 06 00 32 00 01");  //设定模式为制热
-                        break;
-                    case WorkMode.Fan:
-                        cmds.Add("0F 06 00 32 00 02");  //设定模式为换气
-                        break;
-                    case WorkMode.Dry:
-                        cmds.Add("0F 06 00 32 00 03");  //设定模式为除湿
-                        break;
-                    default:
-                        cmds.Add("0F 06 00 32 00 00");  //设定模式为制冷
-                        break;
-                }
-                cmds.Add("0F 06 00 35 00 " + obj.TemperatureSet.ToString("X2"));
-                switch (obj.Fan)
-                {
-                    case Fanspeed.Hight:
-                        cmds.Add("0F 06 00 33 00 03");  //设定风速为高
-                        break;
-                    case Fanspeed.Middle:
-                        cmds.Add("0F 06 00 33 00 02");
-                        break;
-                    case Fanspeed.Low:
-                        cmds.Add("0F 06 00 33 00 01");
-                        break;
-                    default:
-                        cmds.Add("0F 06 00 33 00 01");
-                        break;
-                }
-                await _listener.SendCommand(cmds);
-            }
-        }
-
-
-        public async Task CloseACPanel()
-        {
-            var obj1 = _hvacHelper.GetACStateObject(2);
-            var obj2 = _hvacHelper.GetACStateObject(3);
-            var cmds = new List<string>();
-
-            if(obj1.Switch == SwitchState.close && obj2.Switch == SwitchState.close)
-            {
-                cmds.Add("0F 06 00 36 00 00");
-                await _listener.SendCommand(cmds);
-                return;
-            }
-            else
-            {
-                if(obj1.Switch == SwitchState.open)
-                {
-                    _logger.LogInformation("书房");
-                    await OpenACPanel(2);
-                    return;
-                }
-                if(obj2.Switch == SwitchState.open)
-                {
-                    _logger.LogInformation("客厅");
-                    await OpenACPanel(3);
-                    return;
-                }
-                cmds.Add("0F 06 00 36 00 00");
-                await _listener.SendCommand(cmds);
-            }
-        }
+        
 
         #endregion
 

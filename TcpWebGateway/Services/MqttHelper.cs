@@ -47,6 +47,8 @@ namespace TcpWebGateway.Services
             var mqtthost = _config.GetValue<string>("mqttBroken:Hostip");
             var port = _config.GetValue<int>("mqttBroken:port");
 
+            _logger.Info("Connect to MQTT Broken：{0}:{1}", mqtthost, port);
+
             options = new MqttClientOptionsBuilder()
            .WithClientId(Guid.NewGuid().ToString())
            .WithTcpServer(mqtthost, port)
@@ -247,6 +249,7 @@ namespace TcpWebGateway.Services
         {
             try
             {
+                
                 var result = await _mqttClient.ConnectAsync(options);
                 if (result.ResultCode == MQTTnet.Client.Connecting.MqttClientConnectResultCode.Success)
                 {

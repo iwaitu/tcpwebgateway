@@ -83,6 +83,28 @@ namespace TcpWebGateway.Tools
                        .WithAtLeastOnceQoS()
                        .Build();
                     await _mqttHelper.Publish(message);
+                    if (obj.Id == "02")
+                    {
+                        if (obj.Switch == SwitchState.open)
+                        {
+                            await _lightHelper.SetBackgroudLight("0D", "25", 1);
+                        }
+                        else
+                        {
+                            await _lightHelper.SetBackgroudLight("0D", "25", 0);
+                        }
+                    }
+                    if (obj.Id == "03")
+                    {
+                        if (obj.Switch == SwitchState.open)
+                        {
+                            await _lightHelper.SetBackgroudLight("0D", "26", 1);
+                        }
+                        else
+                        {
+                            await _lightHelper.SetBackgroudLight("0D", "26", 0);
+                        }
+                    }
                 }
                 await _lightHelper.UpdateACPanel();
             }

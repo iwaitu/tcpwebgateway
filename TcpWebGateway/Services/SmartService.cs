@@ -27,17 +27,14 @@ namespace TcpWebGateway.Services
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             Task.Delay(3000);
-            //_tcpHelper.InitData();
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
-            TimeSpan.FromSeconds(5));
+            TimeSpan.FromSeconds(10));
             return Task.CompletedTask;
         }
 
         private void DoWork(object state)
         {
-            //_logger.LogInformation("sync ac stateobject.");
             Task.Run(async () => { await _hvacHelper.SyncAllState(); });
-            //Task.Run(async () => { await _tcpHelper.PublishStatus(); });
             if(_lightHelper.CurrentStateMode == StateMode.Home)
             {
 

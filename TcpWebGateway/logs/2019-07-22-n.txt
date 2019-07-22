@@ -1,0 +1,316 @@
+2019-07-22 17:52:10.7536|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 17:52:13.4776|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 17:52:13.4880|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 17:52:13.5015|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-22 17:52:13.5298|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 17:52:32.5046|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-22 17:52:32.5046|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Mitsubishi/Command 
+2019-07-22 17:52:32.5238|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":"02","CurrentTemperature":0,"TemperatureSet":27,"Mode":1,"Fan":4,"Switch":0} 
+2019-07-22 17:52:32.5238|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-22 17:52:32.5238|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-22 17:52:32.5238|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-22 17:53:14.5273|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-22 17:53:14.5273|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Mitsubishi/Command 
+2019-07-22 17:53:14.5273|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":"02","CurrentTemperature":0,"TemperatureSet":27,"Mode":1,"Fan":4,"Switch":1} 
+2019-07-22 17:53:14.5370|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-22 17:53:14.5370|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-22 17:53:14.5516|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-22 17:53:43.5961|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-22 17:53:43.5961|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Mitsubishi/Command 
+2019-07-22 17:53:43.5961|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":"02","CurrentTemperature":0,"TemperatureSet":27,"Mode":1,"Fan":4,"Switch":0} 
+2019-07-22 17:53:43.5961|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-22 17:53:43.6118|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-22 17:53:43.6118|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-22 17:54:29.4651|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-22 17:54:29.4651|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Mitsubishi/Command 
+2019-07-22 17:54:29.4768|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":"02","CurrentTemperature":0,"TemperatureSet":27,"Mode":1,"Fan":4,"Switch":0} 
+2019-07-22 17:54:29.4768|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-22 17:54:29.4939|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-22 17:54:29.5014|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-22 17:59:39.9217|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 17:59:41.7827|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 17:59:41.8040|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 17:59:41.8234|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-22 17:59:41.8312|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 17:59:41.8312|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 17:59:41.9395|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 00 00 1B 01 04 22 00 00 00 96 
+2019-07-22 17:59:51.0458|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 17:59:51.0458|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 17:59:51.5485|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 17:59:51.5694|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 17:59:51.8324|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 17:59:52.0568|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 17:59:52.0815|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 17:59:52.3335|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 17:59:52.5825|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 17:59:52.8371|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 17:59:53.3479|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 17:59:56.8342|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 17:59:57.3465|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 17:59:57.8472|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 17:59:58.3618|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:01.8348|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:02.3361|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:02.8481|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:03.3492|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:06.8330|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:07.3348|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:07.8357|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:08.3369|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:11.8300|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:12.3319|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:12.8382|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:13.3465|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:14.1558|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-22 18:00:14.1558|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/Mitsubishi/Command 
+2019-07-22 18:00:14.1584|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = {"Id":"02","CurrentTemperature":0,"TemperatureSet":27,"Mode":1,"Fan":4,"Switch":0} 
+2019-07-22 18:00:14.1584|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-22 18:00:14.1584|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-22 18:00:14.1584|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-22 18:00:17.7652|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:18.3965|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:35.6805|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:35.6805|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:35.6960|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:36.1937|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:36.2048|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:36.2328|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:36.7058|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:36.7398|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:37.2150|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:37.2532|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:40.6899|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:41.1919|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:41.6945|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:42.2078|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:45.6908|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:46.2072|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:46.7219|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:47.2240|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:50.6966|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:51.2061|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:51.7103|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:52.2113|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:00:55.6951|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:00:56.2069|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:00:56.7085|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:00:57.2205|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:00.6939|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:01.2068|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:01.7080|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:02.2203|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:05.6891|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:06.1930|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:06.6922|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:07.1927|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:10.6921|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:11.1938|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:11.7049|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:12.2068|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:15.6898|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:16.2075|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:16.7232|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:17.2400|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:20.6897|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:21.1912|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:21.6907|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:22.1927|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:25.6896|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:26.2074|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:26.7210|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:27.2367|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:30.6904|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:31.2053|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:31.7070|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:32.2206|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:35.6895|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:36.2014|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:36.7101|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:37.2220|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:40.6917|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:41.1960|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:41.7069|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:42.2104|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:45.6950|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:46.2049|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:46.7141|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:47.2209|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:01:50.6902|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:01:51.2063|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:01:51.7212|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:01:52.2368|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:02:20.5944|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 18:02:22.5058|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 18:02:22.5200|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 18:02:22.5578|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-22 18:02:30.0889|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 18:02:30.1129|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:02:30.1129|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:02:30.9375|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:02:30.9375|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:02:31.7140|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:02:31.7140|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:02:32.3014|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 00 00 1B 01 04 22 00 00 00 96 
+2019-07-22 18:02:32.9391|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:02:32.9391|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:02:32.9391|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:02:35.1281|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:02:35.6331|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:02:36.1440|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:02:37.5650|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:02:38.0802|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:02:38.5968|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:02:39.1118|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:02:42.5764|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:02:43.0810|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:02:43.5804|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:02:44.0959|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:02:47.5640|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:02:48.0803|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:02:48.5815|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:02:49.0840|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:02:52.5764|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:02:53.0885|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:02:53.5999|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:02:54.1008|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:02:57.5652|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:09.4967|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 18:03:11.3604|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 18:03:11.3804|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 18:03:11.3804|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-22 18:03:18.8707|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 18:03:18.8707|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:18.8707|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:19.7483|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:03:19.7610|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:03:20.5079|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:03:21.2632|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:03:21.2809|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 00 00 1B 01 04 22 00 00 00 96 
+2019-07-22 18:03:25.0806|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:03:25.0806|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:03:25.0806|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:27.8525|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:03:27.8525|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:30.0693|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:03:30.7521|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:03:30.7521|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:03:31.4098|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:32.3750|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:03:32.3750|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:03:33.1470|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:03:33.1470|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:03:34.1346|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:03:36.8167|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:41.1035|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:03:57.5528|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:57.5777|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:03:58.0684|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:03:58.0885|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:03:58.0885|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:03:58.5850|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:03:58.6024|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:03:58.6024|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:03:59.1305|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:03:59.1305|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:04:02.5531|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:04:03.0643|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:04:03.5795|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:04:04.0808|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:04:07.5667|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:04:08.0680|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:04:08.5814|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:04:09.0950|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:04:12.5666|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:04:13.0811|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:04:13.5826|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:04:14.0960|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:04:17.5672|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:04:18.0823|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:04:18.5962|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:04:19.0978|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:04:22.5653|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:04:23.0734|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:04:23.5826|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:04:24.0845|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:04:27.5650|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:04:28.0658|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-22 18:04:28.5811|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:04:29.0862|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-22 18:05:45.7157|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 18:05:47.5769|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 18:05:47.5980|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 18:05:47.5980|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-22 18:05:56.1690|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 18:05:56.2276|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:05:56.2276|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:05:57.3652|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:05:57.3652|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:05:58.1752|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:05:59.1998|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 00 00 1B 01 04 22 00 00 00 96 
+2019-07-22 18:06:00.0287|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:02.9554|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:03.6994|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:07.8900|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:16.0661|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:16.5805|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:16.5805|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:17.6140|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:18.1269|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:22.6185|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:23.1266|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:27.6273|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:28.1290|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:32.6268|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:33.1352|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:37.6141|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:38.1151|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:42.6185|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:43.1263|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:47.6137|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:48.1275|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:52.6135|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:53.1299|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:06:57.6271|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:06:58.1276|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:07:02.6281|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:07:03.1424|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:07:07.6268|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:07:08.1297|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:07:12.6269|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:07:13.1293|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:07:17.6292|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:07:18.1425|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:07:22.6150|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:07:23.1160|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:07:27.6130|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:07:28.1152|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:07:32.6216|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:07:33.1330|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:08:39.1981|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 18:08:41.1190|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 18:08:41.1273|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 18:08:41.1483|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-22 18:08:41.1678|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 18:08:41.1816|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:08:41.2686|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 00 00 1B 01 04 22 00 00 00 96 
+2019-07-22 18:08:41.4816|ERROR|TcpWebGateway.Services.HvacListener|System.NullReferenceException: Object reference not set to an instance of an object.
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 87
+   at TcpWebGateway.Services.HvacListener.StartClient(CancellationToken cancellationToken) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 66 
+2019-07-22 18:08:41.6901|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:10:21.9141|DEBUG|TcpWebGateway.Program|init main 
+2019-07-22 18:10:23.8789|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-22 18:10:23.9021|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-22 18:10:23.9178|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 
+2019-07-22 18:10:23.9402|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-22 18:10:23.9402|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:10:24.0495|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 00 00 1B 01 04 22 00 00 00 96 
+2019-07-22 18:10:24.4682|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:10:24.5843|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 02 00 1B 01 04 21 00 00 00 97 
+2019-07-22 18:10:28.9391|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:10:29.0492|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 00 00 1B 01 04 22 00 00 00 96 
+2019-07-22 18:10:29.4551|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:10:29.5664|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 02 00 1B 01 04 21 00 00 00 97 
+2019-07-22 18:10:33.9277|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-22 18:10:34.0339|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 00 00 1B 01 04 22 00 00 00 96 
+2019-07-22 18:10:34.4292|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-22 18:10:34.5386|INFO|TcpWebGateway.Services.HvacListener|Receive:01 50 01 01 01 02 00 1B 01 04 21 00 00 00 97 

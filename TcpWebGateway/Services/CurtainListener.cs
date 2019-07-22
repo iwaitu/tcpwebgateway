@@ -55,20 +55,28 @@ namespace TcpWebGateway.Services
                 _logger.LogError("Can not connect.");
                 return;
             }
-
-            while (!stoppingToken.IsCancellationRequested)
+            try
             {
-                var response = await ReceiveAsync(_client, 1);
-                if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
+                while (!stoppingToken.IsCancellationRequested)
                 {
-                    //_logger.LogInformation("Receive:" + response);
-                    await _curtainHelper.OnReceiveData(response);
+                    var response = await ReceiveAsync(_client, 1);
+                    if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
+                    {
+                        //_logger.LogInformation("Receive:" + response);
+                        await _curtainHelper.OnReceiveData(response);
+                    }
+                    await Task.Delay(50, stoppingToken);
                 }
-                await Task.Delay(50, stoppingToken);
             }
+            catch (Exception e)
+            {
+                _logger.LogError(e.ToString());
+                _client.Shutdown(SocketShutdown.Both);
+                _client.Close();
+            }
+            
 
-            _client.Shutdown(SocketShutdown.Both);
-            _client.Close();
+            
         }
 
         private async Task<string> ReceiveAsync(Socket client, int waitForFirstDelaySeconds = 3)

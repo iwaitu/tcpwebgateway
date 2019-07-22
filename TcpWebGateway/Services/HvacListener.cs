@@ -118,13 +118,17 @@ namespace TcpWebGateway.Services
             cmd.CopyTo(cmd1, 0);
             cmd1[cmd.Length] = (byte)cmdCRC;
             var str = BitConverter.ToString(cmd1, 0, cmd1.Length).Replace("-", " ");
+#if DEBUG
             _logger.LogInformation("SendCmd : " + str);
+#endif
             using(var s = SafeSocket.ConnectSocket(remoteEP))
             {
                 var ret = await SendAsync(s, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
 
                 var response = await ReceiveAsync(s);
+#if DEBUG
                 _logger.LogInformation("Receive : " + response);
+#endif
                 if (!string.IsNullOrWhiteSpace(response) && !string.IsNullOrEmpty(response))
                 {
                     await _helper.OnReceiveData(response);

@@ -185,11 +185,11 @@ namespace TcpWebGateway.Tools
                     {
                         if (obj.Switch == SwitchState.open)
                         {
-                            await _lightHelper.OpenWorkroomAC();
+                            await _lightHelper.OpenLivingroomAC();
                         }
                         else
                         {
-                            await _lightHelper.CloseWorkroomAC();
+                            await _lightHelper.CloseLivingroomAC();
                         }
                     }
                     else

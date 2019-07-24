@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using MQTTnet.Client;
 using TcpWebGateway.Services;
 using TcpWebGateway.Tools;
 
@@ -24,8 +15,6 @@ namespace TcpWebGateway.Controllers
     public class LightController : ControllerBase
     {
         private readonly ILogger _logger;
-
-        private IMqttClient _mqttClient;
         private readonly SwitchListener _listener;
         private readonly SensorListener _sensorlistener;
 

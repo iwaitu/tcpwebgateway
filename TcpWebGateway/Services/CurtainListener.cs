@@ -27,8 +27,6 @@ namespace TcpWebGateway.Services
         private IPEndPoint remoteEP;
         private IPAddress ipAddress;
 
-        private Socket _client;
-
         public CurtainListener(ILogger<CurtainListener> logger, IConfiguration configuration,CurtainHelper curtainHelper)
         {
             _config = configuration;

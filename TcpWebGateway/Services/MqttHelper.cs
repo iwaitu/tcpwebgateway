@@ -106,100 +106,26 @@ namespace TcpWebGateway.Services
                     
                 }
 
-                #region 海林地暖已经使用modbus 直接连接，不在此控制
-                /*
-                else if (e.ApplicationMessage.Topic == "Home/Hailin1/Set")
+                else if(e.ApplicationMessage.Topic == "Home/LightScene/Livingroom")
                 {
-
-                    float fVal = float.Parse(sVal);
-                    fVal = fVal * 10;
-
-                    Task.Run(async () => { await _tcpHelper.SetTemperature(1, (short)fVal); });
+                    int i = int.Parse(sVal);
+                    Task.Run(async () => { await _lightHelper.SceneLivingRoomSet((SceneState)i); });
                 }
-                else if (e.ApplicationMessage.Topic == "Home/Hailin2/Set")
+                else if (e.ApplicationMessage.Topic == "Home/LightScene/Bedroom")
                 {
-
-                    float fVal = float.Parse(sVal);
-                    fVal = fVal * 10;
-
-                    Task.Run(async () => { await _tcpHelper.SetTemperature(2, (short)fVal); });
+                    int i = int.Parse(sVal);
+                    Task.Run(async () => { await _lightHelper.SceneBedRoomSet((SceneState)i); });
                 }
-                else if (e.ApplicationMessage.Topic == "Home/Hailin3/Set")
+                else if (e.ApplicationMessage.Topic == "Home/LightScene/Guestroom")
                 {
-
-                    float fVal = float.Parse(sVal);
-                    fVal = fVal * 10;
-
-                    Task.Run(async () => { await _tcpHelper.SetTemperature(3, (short)fVal); });
+                    int i = int.Parse(sVal);
+                    Task.Run(async () => { await _lightHelper.SceneGuestRoomSet ((SceneState)i); });
                 }
-                else if (e.ApplicationMessage.Topic == "Home/Hailin1/GetCurrent")
+                else if (e.ApplicationMessage.Topic == "Home/LightScene/Workroom")
                 {
-                    float temp = 0;
-                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(1) / 10; }); ;
-                    var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin1/CurrentTemp")
-                   .WithPayload(temp.ToString())
-                   .WithAtLeastOnceQoS()
-                   .Build();
-                    Task.Run(async () => { await Publish(message); });
+                    int i = int.Parse(sVal);
+                    Task.Run(async () => { await _lightHelper.SceneWorkRoomSet((SceneState)i); });
                 }
-                else if (e.ApplicationMessage.Topic == "Home/Hailin2/GetCurrent")
-                {
-                    float temp = 0;
-                    Task.Run(async () => { temp  = await _tcpHelper.GetTemperature(2) / 10; }); ;
-                    var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin2/CurrentTemp")
-                   .WithPayload(temp.ToString())
-                   .WithAtLeastOnceQoS()
-                   .Build();
-                    Task.Run(async () => { await Publish(message); });
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Hailin3/GetCurrent")
-                {
-                    float temp = 0;
-                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(3) / 10; }); ;
-                    var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin3/CurrentTemp")
-                   .WithPayload(temp.ToString())
-                   .WithAtLeastOnceQoS()
-                   .Build();
-                    Task.Run(async () => { await Publish(message); });
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Hailin1/GetSetResult")
-                {
-                    float temp = 0;
-                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(1) / 10; }); ;
-                    var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin1/SetResult")
-                   .WithPayload(temp.ToString())
-                   .WithAtLeastOnceQoS()
-                   .Build();
-                    Task.Run(async () => { await Publish(message); });
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Hailin2/GetSetResult")
-                {
-                    float temp = 0;
-                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(2) / 10; }); ;
-                    var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin2/SetResult")
-                   .WithPayload(temp.ToString())
-                   .WithAtLeastOnceQoS()
-                   .Build();
-                    Task.Run(async () => { await Publish(message); });
-                }
-                else if (e.ApplicationMessage.Topic == "Home/Hailin3/GetSetResult")
-                {
-                    float temp = 0;
-                    Task.Run(async () => { temp = await _tcpHelper.GetTemperature(3) / 10; }); ;
-                    var message = new MqttApplicationMessageBuilder()
-                   .WithTopic("Home/Hailin3/SetResult")
-                   .WithPayload(temp.ToString())
-                   .WithAtLeastOnceQoS()
-                   .Build();
-                    Task.Run(async () => { await Publish(message); });
-                }
-                */
-                #endregion
             });
 
             _mqttClient.UseDisconnectedHandler(async e => {
@@ -243,6 +169,10 @@ namespace TcpWebGateway.Services
             Subscribe("Home/Hailin/GetState");
             Subscribe("Home/Hailin/Command");
             Subscribe("Home/Mitsubishi/Command");
+            Subscribe("Home/LightScene/Livingroom");
+            Subscribe("Home/LightScene/Workroom");
+            Subscribe("Home/LightScene/Bedroom");
+            Subscribe("Home/LightScene/Guestroom");
         }
 
         public async Task StartAsync()

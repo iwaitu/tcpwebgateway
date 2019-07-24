@@ -373,21 +373,21 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LR10_Brightness", "100");
             await LightSwitch("LR10_ColorTemperature", "50");
 
-            await LightSwitch("LRStripTvColor", "35,50,100");
+            await LightSwitch("LRStripTvColor", "35,80,100");
             await LightSwitch("LRStripTvColorTemperature", "50");
-            await LightSwitch("LRStrip1Color", "35,50,100");
+            await LightSwitch("LRStrip1Color", "35,80,100");
             await LightSwitch("LRStrip1ColorTemperature", "50");
-            await LightSwitch("LRStrip2Color", "35,50,100");
+            await LightSwitch("LRStrip2Color", "35,80,100");
             await LightSwitch("LRStrip2ColorTemperature", "50");
-            await LightSwitch("LRStrip3Color", "35,50,100");
+            await LightSwitch("LRStrip3Color", "35,80,100");
             await LightSwitch("LRStrip3ColorTemperature", "50");
-            await LightSwitch("LRStrip4Color", "35,50,100");
+            await LightSwitch("LRStrip4Color", "35,80,100");
             await LightSwitch("LRStrip4ColorTemperature", "50");
-            await LightSwitch("LRStrip5Color", "35,50,100");
+            await LightSwitch("LRStrip5Color", "35,80,100");
             await LightSwitch("LRStrip5ColorTemperature", "50");
-            await LightSwitch("LRStrip6Color", "35,50,100");
+            await LightSwitch("LRStrip6Color", "35,80,100");
             await LightSwitch("LRStrip6ColorTemperature", "50");
-            await LightSwitch("KitchenSripColor", "35,50,100");
+            await LightSwitch("KitchenSripColor", "35,80,100");
             await LightSwitch("KitchenSripColorTemperature", "50");
 
         }
@@ -412,6 +412,7 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LRStrip5ColorTemperature", "OFF");
             await LightSwitch("LRStrip6ColorTemperature", "OFF");
             await LightSwitch("KitchenSripColorTemperature", "OFF");
+            await LightSwitch("HueGoColor", "OFF");
         }
 
         public async Task OpenKitchen()
@@ -769,8 +770,225 @@ namespace TcpWebGateway.Tools
             await LightSwitch("Door2Brightness", "OFF");
         }
 
+        public async Task LightLivingRoomSet(int brightness = 100,int temperature = 50)
+        {
+            await LightSwitch("LR1_Brightness", brightness.ToString());
+            await LightSwitch("LR1_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR2_Brightness", brightness.ToString());
+            await LightSwitch("LR2_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR3_Brightness", brightness.ToString());
+            await LightSwitch("LR3_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR4_Brightness", brightness.ToString());
+            await LightSwitch("LR4_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR5_Brightness", brightness.ToString());
+            await LightSwitch("LR5_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR6_Brightness", brightness.ToString());
+            await LightSwitch("LR6_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR7_Brightness", brightness.ToString());
+            await LightSwitch("LR7_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR8_Brightness", brightness.ToString());
+            await LightSwitch("LR8_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR9_Brightness", brightness.ToString());
+            await LightSwitch("LR9_ColorTemperature", temperature.ToString());
+            await LightSwitch("LR10_Brightness", brightness.ToString());
+            await LightSwitch("LR10_ColorTemperature", temperature.ToString());
 
-        
+        }
+
+        public async Task StripLivingRoomSet(int color=35,int saturation=80,int brightness=100,int temperature =50)
+        {
+            await LightSwitch("HueGoColor", string.Format("{0},{1},{2}", color, saturation, brightness));//HueGoColorTemperature
+            await LightSwitch("HueGoColorTemperature", temperature.ToString());
+            await LightSwitch("LRStripTvColor", string.Format("{0},{1},{2}",color,saturation,brightness));
+            await LightSwitch("LRStripTvColorTemperature", temperature.ToString());
+            await LightSwitch("LRStrip1Color", string.Format("{0},{1},{2}",color,saturation,brightness));
+            await LightSwitch("LRStrip1ColorTemperature", temperature.ToString());
+            await LightSwitch("LRStrip2Color", string.Format("{0},{1},{2}",color,saturation,brightness));
+            await LightSwitch("LRStrip2ColorTemperature", temperature.ToString());
+            await LightSwitch("LRStrip3Color", string.Format("{0},{1},{2}",color,saturation,brightness));
+            await LightSwitch("LRStrip3ColorTemperature", temperature.ToString());
+            await LightSwitch("LRStrip4Color", string.Format("{0},{1},{2}",color,saturation,brightness));
+            await LightSwitch("LRStrip4ColorTemperature", temperature.ToString());
+            await LightSwitch("LRStrip5Color", string.Format("{0},{1},{2}",color,saturation,brightness));
+            await LightSwitch("LRStrip5ColorTemperature", temperature.ToString());
+            await LightSwitch("LRStrip6Color", string.Format("{0},{1},{2}",color,saturation,brightness));
+            await LightSwitch("LRStrip6ColorTemperature", temperature.ToString());
+            await LightSwitch("KitchenSripColor", string.Format("{0},{1},{2}",color,saturation,brightness));
+            await LightSwitch("KitchenSripColorTemperature", temperature.ToString());
+        }
+
+        public async Task LightBedRoomSet(int brightness = 100, int temperature = 50)
+        {
+            await LightSwitch("LR1_Brightness", brightness.ToString());
+            await LightSwitch("LR1_ColorTemperature", temperature.ToString());
+        }
+
+        public async Task StripBedRoomSet(int color = 35, int saturation = 80, int brightness = 100, int temperature = 50)
+        {
+
+        }
+
+        /// <summary>
+        /// 客厅情景模式
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public async Task SceneLivingRoomSet(SceneState state)
+        {
+            switch (state)
+            {
+                case SceneState.Brightness:
+                    await OpenAll();
+                    break;
+                case SceneState.Relax:
+                    await LightLivingRoomSet(60,60);
+                    await StripLivingRoomSet(35, 60, 60);
+                    break;
+                case SceneState.TV:
+                    await LightLivingRoomSet(0, 50);
+                    await StripLivingRoomSet(35, 60, 60);
+                    break;
+                case SceneState.Sunset:
+                    await LightLivingRoomSet(0, 50);
+                    await StripLivingRoomSet(10, 63, 98);
+                    break;
+                case SceneState.Close:
+                    await CloseAll();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 主卧衣帽间情景模式
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public async Task SceneBedRoomSet(SceneState state)
+        {
+            switch (state)
+            {
+                case SceneState.Brightness:
+                    await LightBedRoomSet(100,50);
+                    await StripBedRoomSet();
+                    break;
+                case SceneState.Relax:
+                    await LightBedRoomSet(100, 50);
+                    await StripBedRoomSet();
+                    break;
+                case SceneState.TV:
+                    await LightBedRoomSet(100, 50);
+                    await StripBedRoomSet();
+                    break;
+                case SceneState.Sunset:
+                    await LightBedRoomSet(100, 50);
+                    await StripBedRoomSet();
+                    break;
+                case SceneState.Close:
+                    await LightBedRoomSet(0, 50);
+                    await StripBedRoomSet(35,80,0);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 客房情景模式
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public async Task SceneGuestRoomSet(SceneState state)
+        {
+            switch (state)
+            {
+                case SceneState.Brightness:
+                    await OpenAll();
+                    break;
+                case SceneState.Relax:
+                    await LightLivingRoomSet(60, 60);
+                    await StripLivingRoomSet(35, 60, 60);
+                    break;
+                case SceneState.TV:
+                    await LightLivingRoomSet(0, 50);
+                    await StripLivingRoomSet(35, 60, 60);
+                    break;
+                case SceneState.Sunset:
+                    await LightLivingRoomSet(0, 50);
+                    await StripLivingRoomSet(10, 63, 98);
+                    break;
+                case SceneState.Close:
+                    await CloseAll();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 餐厨区情景模式
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public async Task SceneDinnerRoomSet(SceneState state)
+        {
+            switch (state)
+            {
+                case SceneState.Brightness:
+                    await OpenAll();
+                    break;
+                case SceneState.Relax:
+                    await LightLivingRoomSet(60, 60);
+                    await StripLivingRoomSet(35, 60, 60);
+                    break;
+                case SceneState.TV:
+                    await LightLivingRoomSet(0, 50);
+                    await StripLivingRoomSet(35, 60, 60);
+                    break;
+                case SceneState.Sunset:
+                    await LightLivingRoomSet(0, 50);
+                    await StripLivingRoomSet(10, 63, 98);
+                    break;
+                case SceneState.Close:
+                    await CloseAll();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 书房情景模式
+        /// </summary>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public async Task SceneWorkRoomSet(SceneState state)
+        {
+            switch (state)
+            {
+                case SceneState.Brightness:
+                    await OpenAll();
+                    break;
+                case SceneState.Relax:
+                    await LightLivingRoomSet(60, 60);
+                    await StripLivingRoomSet(35, 60, 60);
+                    break;
+                case SceneState.TV:
+                    await LightLivingRoomSet(0, 50);
+                    await StripLivingRoomSet(35, 60, 60);
+                    break;
+                case SceneState.Sunset:
+                    await LightLivingRoomSet(0, 50);
+                    await StripLivingRoomSet(10, 63, 98);
+                    break;
+                case SceneState.Close:
+                    await CloseAll();
+                    break;
+                default:
+                    break;
+            }
+        }
 
         #endregion
 
@@ -799,5 +1017,14 @@ namespace TcpWebGateway.Tools
         LivingRoom =3,
         Both = 1,
         None = 0
+    }
+
+    public enum SceneState
+    {
+        Brightness = 1,
+        Relax = 2,
+        TV = 3,
+        Sunset = 4,
+        Close = 0
     }
 }

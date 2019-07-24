@@ -19,8 +19,6 @@ namespace TcpWebGateway.Controllers
         private readonly IMemoryCache _cache;
         private readonly CurtainHelper _curtainHelper;
 
-        private IMqttClient _mqttClient;
-
         public CurtainController(ILogger<CurtainController> logger,IMemoryCache cache, CurtainHelper curtainHelper)
         {
             _logger = logger;

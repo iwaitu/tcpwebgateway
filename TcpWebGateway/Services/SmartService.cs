@@ -35,6 +35,7 @@ namespace TcpWebGateway.Services
         private void DoWork(object state)
         {
             Task.Run(async () => { await _hvacHelper.SyncAllState(); });
+            Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
             if(_lightHelper.CurrentStateMode == StateMode.Home)
             {
 

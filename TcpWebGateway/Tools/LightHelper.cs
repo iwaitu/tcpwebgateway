@@ -285,7 +285,7 @@ namespace TcpWebGateway.Tools
                 }
                 
             }
-            else if(Command.IndexOf("0F 20 00 34 00 01 00 1D 01 84") == 0)
+            else if(Command.IndexOf("0F 20 00 34 00 01 00") == 0)
             {
                 var data = StringToByteArray(Command);
                 if (_mqttHelper != null)

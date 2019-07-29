@@ -127,7 +127,7 @@ namespace TcpWebGateway.Services
             {
                 var size = Math.Min(bufferSize, client.Available);
                 await Task.Run(() => client.Receive(buffer)).ConfigureAwait(false);
-                response.Append(BitConverter.ToString(buffer, 0, size - 1)).Replace("-", " ");
+                response.Append(BitConverter.ToString(buffer, 0, size)).Replace("-", " ");
 
             } while (client.Available > 0);
 

@@ -50,6 +50,7 @@ namespace TcpWebGateway.Services
                 SocketType.Stream, ProtocolType.Tcp);
             _logger.Info("Connecting to {0}:{1}", ipAddress.ToString(), remoteEP.Port);
             var isConnect = await ConnectAsync(client, remoteEP);
+            int i = 0;
             if (!isConnect)
             {
                 _logger.Error("Can not connect.");
@@ -64,6 +65,13 @@ namespace TcpWebGateway.Services
                     {
                         _logger.Info("Receive:" + response);
                         await _helper.OnReceiveCommand(response);
+                    }
+                    //每5秒发送一次心跳指令
+                    i=i+1;
+                    if(i%100 == 0)
+                    {
+                        client.Send(new byte[] { 0x01 });
+                        i = 0;
                     }
                     await Task.Delay(50, cancellationToken);
                 }

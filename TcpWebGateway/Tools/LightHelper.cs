@@ -54,6 +54,7 @@ namespace TcpWebGateway.Tools
 
         public async Task OnReceiveCommand(string Command)
         {
+            if (string.IsNullOrEmpty(Command)) return;
             //面板OB
             if (Command.IndexOf("0B 20 10 11 00 01 00 FF") >= 0) //面板OB松开回家模式按键
             {

@@ -169,7 +169,7 @@ namespace TcpWebGateway.Services
             {
                 var ret = await SendAsync(socket, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
                 var response = await ReceiveAsync(socket);
-                _logger.Info("Receive : " + response);
+                _logger.Info("CMD Receive : " + response);
                 if(_helper != null)
                 {
                     await _helper.OnReceiveCommand(response);

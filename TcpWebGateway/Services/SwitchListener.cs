@@ -156,34 +156,49 @@ namespace TcpWebGateway.Services
                              .ToArray();
         }
 
-        public async Task SendCommand(string data)
+        public async Task SendCommand(string data,bool log = true)
         {
-            var cmd = StringToByteArray(data.Replace(" ",""));
-            var cmdCRC = CRCHelper.get_CRC16_C(cmd);
-            var cmd1 = new byte[cmd.Length + 2];
-            cmd.CopyTo(cmd1, 0);
-            cmdCRC.CopyTo(cmd1, cmd.Length);
-            var str = CRCHelper.byteToHexStr(cmd1, cmd1.Length);
-            _logger.Info("SendCmd : " + str);
-            using(var socket = SafeSocket.ConnectSocket(remoteEP))
+            try
             {
-                var ret = await SendAsync(socket, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
-                var response = await ReceiveAsync(socket);
-                _logger.Info("CMD Receive : " + response);
-                if(_helper != null)
+                var cmd = StringToByteArray(data.Replace(" ", ""));
+                var cmdCRC = CRCHelper.get_CRC16_C(cmd);
+                var cmd1 = new byte[cmd.Length + 2];
+                cmd.CopyTo(cmd1, 0);
+                cmdCRC.CopyTo(cmd1, cmd.Length);
+                var str = CRCHelper.byteToHexStr(cmd1, cmd1.Length);
+                if (log)
                 {
-                    await _helper.OnReceiveCommand(response);
+                    _logger.Info("SendCmd : " + str);
+                }
+                using (var socket = SafeSocket.ConnectSocket(remoteEP))
+                {
+                    var ret = await SendAsync(socket, cmd1, 0, cmd1.Length, 0).ConfigureAwait(false);
+                    var response = await ReceiveAsync(socket);
+                    if (log)
+                    {
+                        _logger.Info("Cmd Receive : " + response);
+                    }
+                    if (_helper != null)
+                    {
+                        await _helper.OnReceiveCommand(response);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                _logger.Info("err data:" + data);
+                _logger.Error(ex.ToString());
+            }
+            
             
         }
 
-        public async Task SendCommand(List<string> data)
+        public async Task SendCommand(List<string> data,bool debug = true)
         {
             foreach (var singlecmd in data)
             {
-                await SendCommand(singlecmd);
-                await Task.Delay(500);
+                await SendCommand(singlecmd,debug);
+                await Task.Delay(200);
             }
         }
 

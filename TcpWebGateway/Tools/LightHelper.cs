@@ -338,7 +338,7 @@ namespace TcpWebGateway.Tools
         {
             var cmds = new List<string>();
             cmds.Add("0F 20 00 34 00 01");
-            await _listener.SendCommand(cmds);
+            await _listener.SendCommand(cmds,false);
         }
 
         public async Task ReadMode()
@@ -659,7 +659,7 @@ namespace TcpWebGateway.Tools
         public async Task SetBackgroudLight(string panelid, string buttonid, int value)
         {
             var cmds = new List<string>();
-            cmds.Add(string.Format("{0} 06 10 {1} 00 {2}", panelid, buttonid, value));
+            cmds.Add(string.Format("{0} 06 10 {1} 00 {2}", panelid, buttonid, value.ToString("X2")));
             await _listener.SendCommand(cmds);
         }
 
@@ -796,26 +796,26 @@ namespace TcpWebGateway.Tools
 
         }
 
-        public async Task StripLivingRoomSet(int color=35,int saturation=80,int brightness=100,int temperature =50)
+        public async Task StripLivingRoomSet(int color=35,int saturation=80,int brightness=100)
         {
             await LightSwitch("HueGoColor", string.Format("{0},{1},{2}", color, saturation, brightness));//HueGoColorTemperature
-            await LightSwitch("HueGoColorTemperature", temperature.ToString());
+            //await LightSwitch("HueGoColorTemperature", temperature);
             await LightSwitch("LRStripTvColor", string.Format("{0},{1},{2}",color,saturation,brightness));
-            await LightSwitch("LRStripTvColorTemperature", temperature.ToString());
+            //await LightSwitch("LRStripTvColorTemperature", temperature);
             await LightSwitch("LRStrip1Color", string.Format("{0},{1},{2}",color,saturation,brightness));
-            await LightSwitch("LRStrip1ColorTemperature", temperature.ToString());
+            //await LightSwitch("LRStrip1ColorTemperature", temperature);
             await LightSwitch("LRStrip2Color", string.Format("{0},{1},{2}",color,saturation,brightness));
-            await LightSwitch("LRStrip2ColorTemperature", temperature.ToString());
+            //await LightSwitch("LRStrip2ColorTemperature", temperature);
             await LightSwitch("LRStrip3Color", string.Format("{0},{1},{2}",color,saturation,brightness));
-            await LightSwitch("LRStrip3ColorTemperature", temperature.ToString());
+            //await LightSwitch("LRStrip3ColorTemperature", temperature);
             await LightSwitch("LRStrip4Color", string.Format("{0},{1},{2}",color,saturation,brightness));
-            await LightSwitch("LRStrip4ColorTemperature", temperature.ToString());
+            //await LightSwitch("LRStrip4ColorTemperature", temperature);
             await LightSwitch("LRStrip5Color", string.Format("{0},{1},{2}",color,saturation,brightness));
-            await LightSwitch("LRStrip5ColorTemperature", temperature.ToString());
+            //await LightSwitch("LRStrip5ColorTemperature", temperature);
             await LightSwitch("LRStrip6Color", string.Format("{0},{1},{2}",color,saturation,brightness));
-            await LightSwitch("LRStrip6ColorTemperature", temperature.ToString());
+            //await LightSwitch("LRStrip6ColorTemperature", temperature);
             await LightSwitch("KitchenSripColor", string.Format("{0},{1},{2}",color,saturation,brightness));
-            await LightSwitch("KitchenSripColorTemperature", temperature.ToString());
+            //await LightSwitch("KitchenSripColorTemperature", temperature);
         }
 
         public async Task LightBedRoomSet(int brightness = 100, int temperature = 50)
@@ -826,7 +826,14 @@ namespace TcpWebGateway.Tools
 
         public async Task StripBedRoomSet(int color = 35, int saturation = 80, int brightness = 100, int temperature = 50)
         {
+            await LightSwitch("CloakRoomStripColor", string.Format("{0},{1},{2}", color, saturation, brightness));
+            await LightSwitch("BedHeadStripColor", string.Format("{0},{1},{2}", color, saturation, brightness));
+            await LightSwitch("BedStripColor", string.Format("{0},{1},{2}", color, saturation, brightness));
+        }
 
+        public async Task StripGuestRoomSet(int color = 35, int saturation = 80, int brightness = 100, int temperature = 50)
+        {
+            await LightSwitch("GuestRoomStripColor", string.Format("{0},{1},{2}", color, saturation, brightness));
         }
 
         /// <summary>
@@ -847,11 +854,11 @@ namespace TcpWebGateway.Tools
                     break;
                 case SceneState.TV:
                     await LightLivingRoomSet(0, 50);
-                    await StripLivingRoomSet(35, 60, 60);
+                    await StripLivingRoomSet(270, 97, 25);
                     break;
                 case SceneState.Sunset:
                     await LightLivingRoomSet(0, 50);
-                    await StripLivingRoomSet(10, 63, 98);
+                    await StripLivingRoomSet(10, 63, 60);
                     break;
                 case SceneState.Close:
                     await CloseAll();
@@ -871,24 +878,100 @@ namespace TcpWebGateway.Tools
             switch (state)
             {
                 case SceneState.Brightness:
-                    await LightBedRoomSet(100,50);
-                    await StripBedRoomSet();
+                    await LightSwitch("BedStripColor", "35,80,100");
+                    await LightSwitch("BedHeadStripColor", "35,80,100");
+                    await LightSwitch("CloakRoomStripColor", "35,80,100");
+                    await LightSwitch("BedroomDoorBrightness", "100");
+                    await LightSwitch("BedroomWnd1Brightness", "100");
+                    await LightSwitch("BedroomWnd2Brightness", "100");
+                    await LightSwitch("BedRoomMainBrightness", "100");
+                    await LightSwitch("BedRoomHead1Brightness", "100");
+                    await LightSwitch("BedRoomHead2Brightness", "100");
+                    await LightSwitch("BedRoomTail1Brightness", "100");
+                    await LightSwitch("BedRoomTail2Brightness", "100");
+                    await LightSwitch("BedRoomTail3Brightness", "100");
+                    await LightSwitch("CloakRoomWndBrightness", "100");
+                    await LightSwitch("CloakRoom1Brightness", "100");
+                    await LightSwitch("CloakRoom2Brightness", "100");
+                    await LightSwitch("CloakRoom3Brightness", "100");
+                    await LightSwitch("CloakRoom4Brightness", "100");
+
                     break;
                 case SceneState.Relax:
-                    await LightBedRoomSet(100, 50);
-                    await StripBedRoomSet();
+                    await LightSwitch("BedStripColor", "35,80,60");
+                    await LightSwitch("BedHeadStripColor", "35,80,60");
+                    await LightSwitch("CloakRoomStripColor", "35,80,60");
+                    await LightSwitch("BedroomDoorBrightness", "60");
+                    await LightSwitch("BedroomWnd1Brightness", "60");
+                    await LightSwitch("BedroomWnd2Brightness", "60");
+                    await LightSwitch("BedRoomMainBrightness", "60");
+                    await LightSwitch("BedRoomHead1Brightness", "60");
+                    await LightSwitch("BedRoomHead2Brightness", "60");
+                    await LightSwitch("BedRoomTail1Brightness", "60");
+                    await LightSwitch("BedRoomTail2Brightness", "60");
+                    await LightSwitch("BedRoomTail3Brightness", "60");
+                    await LightSwitch("CloakRoomWndBrightness", "60");
+                    await LightSwitch("CloakRoom1Brightness", "60");
+                    await LightSwitch("CloakRoom2Brightness", "60");
+                    await LightSwitch("CloakRoom3Brightness", "60");
+                    await LightSwitch("CloakRoom4Brightness", "60");
                     break;
                 case SceneState.TV:
-                    await LightBedRoomSet(100, 50);
-                    await StripBedRoomSet();
+                    await LightSwitch("BedStripColor", "270,97,25");
+                    await LightSwitch("BedHeadStripColor", "260,80,25");
+                    await LightSwitch("CloakRoomStripColor", "35,80,0");
+                    await LightSwitch("BedroomDoorBrightness", "0");
+                    await LightSwitch("BedroomWnd1Brightness", "0");
+                    await LightSwitch("BedroomWnd2Brightness", "0");
+                    await LightSwitch("BedRoomMainBrightness", "30");
+                    await LightSwitch("BedRoomHead1Brightness", "0");
+                    await LightSwitch("BedRoomHead2Brightness", "0");
+                    await LightSwitch("BedRoomTail1Brightness", "0");
+                    await LightSwitch("BedRoomTail2Brightness", "0");
+                    await LightSwitch("BedRoomTail3Brightness", "0");
+                    await LightSwitch("CloakRoomWndBrightness", "0");
+                    await LightSwitch("CloakRoom1Brightness", "0");
+                    await LightSwitch("CloakRoom2Brightness", "0");
+                    await LightSwitch("CloakRoom3Brightness", "0");
+                    await LightSwitch("CloakRoom4Brightness", "0");
                     break;
                 case SceneState.Sunset:
-                    await LightBedRoomSet(100, 50);
-                    await StripBedRoomSet();
+                    await LightSwitch("BedStripColor", "10,63,60");
+                    await LightSwitch("BedHeadStripColor", "10,63,60");
+                    await LightSwitch("CloakRoomStripColor", "10,63,60");
+                    await LightSwitch("BedroomDoorBrightness", "40");
+                    await LightSwitch("BedroomWnd1Brightness", "40");
+                    await LightSwitch("BedroomWnd2Brightness", "40");
+                    await LightSwitch("BedRoomMainBrightness", "40");
+                    await LightSwitch("BedRoomHead1Brightness", "40");
+                    await LightSwitch("BedRoomHead2Brightness", "40");
+                    await LightSwitch("BedRoomTail1Brightness", "40");
+                    await LightSwitch("BedRoomTail2Brightness", "40");
+                    await LightSwitch("BedRoomTail3Brightness", "40");
+                    await LightSwitch("CloakRoomWndBrightness", "40");
+                    await LightSwitch("CloakRoom1Brightness", "40");
+                    await LightSwitch("CloakRoom2Brightness", "40");
+                    await LightSwitch("CloakRoom3Brightness", "40");
+                    await LightSwitch("CloakRoom4Brightness", "40");
                     break;
                 case SceneState.Close:
-                    await LightBedRoomSet(0, 50);
-                    await StripBedRoomSet(35,80,0);
+                    await LightSwitch("BedStripColor", "35,80,0");
+                    await LightSwitch("BedHeadStripColor", "35,80,0");
+                    await LightSwitch("CloakRoomStripColor", "35,80,0");
+                    await LightSwitch("BedroomDoorBrightness", "0");
+                    await LightSwitch("BedroomWnd1Brightness", "0");
+                    await LightSwitch("BedroomWnd2Brightness", "0");
+                    await LightSwitch("BedRoomMainBrightness", "0");
+                    await LightSwitch("BedRoomHead1Brightness", "0");
+                    await LightSwitch("BedRoomHead2Brightness", "0");
+                    await LightSwitch("BedRoomTail1Brightness", "0");
+                    await LightSwitch("BedRoomTail2Brightness", "0");
+                    await LightSwitch("BedRoomTail3Brightness", "0");
+                    await LightSwitch("CloakRoomWndBrightness", "0");
+                    await LightSwitch("CloakRoom1Brightness", "0");
+                    await LightSwitch("CloakRoom2Brightness", "0");
+                    await LightSwitch("CloakRoom3Brightness", "0");
+                    await LightSwitch("CloakRoom4Brightness", "0");
                     break;
                 default:
                     break;
@@ -905,22 +988,50 @@ namespace TcpWebGateway.Tools
             switch (state)
             {
                 case SceneState.Brightness:
-                    await OpenAll();
+                    await LightSwitch("GuestRoomStripColor", "35,80,100");
+                    await LightSwitch("GuestRoom1Brightness", "100");
+                    await LightSwitch("GuestRoom2Brightness", "100");
+                    await LightSwitch("GuestRoom3Brightness", "100");
+                    await LightSwitch("GuestRoom4Brightness", "100");
+                    await LightSwitch("GuestRoom5Brightness", "100");
+                    await LightSwitch("GuestRoomMainBrightness", "100");
+
                     break;
                 case SceneState.Relax:
-                    await LightLivingRoomSet(60, 60);
-                    await StripLivingRoomSet(35, 60, 60);
+                    await LightSwitch("GuestRoomStripColor", "35,80,60");
+                    await LightSwitch("GuestRoom1Brightness", "60");
+                    await LightSwitch("GuestRoom2Brightness", "60");
+                    await LightSwitch("GuestRoom3Brightness", "60");
+                    await LightSwitch("GuestRoom4Brightness", "60");
+                    await LightSwitch("GuestRoom5Brightness", "60");
+                    await LightSwitch("GuestRoomMainBrightness", "60");
                     break;
                 case SceneState.TV:
-                    await LightLivingRoomSet(0, 50);
-                    await StripLivingRoomSet(35, 60, 60);
+                    await LightSwitch("GuestRoomStripColor", "270,97,25");
+                    await LightSwitch("GuestRoom1Brightness", "0");
+                    await LightSwitch("GuestRoom2Brightness", "0");
+                    await LightSwitch("GuestRoom3Brightness", "0");
+                    await LightSwitch("GuestRoom4Brightness", "0");
+                    await LightSwitch("GuestRoom5Brightness", "0");
+                    await LightSwitch("GuestRoomMainBrightness", "0");
                     break;
                 case SceneState.Sunset:
-                    await LightLivingRoomSet(0, 50);
-                    await StripLivingRoomSet(10, 63, 98);
+                    await LightSwitch("GuestRoomStripColor", "10,63,60");
+                    await LightSwitch("GuestRoom1Brightness", "30");
+                    await LightSwitch("GuestRoom2Brightness", "30");
+                    await LightSwitch("GuestRoom3Brightness", "30");
+                    await LightSwitch("GuestRoom4Brightness", "30");
+                    await LightSwitch("GuestRoom5Brightness", "30");
+                    await LightSwitch("GuestRoomMainBrightness", "30");
                     break;
                 case SceneState.Close:
-                    await CloseAll();
+                    await LightSwitch("GuestRoomStripColor", "35,80,0");
+                    await LightSwitch("GuestRoom1Brightness", "0");
+                    await LightSwitch("GuestRoom2Brightness", "0");
+                    await LightSwitch("GuestRoom3Brightness", "0");
+                    await LightSwitch("GuestRoom4Brightness", "0");
+                    await LightSwitch("GuestRoom5Brightness", "0");
+                    await LightSwitch("GuestRoomMainBrightness", "0");
                     break;
                 default:
                     break;
@@ -937,22 +1048,28 @@ namespace TcpWebGateway.Tools
             switch (state)
             {
                 case SceneState.Brightness:
-                    await OpenAll();
+                    await LightSwitch("Table1Brightness", "100");
+                    await LightSwitch("Table2Brightness", "100");
+                    await LightSwitch("KR1Brightness", "100");
+                    await LightSwitch("KR2Brightness", "100");
+                    await LightSwitch("KR3Brightness", "100");
+                    await LightSwitch("KR4Brightness", "100");
                     break;
                 case SceneState.Relax:
-                    await LightLivingRoomSet(60, 60);
-                    await StripLivingRoomSet(35, 60, 60);
-                    break;
-                case SceneState.TV:
-                    await LightLivingRoomSet(0, 50);
-                    await StripLivingRoomSet(35, 60, 60);
-                    break;
-                case SceneState.Sunset:
-                    await LightLivingRoomSet(0, 50);
-                    await StripLivingRoomSet(10, 63, 98);
+                    await LightSwitch("Table1Brightness", "60");
+                    await LightSwitch("Table2Brightness", "60");
+                    await LightSwitch("KR1Brightness", "60");
+                    await LightSwitch("KR2Brightness", "60");
+                    await LightSwitch("KR3Brightness", "60");
+                    await LightSwitch("KR4Brightness", "60");
                     break;
                 case SceneState.Close:
-                    await CloseAll();
+                    await LightSwitch("Table1Brightness", "0");
+                    await LightSwitch("Table2Brightness", "0");
+                    await LightSwitch("KR1Brightness", "0");
+                    await LightSwitch("KR2Brightness", "0");
+                    await LightSwitch("KR3Brightness", "0");
+                    await LightSwitch("KR4Brightness", "0");
                     break;
                 default:
                     break;
@@ -969,22 +1086,16 @@ namespace TcpWebGateway.Tools
             switch (state)
             {
                 case SceneState.Brightness:
-                    await OpenAll();
+                    await LightSwitch("WR1Brightness", "100");
+                    await LightSwitch("WR2Brightness", "100");
                     break;
                 case SceneState.Relax:
-                    await LightLivingRoomSet(60, 60);
-                    await StripLivingRoomSet(35, 60, 60);
-                    break;
-                case SceneState.TV:
-                    await LightLivingRoomSet(0, 50);
-                    await StripLivingRoomSet(35, 60, 60);
-                    break;
-                case SceneState.Sunset:
-                    await LightLivingRoomSet(0, 50);
-                    await StripLivingRoomSet(10, 63, 98);
+                    await LightSwitch("WR1Brightness", "60");
+                    await LightSwitch("WR2Brightness", "60");
                     break;
                 case SceneState.Close:
-                    await CloseAll();
+                    await LightSwitch("WR1Brightness", "0");
+                    await LightSwitch("WR2Brightness", "0");
                     break;
                 default:
                     break;

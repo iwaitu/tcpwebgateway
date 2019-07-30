@@ -1,0 +1,904 @@
+2019-07-31 02:40:22.5918|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 02:40:25.0750|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 02:40:25.2722|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 02:40:25.2841|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 02:40:25.2841|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 02:40:25.3090|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 02:40:25.3090|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:40:25.4199|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:40:26.0413|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:40:26.1534|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:40:26.6683|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:40:26.7784|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:40:27.2923|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:40:27.4054|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:40:45.3057|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:40:45.4157|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:40:45.9186|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:40:46.0285|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:40:46.5403|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:40:46.6417|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:41:05.2959|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:41:05.4040|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:41:05.9315|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:41:06.0452|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:41:06.5563|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:41:06.6689|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:41:25.2955|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:41:25.4027|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:41:25.9248|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:41:26.0262|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:41:26.5419|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:41:26.6522|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:41:45.3066|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:41:45.4169|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:41:45.9420|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:41:46.0609|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:41:46.5718|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:41:46.6820|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:42:12.5421|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:42:12.6548|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:42:16.1088|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:42:16.2169|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:42:19.2011|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:42:19.3245|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:42:35.8994|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:42:36.0308|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:42:38.1403|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:42:38.2640|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:42:42.3721|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:42:42.4834|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:43:46.2684|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 02:43:48.2423|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 02:43:48.4882|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 02:43:48.5031|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 02:43:48.5132|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 02:43:59.1879|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 02:43:59.1988|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:43:59.3113|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:44:01.7675|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:44:01.8697|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:44:06.0856|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:44:06.1962|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:44:08.5666|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:44:11.7629|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:44:11.8684|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:44:11.9819|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:44:12.4971|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:44:12.6044|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:44:13.1180|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:44:13.2321|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:44:28.5266|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:44:28.6338|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:44:29.1526|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:44:29.2665|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:44:29.7745|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:44:29.8840|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:44:48.5272|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:44:48.6339|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:44:49.1830|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:44:49.2922|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:44:49.8023|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:44:49.9174|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:45:08.5251|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:45:08.6359|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:45:09.1506|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:45:09.2806|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:45:09.7941|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:45:09.8999|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:45:28.5292|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:45:28.6362|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:45:29.1519|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:45:29.2644|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:45:29.7742|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:45:29.8892|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:45:58.9985|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:45:59.1182|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:46:03.2919|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:46:03.4012|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:46:14.7817|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:46:14.7817|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:46:14.8870|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:46:15.0034|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:46:20.0660|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:46:20.1687|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:46:27.8959|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:46:27.9987|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:47:06.9185|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 02:47:08.9385|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 02:47:09.1321|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 02:47:09.1444|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 02:47:09.1550|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 02:47:09.1724|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 02:47:09.1724|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:47:09.2925|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:47:09.5280|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:47:09.6352|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:47:09.7491|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:47:09.8552|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:47:09.9690|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:47:10.0771|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:47:29.1607|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:47:29.2626|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:47:29.4042|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:47:29.5107|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:47:29.6201|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:47:29.7333|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:47:49.1584|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:47:49.2595|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:47:49.3878|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:47:49.4979|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:47:49.6049|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:47:49.7159|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:49:06.4584|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 02:49:08.3490|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 02:49:08.5487|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 02:49:08.5629|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 02:49:08.5731|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 02:49:08.5907|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 02:49:08.5907|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:49:08.7131|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:49:08.9184|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:49:09.0298|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:49:09.1426|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:49:09.2498|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:49:09.3657|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:49:09.4798|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:49:28.5741|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:49:28.6824|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:49:28.7947|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:49:28.9018|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:49:29.0091|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:49:29.1222|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:49:29.3349|ERROR|TcpWebGateway.Services.HvacListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 161
+   at TcpWebGateway.Services.SwitchListener.SendCommand(List`1 data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 191
+   at TcpWebGateway.Tools.LightHelper.SetBackgroudLight(String panelid, String buttonid, Int32 value) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\LightHelper.cs:line 663
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 90
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 02:49:29.4464|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:49:29.5574|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:49:29.7125|ERROR|TcpWebGateway.Services.HvacListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 161
+   at TcpWebGateway.Services.SwitchListener.SendCommand(List`1 data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 191
+   at TcpWebGateway.Tools.LightHelper.SetBackgroudLight(String panelid, String buttonid, Int32 value) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\LightHelper.cs:line 663
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 105
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 02:53:31.6313|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 02:53:33.6117|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 02:53:33.7928|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 02:53:33.8063|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 02:53:33.8063|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 02:53:33.8263|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 02:53:33.8263|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:53:33.8387|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:53:33.8387|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:53:33.8387|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:53:33.9533|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:53:34.0609|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:53:34.0609|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:53:34.1668|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:53:53.8326|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:53:53.8326|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:53:53.8326|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:53:53.8434|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:53:53.9348|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:53:54.0624|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:53:54.0624|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:53:54.1864|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:53:54.3903|ERROR|TcpWebGateway.Services.HvacListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 161
+   at TcpWebGateway.Services.SwitchListener.SendCommand(List`1 data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 191
+   at TcpWebGateway.Tools.LightHelper.SetBackgroudLight(String panelid, String buttonid, Int32 value) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\LightHelper.cs:line 663
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 105
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 02:53:54.3903|ERROR|TcpWebGateway.Services.HvacListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 161
+   at TcpWebGateway.Services.SwitchListener.SendCommand(List`1 data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 191
+   at TcpWebGateway.Tools.LightHelper.SetBackgroudLight(String panelid, String buttonid, Int32 value) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\LightHelper.cs:line 663
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 90
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 02:58:01.5500|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 02:58:03.4867|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 02:58:03.6895|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 02:58:03.6984|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 02:58:03.6984|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 02:58:03.7395|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 02:58:03.7491|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:58:03.7491|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:58:03.7671|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:58:03.7671|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:58:03.8701|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:58:03.8701|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:58:03.9717|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:58:03.9971|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:58:23.7334|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:58:23.7334|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:58:23.7334|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:58:23.7436|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:58:23.8403|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:58:23.9413|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:58:23.9673|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:58:24.0574|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:58:24.0987|ERROR|TcpWebGateway.Services.SwitchListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 163 
+2019-07-31 02:58:24.0987|ERROR|TcpWebGateway.Services.SwitchListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 163 
+2019-07-31 02:59:34.5114|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 02:59:36.4236|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 02:59:36.6231|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 02:59:36.6349|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 02:59:36.6349|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 02:59:36.6584|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 02:59:36.6715|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:59:36.6715|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:59:36.6715|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:59:36.6715|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:59:36.7910|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:59:36.9068|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:59:36.9068|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:59:37.0089|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:59:56.6555|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 02:59:56.6555|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 02:59:56.6727|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 02:59:56.6727|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 02:59:56.7606|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 02:59:56.7765|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 02:59:56.8855|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 02:59:56.9960|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 02:59:57.0287|ERROR|TcpWebGateway.Services.SwitchListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 163 
+2019-07-31 02:59:57.0287|ERROR|TcpWebGateway.Services.SwitchListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 163 
+2019-07-31 03:01:07.6910|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:01:09.5302|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:01:09.7166|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:01:09.7166|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:01:09.7334|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:01:09.7517|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:01:09.7604|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:01:09.7604|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:01:09.7604|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:01:09.7604|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:01:09.8728|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 03:01:09.9774|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:01:09.9774|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 03:01:10.0920|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 03:01:29.7554|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:01:29.7554|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:01:29.7707|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:01:29.7707|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:01:29.8705|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 03:01:29.9778|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 03:01:29.9938|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 03:01:29.9938|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:01:30.0871|INFO|TcpWebGateway.Services.SwitchListener|err data:0D 06 10 26 00 0 
+2019-07-31 03:01:30.0871|INFO|TcpWebGateway.Services.SwitchListener|err data:0D 06 10 25 00 1 
+2019-07-31 03:01:30.1228|ERROR|TcpWebGateway.Services.SwitchListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 163 
+2019-07-31 03:01:30.1228|ERROR|TcpWebGateway.Services.SwitchListener|System.ArgumentOutOfRangeException: Index and length must refer to a location within the string.
+Parameter name: length
+   at System.String.Substring(Int32 startIndex, Int32 length)
+   at TcpWebGateway.Services.SwitchListener.<>c__DisplayClass12_0.<StringToByteArray>b__1(Int32 x) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 155
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.ToArray()
+   at TcpWebGateway.Services.SwitchListener.StringToByteArray(String hex) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 153
+   at TcpWebGateway.Services.SwitchListener.SendCommand(String data, Boolean log) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 163 
+2019-07-31 03:04:46.1346|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:04:56.2471|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:04:56.4023|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:04:56.4023|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:04:56.4174|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:04:56.4377|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:04:56.4504|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:04:56.4504|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:04:56.4504|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:04:56.4504|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:04:56.5563|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 03:04:56.6679|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 03:04:56.6679|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:04:56.7939|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 03:05:16.4306|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:05:16.4306|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:05:16.4306|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:05:16.4306|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:05:16.5466|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 03:05:16.6538|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:05:16.6538|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 03:05:16.6538|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:05:16.7640|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 03:05:16.7640|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:05:16.7770|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:05:16.8782|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:05:36.4310|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:05:36.4310|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:05:36.4310|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:05:36.4500|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:05:36.5410|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 03:05:36.5597|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 03:05:36.6682|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 03:05:36.6682|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:05:36.6682|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:05:36.6682|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:05:36.7768|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:05:36.7768|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:05:51.9142|ERROR|TcpWebGateway.Services.SwitchListener|System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at TcpWebGateway.Services.SwitchListener.StartClient(CancellationToken cancellationToken) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SwitchListener.cs:line 76 
+2019-07-31 03:05:56.4182|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:05:56.4182|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:05:56.4182|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:05:56.4182|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:05:56.5285|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 03:05:56.6389|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:05:56.6389|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 03:05:56.6389|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:05:56.6497|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:05:56.6497|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:05:56.6497|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:05:56.6497|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:05:56.6724|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:05:56.6946|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:05:56.7280|ERROR|TcpWebGateway.Services.SensorListener|System.Net.Sockets.SocketException (10048): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at TcpWebGateway.Services.SensorListener.StartListening(Int32 port) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\SensorListener.cs:line 72 
+2019-07-31 03:06:00.8749|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 03:06:00.8749|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:06:00.8749|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1E 00 00 00 96 
+2019-07-31 03:06:00.8749|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 23 00 00 00 96 
+2019-07-31 03:06:00.8749|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 22 00 00 00 97 
+2019-07-31 03:06:00.8749|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:06:00.8749|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:06:00.9939|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:13:49.0125|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:13:50.9914|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:13:51.2129|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:13:51.2129|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:13:51.2353|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:13:51.2353|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:13:51.5900|ERROR|TcpWebGateway.Services.HvacListener|System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source, Func`2 predicate)
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 56
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 03:14:11.4667|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:14:11.5772|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:14:11.5772|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:14:11.6974|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:14:31.4726|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:14:31.5723|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:14:31.5885|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:14:31.6836|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:14:49.1717|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:14:51.0420|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:14:51.2532|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:14:51.2595|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:14:51.2595|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:14:51.2865|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:15:11.4958|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:15:11.6073|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:15:11.6073|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:15:11.7304|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:15:31.5125|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:15:31.6069|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:15:31.6242|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:15:31.7178|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:15:31.7437|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:15:31.7437|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:15:31.7437|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:15:31.7437|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:15:31.7437|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:15:31.7437|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:15:45.2502|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:15:45.2502|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:15:45.2502|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 4 
+2019-07-31 03:15:45.2502|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:15:45.2502|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:15:45.2502|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:15:47.4757|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:15:47.4757|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:15:47.4757|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 2 
+2019-07-31 03:15:47.4757|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:15:47.4781|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:15:47.4781|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:15:51.4961|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:15:51.6080|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:15:51.6080|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:15:51.7120|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:15:56.3690|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:15:56.3690|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:15:56.3690|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 4 
+2019-07-31 03:15:56.3690|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:15:56.3690|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:15:56.3690|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:16:11.4943|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:16:11.6090|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:16:11.6090|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:16:11.7130|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:17:21.1541|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:17:22.9761|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:17:23.1443|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:17:23.1553|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:17:23.1553|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:17:23.1788|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:17:23.5224|ERROR|TcpWebGateway.Services.HvacListener|System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source, Func`2 predicate)
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 56
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 03:17:43.4963|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:17:43.6037|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:17:50.7126|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:17:50.7126|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:17:50.7126|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:17:50.7126|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:17:50.7126|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:17:50.7126|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:17:55.9880|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:17:55.9880|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:17:55.9880|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 4 
+2019-07-31 03:17:55.9880|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:17:55.9880|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:17:55.9880|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:18:01.6428|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:18:01.6428|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:18:01.6428|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:18:01.6428|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:18:01.6428|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:18:01.6428|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:18:03.3866|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:18:03.4937|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:18:03.4937|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:18:03.6027|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:18:23.3979|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:18:23.4847|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:18:23.5038|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:18:23.5878|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:18:43.3955|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:18:43.5000|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:18:43.5112|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:18:43.6076|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:19:03.4041|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:19:03.5002|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:19:03.5154|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:19:03.6080|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:21:39.1833|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:21:41.0348|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:21:41.1949|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:21:41.2073|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:21:41.2245|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:21:41.2306|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:21:41.5879|ERROR|TcpWebGateway.Services.HvacListener|System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source, Func`2 predicate)
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 56
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 03:22:01.5581|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:22:01.6694|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:22:11.3265|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:22:11.3265|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:22:11.3265|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 4 
+2019-07-31 03:22:11.3422|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:22:11.3422|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:22:11.3422|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:22:17.7946|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:22:17.7946|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:22:17.7946|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:22:17.7946|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:22:17.7946|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:22:17.7946|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:22:21.4475|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:22:21.5603|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:22:21.5603|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:22:21.6713|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:22:41.4735|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:22:41.5723|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:22:41.5893|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:22:41.6825|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:23:01.4592|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:23:01.5642|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:23:01.5778|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:23:01.6661|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:23:21.4492|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:23:21.5787|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:23:21.5787|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:23:21.6972|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:23:41.4674|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:23:41.5789|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:23:41.5921|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:23:41.6840|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:24:01.4547|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:24:01.5625|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:24:01.5737|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:24:01.6697|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:24:21.4551|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:24:21.5604|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:24:21.5745|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:24:21.6675|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:28:06.0194|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:28:08.1957|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:28:08.4297|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:28:08.4444|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:28:08.4479|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:28:08.4697|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:28:08.8072|ERROR|TcpWebGateway.Services.HvacListener|System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source, Func`2 predicate)
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 56
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 03:28:28.7966|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:28:28.9040|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:28:48.7066|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:28:48.7977|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:28:48.8106|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:28:48.9184|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:29:08.6751|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:29:08.7760|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:29:08.7902|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:29:08.8842|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:29:28.6774|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:29:28.7905|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:29:28.7905|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:29:28.9055|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:29:48.6837|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:29:48.7777|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:29:48.7949|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:29:48.8849|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:29:58.2486|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:30:00.3477|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:30:00.5483|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:30:00.5483|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:30:00.5649|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:30:00.5649|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:30:00.5805|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:30:00.5895|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:30:00.5895|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:30:00.5895|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:30:00.6946|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 22 00 00 00 95 
+2019-07-31 03:30:00.7939|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 21 00 00 00 96 
+2019-07-31 03:30:00.8079|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:30:00.9348|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1D 00 00 00 95 
+2019-07-31 03:30:20.5759|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:30:20.5759|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:30:20.5759|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:30:20.5759|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:30:20.6853|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 22 00 00 00 95 
+2019-07-31 03:30:20.7963|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 21 00 00 00 96 
+2019-07-31 03:30:20.8063|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:30:20.8063|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:30:20.9153|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:30:20.9153|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1D 00 00 00 95 
+2019-07-31 03:30:20.9153|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:30:21.0254|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:30:40.5723|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:30:40.5723|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:30:40.5723|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:30:40.5723|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:30:40.6813|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 22 00 00 00 95 
+2019-07-31 03:30:40.6983|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 21 00 00 00 96 
+2019-07-31 03:30:40.8063|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:30:40.8063|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:30:40.9173|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:30:40.9173|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1D 00 00 00 95 
+2019-07-31 03:30:40.9173|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:30:41.0313|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:31:00.5796|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 00 54 
+2019-07-31 03:31:00.5796|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 01 55 
+2019-07-31 03:31:00.5899|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 02 56 
+2019-07-31 03:31:00.5899|INFO|TcpWebGateway.Services.HvacListener|SendCmd : 01 50 01 01 01 03 57 
+2019-07-31 03:31:00.6812|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 00 00 1A 04 01 22 00 00 00 95 
+2019-07-31 03:31:00.7975|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 02 01 1B 01 04 1E 00 00 00 95 
+2019-07-31 03:31:00.7975|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:31:00.8106|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 01 00 1B 04 01 21 00 00 00 96 
+2019-07-31 03:31:00.8215|INFO|TcpWebGateway.Services.HvacListener|Receive : 01 50 01 01 01 03 00 1C 04 01 1D 00 00 00 95 
+2019-07-31 03:31:00.8215|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:31:00.9075|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:31:00.9305|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:31:51.2171|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:31:53.2603|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:31:53.5391|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:31:53.5668|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:31:53.5763|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:31:53.5903|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:32:13.8208|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:32:13.9175|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:32:13.9309|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:32:14.0310|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:32:29.5551|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:32:29.5559|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:32:29.5559|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:32:29.5559|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:32:29.5721|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:32:29.5721|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:32:31.9151|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:32:31.9151|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:32:31.9151|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 4 
+2019-07-31 03:32:31.9151|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:32:31.9151|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:32:31.9151|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:32:33.8069|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:32:33.9150|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:32:33.9150|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:32:34.0261|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:32:39.6645|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:32:39.6651|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:32:39.6651|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:32:39.6651|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:32:39.6651|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:32:39.6651|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:32:53.8082|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:32:53.9190|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:32:53.9190|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:32:54.0280|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:33:13.8107|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:33:13.9190|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:33:13.9320|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:33:14.0273|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:33:33.8218|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:33:33.9243|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:33:33.9327|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:33:34.0294|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:33:53.8176|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:33:53.9162|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:33:53.9332|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:33:54.0300|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:34:13.8178|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:34:13.9234|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:34:13.9322|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:34:14.0422|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:35:09.6444|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:35:11.5269|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:35:11.7228|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:35:11.7285|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:35:11.7430|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:35:11.7430|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:35:12.1038|ERROR|TcpWebGateway.Services.HvacListener|System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source, Func`2 predicate)
+   at TcpWebGateway.Tools.HvacHelper.OnReceiveData(String data) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Tools\HvacHelper.cs:line 56
+   at TcpWebGateway.Services.HvacListener.SendCommand(String data, Boolean debug) in D:\gitCodes\TcpWebGateway\TcpWebGateway\Services\HvacListener.cs:line 139 
+2019-07-31 03:35:32.0775|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:35:32.1858|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:35:47.9243|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:35:47.9243|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:35:47.9312|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 0 
+2019-07-31 03:35:47.9312|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:35:47.9312|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:35:47.9312|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:35:51.6760|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:35:51.6760|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:35:51.6760|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:35:51.6760|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:35:51.6760|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:35:51.6760|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:35:52.0015|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:35:52.0878|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:35:52.1189|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:35:52.2119|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:36:11.9878|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:36:12.0966|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:36:12.1033|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:36:12.1985|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:36:31.9809|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:36:32.0934|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:36:32.1126|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:36:32.2153|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:36:51.9796|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:36:52.0730|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:36:52.0881|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:36:52.1870|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:37:11.9686|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:37:12.0773|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:37:12.0873|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:37:12.1973|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:38:18.1746|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 03:38:20.1221|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 03:38:20.3284|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 03:38:20.3440|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 03:38:20.3440|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 03:38:20.3645|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 03:38:40.2369|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:38:40.2369|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:38:40.2456|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 4 
+2019-07-31 03:38:40.2456|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:38:40.2594|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:38:40.2594|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:38:40.5986|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:38:40.6901|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:38:40.7069|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:38:40.8060|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:38:46.1338|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:38:46.1338|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:38:46.1338|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:38:46.1338|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:38:46.1338|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:38:46.1338|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:39:00.5938|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:39:00.6823|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:39:00.7144|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:39:00.7911|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:39:09.8532|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:39:09.8532|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:39:09.8532|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 2 
+2019-07-31 03:39:09.8532|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:39:09.8532|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:39:09.8716|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:39:15.5976|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:39:15.5976|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:39:15.5976|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 1 
+2019-07-31 03:39:15.5976|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:39:15.5976|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:39:15.5976|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:39:20.5776|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:39:20.6863|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:39:20.6982|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:39:20.8123|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:39:24.5203|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 03:39:24.5203|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 03:39:24.5203|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 03:39:24.5203|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 03:39:24.5203|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 03:39:24.5242|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 03:39:40.5859|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:39:40.6835|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:39:40.6997|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:39:40.8068|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:40:00.5914|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:40:00.6870|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:40:00.7016|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:40:00.7932|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 03:40:20.5749|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 03:40:20.6817|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 03:40:20.6988|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 03:40:20.7958|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:06:25.8437|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 04:06:27.9622|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 04:06:28.1681|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 04:06:28.1681|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 04:06:28.1852|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 04:06:28.1852|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 04:06:39.1886|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 04:06:39.1886|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 04:06:39.1886|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 2 
+2019-07-31 04:06:39.1886|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 04:06:39.1886|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 04:06:39.1886|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 04:06:45.0049|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 04:06:45.0049|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 04:06:45.0049|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 4 
+2019-07-31 04:06:45.0134|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 04:06:45.0134|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 04:06:45.0134|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 04:06:48.7452|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:06:48.8544|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:06:49.2662|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:06:49.3694|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:06:49.8770|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 04:06:49.8770|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Livingroom 
+2019-07-31 04:06:49.8770|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 3 
+2019-07-31 04:06:49.8770|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 04:06:49.8770|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 04:06:49.8770|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 04:07:08.7439|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:07:08.8661|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:07:09.2991|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:07:09.4156|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:07:28.7477|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:07:28.8558|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:07:29.2848|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:07:29.3876|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:07:48.7441|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:07:48.8541|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:07:49.2779|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:07:49.3851|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:08:08.7511|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:08:08.8572|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:08:09.2912|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:08:09.4012|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:08:28.7392|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:08:28.8422|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:08:29.2641|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:08:29.3751|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:08:48.7453|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:08:48.8591|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:08:49.2761|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:08:49.3842|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:09:08.7530|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:09:08.8720|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:09:09.3127|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:09:09.4153|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:09:28.7440|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:09:28.8542|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:09:29.2766|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:09:29.3842|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:09:48.7656|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:09:48.8728|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:09:49.2938|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:09:49.4069|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:10:08.7540|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:10:08.8687|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:10:09.2916|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:10:09.4018|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:13:29.6651|DEBUG|TcpWebGateway.Program|init main 
+2019-07-31 04:13:31.6786|INFO|TcpWebGateway.Services.MqttHelper|Connect to MQTT Broken：192.168.50.245:1883 
+2019-07-31 04:13:31.8810|INFO|TcpWebGateway.Services.CurtainListener|Connecting to 192.168.50.17:8001 
+2019-07-31 04:13:31.8877|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
+2019-07-31 04:13:31.8877|INFO|TcpWebGateway.Services.HvacListener|Connect to 192.168.50.17:8008 
+2019-07-31 04:13:31.9260|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
+2019-07-31 04:13:47.4832|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 04:13:47.4832|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Workroom 
+2019-07-31 04:13:47.4832|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 2 
+2019-07-31 04:13:47.4832|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 04:13:47.4832|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 04:13:47.4832|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 04:13:52.4501|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:13:52.5614|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:13:52.9833|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:13:53.0926|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 
+2019-07-31 04:13:54.6123|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 04:13:54.6123|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Workroom 
+2019-07-31 04:13:54.6123|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 0 
+2019-07-31 04:13:54.6123|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 04:13:54.6123|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 04:13:54.6123|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 04:13:57.2288|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 04:13:57.2288|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Dinner 
+2019-07-31 04:13:57.2288|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 2 
+2019-07-31 04:13:57.2288|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 04:13:57.2288|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 04:13:57.2288|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 04:14:00.8882|INFO|TcpWebGateway.Services.MqttHelper|### 数据接收 ### 
+2019-07-31 04:14:00.8882|INFO|TcpWebGateway.Services.MqttHelper|+ Topic = Home/LightScene/Dinner 
+2019-07-31 04:14:00.8882|INFO|TcpWebGateway.Services.MqttHelper|+ Payload = 0 
+2019-07-31 04:14:00.8882|INFO|TcpWebGateway.Services.MqttHelper|+ QoS = AtLeastOnce 
+2019-07-31 04:14:00.8882|INFO|TcpWebGateway.Services.MqttHelper|+ Retain = False 
+2019-07-31 04:14:00.8882|INFO|TcpWebGateway.Services.MqttHelper| 
+2019-07-31 04:14:12.4501|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102500015DCD 
+2019-07-31 04:14:12.5658|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 25 00 01 5D CD 
+2019-07-31 04:14:12.9837|INFO|TcpWebGateway.Services.SwitchListener|SendCmd : 0D06102600006C0D 
+2019-07-31 04:14:13.0925|INFO|TcpWebGateway.Services.SwitchListener|Cmd Receive : 0D 06 10 26 00 00 6C 0D 

@@ -50,7 +50,7 @@ namespace TcpWebGateway.Tools
         public async Task OnReceiveData(string data)
         {
             var codes = new List<string>();
-            if(data.IndexOf("01 50") ==0)
+            if(data.IndexOf("01 50 01 01 01") ==0)
             {
                 codes  = data.Split(" ").ToList();
                 if(!stateobjs.Any(p=>p.Id == codes[5]))

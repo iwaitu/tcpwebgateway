@@ -29,13 +29,14 @@ namespace TcpWebGateway.Services
             Task.Delay(5000);
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
             TimeSpan.FromSeconds(20));
+            //Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
             return Task.CompletedTask;
         }
 
         private void DoWork(object state)
         {
             Task.Run(async () => { await _hvacHelper.SyncAllState(); });
-            //Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
+            Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
             if(_lightHelper.CurrentStateMode == StateMode.Home)
             {
 

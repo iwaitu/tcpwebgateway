@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using MQTTnet;
 using Newtonsoft.Json;
 using System;
@@ -18,7 +19,7 @@ namespace TcpWebGateway.Tools
     public class LightHelper
     {
         private readonly ILogger _logger;
-        private static readonly HttpClient client = new HttpClient();
+        
         private SwitchListener _listener;
         private HVACSelected _hVacSelected = HVACSelected.None;
         private readonly HvacHelper _hvacHelper;
@@ -27,14 +28,16 @@ namespace TcpWebGateway.Tools
         private DateTime _lastHomeButonReceive;
         private DateTime _lastOutButonReceive;
         private DateTime _lastReadButonReceive;
+        private readonly string API_PATH;
 
         public StateMode CurrentStateMode { get; set; }
 
-        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper)
+        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper, IConfiguration configuration)
         {
             _logger = logger;
             _hvacHelper = hvacHelper;
             _hvacHelper.SetLightHelper(this);
+            API_PATH = configuration.GetValue<string>("RestApi:RestApiUrl");
         }
 
         public void SetListener(SwitchListener listener)
@@ -54,17 +57,18 @@ namespace TcpWebGateway.Tools
 
         public async Task OnReceiveCommand(string Command)
         {
+            _logger.LogInformation("时间:" + DateTime.Now);
+            _logger.LogInformation("ReceiveCommand : " + Command );
             if (string.IsNullOrEmpty(Command)) return;
             //面板OB
             if (Command.IndexOf("0B 20 10 11 00 01 00 FF") >= 0) //面板OB松开回家模式按键
             {
-                _logger.LogInformation("时间:" + DateTime.Now);
+                
                 
                 await HomeMode();
             }
             else if (Command.IndexOf("0B 20 10 11 00 01 00 00 8F") >= 0) //点亮回家模式时再按回家按钮
             {
-                _logger.LogInformation("时间:" + DateTime.Now);
                 if (_lastHomeButonReceive.Year == 1)
                 {
                     _lastHomeButonReceive = DateTime.Now;
@@ -743,10 +747,10 @@ namespace TcpWebGateway.Tools
         /// 打开过道灯光
         /// </summary>
         /// <returns></returns>
-        public async Task OpenAisle()
+        public async Task OpenAisle(int val=100)
         {
-            await LightSwitch("Aisle1Brightness", "ON");
-            await LightSwitch("Aisle2Brightness", "ON");
+            await LightSwitch("Aisle1Brightness", val.ToString());
+            await LightSwitch("Aisle2Brightness", val.ToString());
         }
 
         public async Task CloseAisle()
@@ -759,10 +763,10 @@ namespace TcpWebGateway.Tools
         /// 打开门道灯光
         /// </summary>
         /// <returns></returns>
-        public async Task OpenDoor()
+        public async Task OpenDoor(int val = 100)
         {
-            await LightSwitch("Door1Brightness", "ON");
-            await LightSwitch("Door2Brightness", "ON");
+            await LightSwitch("Door1Brightness", val.ToString());
+            await LightSwitch("Door2Brightness", val.ToString());
         }
 
         public async Task CloseDoor()
@@ -843,6 +847,7 @@ namespace TcpWebGateway.Tools
         /// <returns></returns>
         public async Task SceneLivingRoomSet(SceneState state)
         {
+            _logger.LogInformation("SceneLivingRoomSet :" + state.ToString());
             switch (state)
             {
                 case SceneState.Brightness:
@@ -875,6 +880,7 @@ namespace TcpWebGateway.Tools
         /// <returns></returns>
         public async Task SceneBedRoomSet(SceneState state)
         {
+            _logger.LogInformation("SceneBedRoomSet :" + state.ToString());
             switch (state)
             {
                 case SceneState.Brightness:
@@ -985,6 +991,7 @@ namespace TcpWebGateway.Tools
         /// <returns></returns>
         public async Task SceneGuestRoomSet(SceneState state)
         {
+            _logger.LogInformation("SceneGuestRoomSet :" + state.ToString());
             switch (state)
             {
                 case SceneState.Brightness:
@@ -1045,6 +1052,7 @@ namespace TcpWebGateway.Tools
         /// <returns></returns>
         public async Task SceneDinnerRoomSet(SceneState state)
         {
+            _logger.LogInformation("SceneDinnerRoomSet :" + state.ToString());
             switch (state)
             {
                 case SceneState.Brightness:
@@ -1083,6 +1091,7 @@ namespace TcpWebGateway.Tools
         /// <returns></returns>
         public async Task SceneWorkRoomSet(SceneState state)
         {
+            _logger.LogInformation("SceneWorkRoomSet :" + state.ToString());
             switch (state)
             {
                 case SceneState.Brightness:
@@ -1104,15 +1113,30 @@ namespace TcpWebGateway.Tools
 
         #endregion
 
-        private async Task LightSwitch(string itemname, string command)
+        private async Task LightSwitch (string itemname, string command)
         {
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("User-Agent", "HomeGaywate");
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Add("User-Agent", "HomeGaywate");
 
-            var content = new StringContent(command, Encoding.UTF8, "text/plain");
-            var result = await client.PostAsync("http://192.168.50.245:38080/rest/items/" + itemname, content);
+                    var content = new StringContent(command, Encoding.UTF8, "text/plain");
+                    var result = await client.PostAsync(API_PATH + itemname, content);
+                    if (!result.IsSuccessStatusCode)
+                    {
+                        _logger.LogError(result.StatusCode.ToString() + ":" + result.RequestMessage.ToString());
+                    }
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+            }
         }
     }
 

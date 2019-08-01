@@ -85,17 +85,14 @@ namespace TcpWebGateway.Tools
             switch (_lightHelper.CurrentStateMode)
             {
                 case StateMode.Home:
-                    await LightSwitch("Aisle1Brightness", "80");
-                    await LightSwitch("Aisle2Brightness", "80");
+                    await _lightHelper.OpenAisle(80);
                     break;
                 case StateMode.Out:
                     //开始报警
-                    await LightSwitch("Aisle1Brightness", "40");
-                    await LightSwitch("Aisle2Brightness", "40");
+                    await _lightHelper.OpenAisle(100);
                     break;
                 case StateMode.Read:
-                    await LightSwitch("Aisle1Brightness", "40");
-                    await LightSwitch("Aisle2Brightness", "40");
+                    await _lightHelper.OpenAisle(40);
                     break;
             }
             
@@ -103,8 +100,7 @@ namespace TcpWebGateway.Tools
 
         public async Task CloseAisle()
         {
-            await LightSwitch("Aisle1Brightness", "OFF");
-            await LightSwitch("Aisle2Brightness", "OFF");
+            await _lightHelper.CloseAisle();
         }
 
         /// <summary>
@@ -116,17 +112,14 @@ namespace TcpWebGateway.Tools
             switch (_lightHelper.CurrentStateMode)
             {
                 case StateMode.Home:
-                    await LightSwitch("Door1Brightness", "80");
-                    await LightSwitch("Door2Brightness", "80");
+                    await _lightHelper.OpenDoor(80);
                     break;
                 case StateMode.Out:
                     //开始报警
-                    await LightSwitch("Door1Brightness", "40");
-                    await LightSwitch("Door2Brightness", "40");
+                    await _lightHelper.OpenDoor(100);
                     break;
                 case StateMode.Read:
-                    await LightSwitch("Door1Brightness", "40");
-                    await LightSwitch("Door2Brightness", "40");
+                    await _lightHelper.OpenDoor(40);
                     break;
             }
             
@@ -134,21 +127,10 @@ namespace TcpWebGateway.Tools
 
         public async Task CloseDoor()
         {
-            await LightSwitch("Door1Brightness", "OFF");
-            await LightSwitch("Door2Brightness", "OFF");
-        }
-
-        private async Task LightSwitch(string itemname, string command)
-        {
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("User-Agent", "HomeGaywate");
-
-            var content = new StringContent(command, Encoding.UTF8, "text/plain");
-            var result = await client.PostAsync("http://192.168.50.245:38080/rest/items/" + itemname, content);
+            await _lightHelper.CloseDoor();
 
         }
+
 
         
     }

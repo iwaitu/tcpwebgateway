@@ -54,7 +54,6 @@ namespace TcpWebGateway.Services
            .WithTcpServer(mqtthost, port)
            .Build();
 
-            int ret = 0;
             MqttFactory factory = new MqttFactory();
             _mqttClient = factory.CreateMqttClient() as MqttClient;
 

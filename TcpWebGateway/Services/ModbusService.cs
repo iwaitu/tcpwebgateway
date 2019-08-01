@@ -26,14 +26,14 @@ namespace TcpWebGateway.Services
             //_modbusClient = new ModbusClient(serverIP, serverPORT);
         }
 
-        public async Task<int> GetTemperature(int id)
+        public Task<int> GetTemperature(int id)
         {
-            return 100;
+            return Task.FromResult(100);
         }
 
-        public async Task<bool> SetTemperature(int id,float temp)
+        public Task<bool> SetTemperature(int id,float temp)
         {
-            return false;
+            return Task.FromResult(false);
         }
 
 

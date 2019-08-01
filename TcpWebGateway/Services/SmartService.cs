@@ -27,6 +27,7 @@ namespace TcpWebGateway.Services
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             Task.Delay(5000);
+            Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
             TimeSpan.FromSeconds(30));
             //Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
@@ -36,7 +37,7 @@ namespace TcpWebGateway.Services
         private void DoWork(object state)
         {
             Task.Run(async () => { await _hvacHelper.SyncAllState(); });
-            Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
+            
             if(_lightHelper.CurrentStateMode == StateMode.Home)
             {
 

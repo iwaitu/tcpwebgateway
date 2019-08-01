@@ -160,14 +160,14 @@ namespace TcpWebGateway.Controllers
         [Route("OpenDoorLight")]
         public async Task OpenDoorLight()
         {
-            await Task.CompletedTask;
+            await _helper.OpenDoor();
         }
 
         [HttpPost]
         [Route("CloseDoorLight")]
         public async Task CloseDoorLight()
         {
-            await Task.CompletedTask;
+            await _helper.CloseDoor();
         }
 
         #endregion
@@ -178,14 +178,14 @@ namespace TcpWebGateway.Controllers
         [Route("OpenAisleLight")]
         public async Task OpenAisleLight()
         {
-            await Task.CompletedTask;
+            await _helper.OpenAisle();
         }
 
         [HttpPost]
         [Route("CloseAisleLight")]
         public async Task CloseAisleLight()
         {
-            await Task.CompletedTask;
+            await _helper.CloseAisle();
         }
 
         #endregion

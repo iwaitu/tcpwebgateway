@@ -164,6 +164,7 @@ namespace TcpWebGateway.Tools
 
         public async Task UpdateStateObject(HvacStateObject target)
         {
+            _logger.LogInformation("updateStateObject");
             var obj = stateobjs.FirstOrDefault(p => p.Id == target.Id);
             if(obj != null)
             {
@@ -220,6 +221,7 @@ namespace TcpWebGateway.Tools
                     await _lightHelper.UpdateACPanel();
                 }
             }
+            _logger.LogInformation("... End SyncStateObject ...");
         }
     }
 

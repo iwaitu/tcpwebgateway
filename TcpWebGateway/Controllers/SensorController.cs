@@ -23,9 +23,10 @@ namespace TcpWebGateway.Controllers
 
         [HttpPost]
         [Route("StateChange")]
-        public async Task StateChange(string id)
+        public Task StateChange(string id)
         {
             _logger.LogInformation(id + " StateChanged");
+            return Task.CompletedTask;
         }
     }
 }

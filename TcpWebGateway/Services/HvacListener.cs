@@ -40,9 +40,10 @@ namespace TcpWebGateway.Services
             _helper.SetListener(this);
         }
 
-        public async Task StartClient(CancellationToken cancellationToken)
+        public Task StartClient(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Connect to {0}:{1}", remoteEP.Address.ToString(), remoteEP.Port);
+            return Task.CompletedTask;
             //await _helper.SyncAllState();            
         }
 

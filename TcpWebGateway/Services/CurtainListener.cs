@@ -42,9 +42,10 @@ namespace TcpWebGateway.Services
         }
 
 
-        private async Task StartClient(CancellationToken stoppingToken)
+        private Task StartClient(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Connecting to {0}:{1}", ipAddress.ToString(), remoteEP.Port);            
+            _logger.LogInformation("Connecting to {0}:{1}", ipAddress.ToString(), remoteEP.Port);
+            return Task.CompletedTask;
         }
 
         private async Task<string> ReceiveAsync(Socket client, int waitForFirstDelaySeconds = 3)

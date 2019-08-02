@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using MQTTnet;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,7 @@ namespace TcpWebGateway.Tools
         private static readonly HttpClient client = new HttpClient();
         private SensorListener _listener;
         private LightHelper _lightHelper;
+        private MqttHelper _mqttHelper;
         private readonly ILogger _logger;
 
         public SensorHelper(ILogger<SensorHelper> logger, LightHelper lightHelper)
@@ -29,30 +32,65 @@ namespace TcpWebGateway.Tools
             _listener = listener;
         }
 
+        public void SetMqttListener(MqttHelper mqtt)
+        {
+            _mqttHelper = mqtt;
+        }
+
         public async Task OnReceiveCommand(string Command)
         {
             if(Command == "01 01 0D") //门道感应器
             {
                 await OpenDoor();
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sensor/Door")
+                       .WithPayload("1")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
             }
             else if(Command == "01 00 0D")
             {
                 await CloseDoor();
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sensor/Door")
+                       .WithPayload("0")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
             }
             else if (Command == "02 01 0D") //过道探测器报警
             {
                 await OpenAisle();
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sensor/Aisle")
+                       .WithPayload("1")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
             }
             else if (Command == "02 00 0D") 
             {
                 await CloseAisle();
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sensor/Aisle")
+                       .WithPayload("0")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
             }
             else if (Command == "03 01 0D") //烟雾探测器报警
             {
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sensor/Smoke")
+                       .WithPayload("1")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
                 _logger.LogInformation("烟雾探测器报警");
             }
             else if (Command == "03 00 0D") 
             {
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sensor/Smoke")
+                       .WithPayload("0")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
                 _logger.LogInformation("烟雾探测器取消报警");
             }
             else if (Command == "04 01 0D") //主灯打开成功

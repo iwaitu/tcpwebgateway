@@ -100,7 +100,10 @@ namespace TcpWebGateway
             app.UseHttpsRedirection();
             app.UseMvc();
 
-            app.UseHangfireDashboard();
+            app.UseHangfireDashboard("/jobs", new DashboardOptions()
+            {
+                Authorization = new[] { new HangFireAuthorizationFilter() }
+            });
         }
     }
 }

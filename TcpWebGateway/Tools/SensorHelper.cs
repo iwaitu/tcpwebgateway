@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Hangfire;
+using Microsoft.Extensions.Logging;
 using MQTTnet;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using TcpWebGateway.Services;
@@ -59,6 +61,7 @@ namespace TcpWebGateway.Tools
                        .WithAtLeastOnceQoS()
                        .Build();
                 await _mqttHelper.Publish(message);
+                
             }
             else if (Command == "02 00 0D") 
             {
@@ -118,10 +121,12 @@ namespace TcpWebGateway.Tools
             {
                 case StateMode.Home:
                     await _lightHelper.OpenAisle(80);
+                    var jobId = BackgroundJob.Schedule(() => _lightHelper.OpenAisle(50), TimeSpan.FromSeconds(15));
                     break;
                 case StateMode.Out:
                     //开始报警
                     await _lightHelper.OpenAisle(100);
+                    _logger.LogWarning("入侵报警");
                     break;
                 case StateMode.Read:
                     await _lightHelper.OpenAisle(40);
@@ -145,10 +150,12 @@ namespace TcpWebGateway.Tools
             {
                 case StateMode.Home:
                     await _lightHelper.OpenDoor(80);
+                    var jobId = BackgroundJob.Schedule(() => _lightHelper.OpenDoor(50), TimeSpan.FromSeconds(15));
                     break;
                 case StateMode.Out:
                     //开始报警
                     await _lightHelper.OpenDoor(100);
+                    _logger.LogWarning("入侵报警");
                     break;
                 case StateMode.Read:
                     await _lightHelper.OpenDoor(40);

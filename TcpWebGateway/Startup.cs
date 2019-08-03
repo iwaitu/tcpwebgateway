@@ -1,19 +1,16 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Hangfire;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MQTTnet.AspNetCore;
-using MQTTnet.Protocol;
-using MQTTnet.Server;
-using NLog;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
-using System.Net;
 using System.Reflection;
 using TcpWebGateway.Services;
 using TcpWebGateway.Tools;
+using Hangfire.Mongo;
 
 namespace TcpWebGateway
 {
@@ -29,6 +26,16 @@ namespace TcpWebGateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHangfire(x => {
+                var migrationOptions = new MongoMigrationOptions
+                {
+                    Strategy = MongoMigrationStrategy.Migrate,
+                    BackupStrategy = MongoBackupStrategy.Collections
+                };
+                x.UseMongoStorage(Configuration["Mongodb:ConnectString"], "hangfire", new MongoStorageOptions { Prefix = "hangfire",MigrationOptions = migrationOptions });
+            });
+            services.AddHangfireServer();
+
             //注入配置信息(appsettings.json)
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddMemoryCache();
@@ -92,6 +99,8 @@ namespace TcpWebGateway
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseHangfireDashboard();
         }
     }
 }

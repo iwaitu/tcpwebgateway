@@ -1138,6 +1138,28 @@ namespace TcpWebGateway.Tools
                 _logger.LogError(ex.ToString());
             }
         }
+
+        public async Task CheckCurrentMode()
+        {
+            var ret = await _listener.SendCommand("0B 03 10 21 00 01");
+            if (ret.IndexOf("0B 03 00 02 00 01") >= 0)
+            {
+                CurrentStateMode = StateMode.Home;
+                return;
+            }
+            ret = await _listener.SendCommand("0B 03 10 22 00 01");
+            if (ret.IndexOf("0B 03 00 02 00 01") >= 0)
+            {
+                CurrentStateMode = StateMode.Out;
+                return;
+            }
+            ret = await _listener.SendCommand("0B 03 10 23 00 01");
+            if (ret.IndexOf("0B 03 00 02 00 01") >= 0)
+            {
+                CurrentStateMode = StateMode.Read;
+                return;
+            }
+        }
     }
 
     public enum StateMode

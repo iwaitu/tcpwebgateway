@@ -39,6 +39,9 @@ namespace TcpWebGateway
             //注入配置信息(appsettings.json)
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddMemoryCache();
+
+            services.AddSingleton<INotify,SmsHelper>();
+
             ///注入顺序不能变
             services.AddSingleton<CurtainHelper>();
             services.AddSingleton<HvacHelper>();

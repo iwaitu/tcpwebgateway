@@ -156,7 +156,7 @@ namespace TcpWebGateway.Services
                              .ToArray();
         }
 
-        public async Task SendCommand(string data,bool log = true)
+        public async Task<string> SendCommand(string data,bool log = true)
         {
             try
             {
@@ -182,12 +182,14 @@ namespace TcpWebGateway.Services
                     {
                         await _helper.OnReceiveCommand(response);
                     }
+                    return response;
                 }
             }
             catch (Exception ex)
             {
                 _logger.Info("err data:" + data);
                 _logger.Error(ex.ToString());
+                return string.Empty;
             }
             
             

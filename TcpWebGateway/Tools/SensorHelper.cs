@@ -15,12 +15,14 @@ namespace TcpWebGateway.Tools
         private LightHelper _lightHelper;
         private MqttHelper _mqttHelper;
         private readonly ILogger _logger;
+        private INotify _notify;
 
-        public SensorHelper(ILogger<SensorHelper> logger, LightHelper lightHelper)
+        public SensorHelper(ILogger<SensorHelper> logger, LightHelper lightHelper,INotify notify)
         {
             _logger = logger;
             _lightHelper = lightHelper;
             _lightHelper.SetSensorHelper(this);
+            _notify = notify;
         }
 
         public void SetListener(SensorListener listener)
@@ -80,6 +82,7 @@ namespace TcpWebGateway.Tools
                        .Build();
                 await _mqttHelper.Publish(message);
                 _logger.LogInformation("烟雾探测器报警");
+                _notify.Send("厨房烟雾");
             }
             else if (Command == "03 00 0D") 
             {
@@ -89,6 +92,7 @@ namespace TcpWebGateway.Tools
                        .Build();
                 await _mqttHelper.Publish(message);
                 _logger.LogInformation("烟雾探测器取消报警");
+                _notify.Send("厨房烟雾解除");
             }
             else if (Command == "04 01 0D") //主灯打开成功
             {
@@ -126,7 +130,8 @@ namespace TcpWebGateway.Tools
                 case StateMode.Out:
                     //开始报警
                     await _lightHelper.OpenAisle(100);
-                    _logger.LogWarning("入侵报警");
+                    _logger.LogWarning("入侵报警,发送短信通知");
+                    _notify.Send("走廊");
                     break;
                 case StateMode.Read:
                     await _lightHelper.OpenAisle(40);
@@ -155,7 +160,9 @@ namespace TcpWebGateway.Tools
                 case StateMode.Out:
                     //开始报警
                     await _lightHelper.OpenDoor(100);
-                    _logger.LogWarning("入侵报警");
+                    _logger.LogWarning("入侵报警,发送短信通知");
+                    _notify.Send("门道");
+                    
                     break;
                 case StateMode.Read:
                     await _lightHelper.OpenDoor(40);

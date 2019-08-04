@@ -28,9 +28,9 @@ namespace TcpWebGateway.Services
         {
             Task.Delay(5000);
             Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
-            _timer = new Timer(DoWork, null, TimeSpan.Zero,
-            TimeSpan.FromSeconds(30));
-            //Task.Run(async () => { await _lightHelper.GetPanelTemperature(); });
+            Task.Run(async () => { await _lightHelper.CheckCurrentMode(); });
+            _timer = new Timer(DoWork, null, TimeSpan.Zero,TimeSpan.FromSeconds(30));
+
             return Task.CompletedTask;
         }
 

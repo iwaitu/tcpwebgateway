@@ -325,6 +325,11 @@ namespace TcpWebGateway.Tools
             cmds.Add("0B 06 10 21 00 01");
             await _listener.SendCommand(cmds);
             CurrentStateMode = StateMode.Home;
+            var message = new MqttApplicationMessageBuilder().WithTopic("Home/Mode/Status")
+                       .WithPayload("0")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+            await _mqttHelper.Publish(message);
         }
 
 
@@ -336,6 +341,11 @@ namespace TcpWebGateway.Tools
             cmds.Add("0B 06 10 22 00 01");
             await _listener.SendCommand(cmds);
             CurrentStateMode = StateMode.Out;
+            var message = new MqttApplicationMessageBuilder().WithTopic("Home/Mode/Status")
+                       .WithPayload("1")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+            await _mqttHelper.Publish(message);
         }
 
         public async Task GetPanelTemperature()
@@ -353,6 +363,11 @@ namespace TcpWebGateway.Tools
             cmds.Add("0B 06 10 23 00 01");
             await _listener.SendCommand(cmds);
             CurrentStateMode = StateMode.Read;
+            var message = new MqttApplicationMessageBuilder().WithTopic("Home/Mode/Status")
+                       .WithPayload("2")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+            await _mqttHelper.Publish(message);
         }
 
         public async Task OpenAll()

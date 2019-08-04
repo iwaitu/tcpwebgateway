@@ -1145,18 +1145,33 @@ namespace TcpWebGateway.Tools
             if (ret.IndexOf("0B 03 00 02 00 01") >= 0)
             {
                 CurrentStateMode = StateMode.Home;
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Mode/Status")
+                       .WithPayload("0")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
                 return;
             }
             ret = await _listener.SendCommand("0B 03 10 22 00 01");
             if (ret.IndexOf("0B 03 00 02 00 01") >= 0)
             {
                 CurrentStateMode = StateMode.Out;
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Mode/Status")
+                       .WithPayload("1")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
                 return;
             }
             ret = await _listener.SendCommand("0B 03 10 23 00 01");
             if (ret.IndexOf("0B 03 00 02 00 01") >= 0)
             {
                 CurrentStateMode = StateMode.Read;
+                var message = new MqttApplicationMessageBuilder().WithTopic("Home/Mode/Status")
+                       .WithPayload("2")
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                await _mqttHelper.Publish(message);
                 return;
             }
         }

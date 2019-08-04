@@ -134,6 +134,16 @@ namespace TcpWebGateway.Services
                 {
                     int i = int.Parse(sVal);
                     _lightHelper.CurrentStateMode = (StateMode)i;
+                    if (i == 0)
+                    {
+                        Task.Run(async () => { await _lightHelper.HomeMode(); });
+                    }else if(i== 1)
+                    {
+                        Task.Run(async () => { await _lightHelper.OutMode(); });
+                    }else if(i == 2)
+                    {
+                        Task.Run(async () => { await _lightHelper.ReadMode(); });
+                    }
                 }
             });
 

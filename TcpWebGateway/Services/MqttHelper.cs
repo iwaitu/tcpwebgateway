@@ -130,6 +130,11 @@ namespace TcpWebGateway.Services
                     int i = int.Parse(sVal);
                     Task.Run(async () => { await _lightHelper.SceneDinnerRoomSet ((SceneState)i); });
                 }
+                else if (e.ApplicationMessage.Topic == "Home/Mode")
+                {
+                    int i = int.Parse(sVal);
+                    _lightHelper.CurrentStateMode = (StateMode)i;
+                }
             });
 
             _mqttClient.UseDisconnectedHandler(async e => {
@@ -178,6 +183,7 @@ namespace TcpWebGateway.Services
             Subscribe("Home/LightScene/Bedroom");
             Subscribe("Home/LightScene/Guestroom");
             Subscribe("Home/LightScene/Dinner");
+            Subscribe("Home/Mode");
         }
 
         public async Task StartAsync()

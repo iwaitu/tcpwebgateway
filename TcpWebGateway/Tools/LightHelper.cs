@@ -244,8 +244,21 @@ namespace TcpWebGateway.Tools
                 await OpenWorkroomAC(); //打开空调
                 
             }
-            else if(Command.IndexOf("0F 20 00 32 00 01 00 01") >= 0)   //面板切换制热模式
+            else if (Command.IndexOf("0F 20 00 32 00 01 00 00") >= 0)   //面板切换制热模式
             {
+                _logger.LogInformation("面板切换制冷模式");
+                if (_hVacSelected == HVACSelected.WorkRoom)
+                {
+                    await _hvacHelper.SetMode(2, WorkMode.Heat);
+                }
+                else if (_hVacSelected == HVACSelected.LivingRoom)
+                {
+                    await _hvacHelper.SetMode(3, WorkMode.Heat);
+                }
+            }
+            else if (Command.IndexOf("0F 20 00 32 00 01 00 01") >= 0)   //面板切换制热模式
+            {
+                _logger.LogInformation("面板切换制热模式");
                 if(_hVacSelected == HVACSelected.WorkRoom)
                 {
                     await _hvacHelper.SetMode(2, WorkMode.Heat);
@@ -256,6 +269,7 @@ namespace TcpWebGateway.Tools
             }
             else if (Command.IndexOf("0F 20 00 32 00 01 00 02") >= 0)   //面板切换换气模式
             {
+                _logger.LogInformation("面板切换换气模式");
                 if (_hVacSelected == HVACSelected.WorkRoom)
                 {
                     await _hvacHelper.SetMode(2, WorkMode.Fan);
@@ -267,6 +281,7 @@ namespace TcpWebGateway.Tools
             }
             else if (Command.IndexOf("0F 20 00 32 00 01 00 03") >= 0)   //面板切换抽湿模式
             {
+                _logger.LogInformation("面板切换抽湿模式");
                 if (_hVacSelected == HVACSelected.WorkRoom)
                 {
                     await _hvacHelper.SetMode(2, WorkMode.Dry);

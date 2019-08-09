@@ -249,11 +249,25 @@ namespace TcpWebGateway.Tools
                 _logger.LogInformation("面板切换制冷模式");
                 if (_hVacSelected == HVACSelected.WorkRoom)
                 {
-                    await _hvacHelper.SetMode(2, WorkMode.Heat);
+                    await _hvacHelper.SetMode(2, WorkMode.Cool);
+                    var obj = _hvacHelper.GetACStateObject(2);
+                    obj.Mode = WorkMode.Cool;
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/02/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
                 else if (_hVacSelected == HVACSelected.LivingRoom)
                 {
-                    await _hvacHelper.SetMode(3, WorkMode.Heat);
+                    await _hvacHelper.SetMode(3, WorkMode.Cool);
+                    var obj = _hvacHelper.GetACStateObject(3);
+                    obj.Mode = WorkMode.Cool;
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/03/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
             }
             else if (Command.IndexOf("0F 20 00 32 00 01 00 01") >= 0)   //面板切换制热模式
@@ -262,9 +276,25 @@ namespace TcpWebGateway.Tools
                 if(_hVacSelected == HVACSelected.WorkRoom)
                 {
                     await _hvacHelper.SetMode(2, WorkMode.Heat);
-                }else if(_hVacSelected == HVACSelected.LivingRoom)
+                    var obj = _hvacHelper.GetACStateObject(2);
+                    obj.Mode = WorkMode.Heat;
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/02/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
+                }
+                else if(_hVacSelected == HVACSelected.LivingRoom)
                 {
                     await _hvacHelper.SetMode(3, WorkMode.Heat);
+                    var obj = _hvacHelper.GetACStateObject(3);
+                    obj.Mode = WorkMode.Heat;
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/03/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
+
                 }
             }
             else if (Command.IndexOf("0F 20 00 32 00 01 00 02") >= 0)   //面板切换换气模式
@@ -273,10 +303,24 @@ namespace TcpWebGateway.Tools
                 if (_hVacSelected == HVACSelected.WorkRoom)
                 {
                     await _hvacHelper.SetMode(2, WorkMode.Fan);
+                    var obj = _hvacHelper.GetACStateObject(2);
+                    obj.Mode = WorkMode.Fan;
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/02/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
                 else if (_hVacSelected == HVACSelected.LivingRoom)
                 {
                     await _hvacHelper.SetMode(3, WorkMode.Fan);
+                    var obj = _hvacHelper.GetACStateObject(3);
+                    obj.Mode = WorkMode.Fan;
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/03/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
             }
             else if (Command.IndexOf("0F 20 00 32 00 01 00 03") >= 0)   //面板切换抽湿模式
@@ -285,23 +329,53 @@ namespace TcpWebGateway.Tools
                 if (_hVacSelected == HVACSelected.WorkRoom)
                 {
                     await _hvacHelper.SetMode(2, WorkMode.Dry);
+                    var obj = _hvacHelper.GetACStateObject(2);
+                    obj.Mode = WorkMode.Dry;
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/02/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
                 else if (_hVacSelected == HVACSelected.LivingRoom)
                 {
                     await _hvacHelper.SetMode(3, WorkMode.Dry);
+                    var obj = _hvacHelper.GetACStateObject(3);
+                    obj.Mode = WorkMode.Dry;
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/03/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
             }
             else if(Command.IndexOf("0F 20 00 35 00 01 00") == 0)   //设置温度
             {
                 var data = StringToByteArray(Command);
-                _logger.LogInformation("设置温度:" + data[7]);
+                
                 if(_hVacSelected == HVACSelected.LivingRoom)
                 {
+                    _logger.LogInformation("设置客厅温度:" + data[7]);
                     await _hvacHelper.SetTemperature(3, (float)data[7]);
+                    var obj = _hvacHelper.GetACStateObject(3);
+                    obj.TemperatureSet = (int)data[7];
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/03/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
                 else if(_hVacSelected == HVACSelected.WorkRoom)
                 {
+                    _logger.LogInformation("设置书房温度:" + data[7]);
                     await _hvacHelper.SetTemperature(2, (float)data[7]);
+                    var obj = _hvacHelper.GetACStateObject(2);
+                    obj.TemperatureSet = (int)data[7];
+                    var message = new MqttApplicationMessageBuilder().WithTopic("Home/Sanling/02/Status")
+                       .WithPayload(JsonConvert.SerializeObject(obj))
+                       .WithAtLeastOnceQoS()
+                       .Build();
+                    await _mqttHelper.Publish(message);
                 }
                 
             }
@@ -491,7 +565,7 @@ namespace TcpWebGateway.Tools
             _hVacSelected = HVACSelected.WorkRoom;
             await _hvacHelper.TurnOnAC(2);
             await OpenACPanel(2);
-            _hVacSelected = HVACSelected.WorkRoom;
+            
         }
 
         public async Task FlashWorkroomBackgroundLight()
@@ -507,10 +581,11 @@ namespace TcpWebGateway.Tools
 
         public async Task CloseWorkroomAC()
         {
+            ///点亮按键灯
             var cmds = new List<string>();
             cmds.Add("0D 06 10 25 00 00");
             await _listener.SendCommand(cmds);
-            _hVacSelected = HVACSelected.None;
+            ///关闭空调
             await _hvacHelper.TurnOffAC(2);
             await CloseACPanel();
         }
@@ -523,7 +598,6 @@ namespace TcpWebGateway.Tools
             _hVacSelected = HVACSelected.LivingRoom;
             await _hvacHelper.TurnOnAC(3);
             await OpenACPanel(3);
-            _hVacSelected = HVACSelected.LivingRoom;
         }
 
         public async Task FlashLivingroomBackgroundLight()
@@ -661,6 +735,7 @@ namespace TcpWebGateway.Tools
             {
                 cmds.Add("0F 06 00 36 00 00");
                 await _listener.SendCommand(cmds);
+                _hVacSelected = HVACSelected.None;
                 return;
             }
             else
@@ -669,12 +744,14 @@ namespace TcpWebGateway.Tools
                 {
                     _logger.LogInformation("书房");
                     await OpenACPanel(2);
+                    _hVacSelected = HVACSelected.WorkRoom;
                     return;
                 }
                 if (obj2.Switch == SwitchState.open)
                 {
                     _logger.LogInformation("客厅");
                     await OpenACPanel(3);
+                    _hVacSelected = HVACSelected.LivingRoom;
                     return;
                 }
                 cmds.Add("0F 06 00 36 00 00");

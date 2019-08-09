@@ -171,6 +171,7 @@ namespace TcpWebGateway.Services
                     //SetupSubscribe();
                 }
                 await _mqttClient.PublishAsync(message);
+                _logger.Info(message.Topic);
             }
             catch (Exception ex)
             {

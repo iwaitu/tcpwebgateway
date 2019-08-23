@@ -210,8 +210,21 @@ namespace TcpWebGateway.Controllers
 
         #endregion
 
+        #region ## 衣帽间飘窗 ##
+        [HttpPost]
+        [Route("OpenWindowLight")]
+        public async Task OpenWindowLight(int i = 1)
+        {
+            await _helper.OpenWindowLight(i);
+        }
 
-
+        [HttpPost]
+        [Route("CloseWindowLight")]
+        public async Task CloseWindowLight(int i =1)
+        {
+            await _helper.CloseWindowLight(i);
+        }
+        #endregion
 
     }
 }

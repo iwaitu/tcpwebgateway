@@ -556,6 +556,31 @@ namespace TcpWebGateway.Tools
             await LightSwitch("Table2Brightness", "OFF");
         }
 
+        public async Task OpenWindowLight(int i)
+        {
+            if(i == 1)
+            {
+                await LightSwitch("CloakRoomWndBrightness", "ON");
+            }else if(i== 2)
+            {
+                await LightSwitch("BedroomWnd1Brightness", "ON");
+                await LightSwitch("BedroomWnd2Brightness", "ON");
+            }
+        }
+
+        public async Task CloseWindowLight(int i)
+        {
+            if (i == 1)
+            {
+                await LightSwitch("CloakRoomWndBrightness", "OFF");
+            }
+            else if (i == 2)
+            {
+                await LightSwitch("BedroomWnd1Brightness", "OFF");
+                await LightSwitch("BedroomWnd2Brightness", "OFF");
+            }
+        }
+
         #region 空调
         public async Task OpenWorkroomAC()
         {

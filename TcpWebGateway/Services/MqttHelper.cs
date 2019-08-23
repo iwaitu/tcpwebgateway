@@ -73,7 +73,7 @@ namespace TcpWebGateway.Services
                 if (e.ApplicationMessage.Topic == "Home/Curtain/Set")
                 {
                     var obj = JsonConvert.DeserializeObject<CurtainStateObject>(sVal);
-                    Task.Run(async () => { await _curtainHelper.SetCurtain(obj.Id,obj.Status); });
+                    Task.Run(async () => { await _curtainHelper.SetCurtain(obj.Id, obj.Status); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Curtain/Command")
                 {
@@ -102,10 +102,10 @@ namespace TcpWebGateway.Services
                 {
                     var obj = JsonConvert.DeserializeObject<HvacStateObject>(sVal);
                     Task.Run(async () => { await _hvacHelper.UpdateStateObject(obj); });
-                    
+
                 }
 
-                else if(e.ApplicationMessage.Topic == "Home/LightScene/Livingroom")
+                else if (e.ApplicationMessage.Topic == "Home/LightScene/Livingroom")
                 {
                     int i = int.Parse(sVal);
                     Task.Run(async () => { await _lightHelper.SceneLivingRoomSet((SceneState)i); });
@@ -118,7 +118,7 @@ namespace TcpWebGateway.Services
                 else if (e.ApplicationMessage.Topic == "Home/LightScene/Guestroom")
                 {
                     int i = int.Parse(sVal);
-                    Task.Run(async () => { await _lightHelper.SceneGuestRoomSet ((SceneState)i); });
+                    Task.Run(async () => { await _lightHelper.SceneGuestRoomSet((SceneState)i); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/LightScene/Workroom")
                 {
@@ -128,7 +128,7 @@ namespace TcpWebGateway.Services
                 else if (e.ApplicationMessage.Topic == "Home/LightScene/Dinner")
                 {
                     int i = int.Parse(sVal);
-                    Task.Run(async () => { await _lightHelper.SceneDinnerRoomSet ((SceneState)i); });
+                    Task.Run(async () => { await _lightHelper.SceneDinnerRoomSet((SceneState)i); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Mode")
                 {
@@ -137,12 +137,35 @@ namespace TcpWebGateway.Services
                     if (i == 0)
                     {
                         Task.Run(async () => { await _lightHelper.HomeMode(); });
-                    }else if(i== 1)
+                    } else if (i == 1)
                     {
                         Task.Run(async () => { await _lightHelper.OutMode(); });
-                    }else if(i == 2)
+                    } else if (i == 2)
                     {
                         Task.Run(async () => { await _lightHelper.ReadMode(); });
+                    }
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Sensor/Motion/1")
+                {
+                    if(sVal == "ON")
+                    {
+                        Task.Run(async () => { await _lightHelper.OpenWindowLight(1); });
+                    }
+                    else
+                    {
+                        Task.Run(async () => { await _lightHelper.CloseWindowLight(1); });
+                    }
+                    
+                }
+                else if (e.ApplicationMessage.Topic == "Home/Sensor/Motion/2")
+                {
+                    if (sVal == "ON")
+                    {
+                        Task.Run(async () => { await _lightHelper.OpenWindowLight(2); });
+                    }
+                    else
+                    {
+                        Task.Run(async () => { await _lightHelper.CloseWindowLight(2); });
                     }
                 }
             });
@@ -195,6 +218,8 @@ namespace TcpWebGateway.Services
             Subscribe("Home/LightScene/Guestroom");
             Subscribe("Home/LightScene/Dinner");
             Subscribe("Home/Mode");
+            Subscribe("Home/Sensor/Motion/1");
+            Subscribe("Home/Sensor/Motion/2");
         }
 
         public async Task StartAsync()

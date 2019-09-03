@@ -11,6 +11,8 @@ using System.Reflection;
 using TcpWebGateway.Services;
 using TcpWebGateway.Tools;
 using Hangfire.Mongo;
+using System.Net;
+using Microsoft.AspNetCore.Http;
 
 namespace TcpWebGateway
 {
@@ -107,6 +109,15 @@ namespace TcpWebGateway
             {
                 Authorization = new[] { new HangFireAuthorizationFilter() }
             });
+
+            //app.Run(async (context) =>
+            //{
+            //    WebClient client = new WebClient();
+
+            //    var str = client.DownloadString("http://cnblogs.com");
+
+            //    await context.Response.WriteAsync(str);
+            //});
         }
     }
 }

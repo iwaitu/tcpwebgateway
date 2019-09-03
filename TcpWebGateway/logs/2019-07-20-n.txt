@@ -1,4 +1,0 @@
-2019-07-20 14:28:41.9154|DEBUG|TcpWebGateway.Program|init main 
-2019-07-20 14:28:44.0361|INFO|TcpWebGateway.Services.SwitchListener|Connecting to 192.168.50.17:8002 
-2019-07-20 14:28:44.0586|INFO|TcpWebGateway.Services.SensorListener|监听端口8010等待连接... 
-2019-07-20 14:28:44.0586|INFO|TcpWebGateway.Services.HvacListener|Connecting to 192.168.50.17:8008 

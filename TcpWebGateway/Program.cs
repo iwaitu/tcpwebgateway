@@ -40,13 +40,14 @@ namespace TcpWebGateway
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder().ConfigureKestrel(options =>
-            {
-                options.Listen(IPAddress.Any, 8080, listenOptions =>
-                {
-                    listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
-                });
-            })
+            WebHost.CreateDefaultBuilder()
+            //.ConfigureKestrel(options =>
+            //{
+            //    options.Listen(IPAddress.Any, 8080, listenOptions =>
+            //    {
+            //        listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
+            //    });
+            //})
                 .UseStartup<Startup>()
             .ConfigureLogging(logging =>
             {

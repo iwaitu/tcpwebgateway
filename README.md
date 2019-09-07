@@ -1,3 +1,3 @@
 # tcpwebgateway
 
-[![](https://img.shields.io/badge/weibo-@EyreFree-red.svg)](http://weibo.com/eyrefree777)
+[![](https://img.shields.io/badge/weibo-@只爱浓茶-red.svg)](http://weibo.com/nnqy)

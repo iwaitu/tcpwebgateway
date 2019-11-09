@@ -23,6 +23,7 @@ namespace TcpWebGateway.Tools
         private SwitchListener _listener;
         private HVACSelected _hVacSelected = HVACSelected.None;
         private readonly HvacHelper _hvacHelper;
+        private readonly CurtainHelper _curtainHelper;
         private MqttHelper _mqttHelper;
         private SensorHelper _sensorHelper;
         private DateTime _lastHomeButonReceive;
@@ -32,11 +33,15 @@ namespace TcpWebGateway.Tools
 
         public StateMode CurrentStateMode { get; set; }
 
-        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper, IConfiguration configuration)
+        public bool CurtainOpenRunning { get; set; } = false;
+        public bool CurtainCloseRunning { get; set; } = false;
+
+        public LightHelper(ILogger<LightHelper> logger, HvacHelper hvacHelper,CurtainHelper curtainHelper, IConfiguration configuration)
         {
             _logger = logger;
             _hvacHelper = hvacHelper;
             _hvacHelper.SetLightHelper(this);
+            _curtainHelper = curtainHelper;
             API_PATH = configuration.GetValue<string>("RestApi:RestApiUrl");
         }
 
@@ -54,6 +59,7 @@ namespace TcpWebGateway.Tools
         {
             _mqttHelper = helper;
         }
+
 
         public async Task OnReceiveCommand(string Command)
         {
@@ -165,6 +171,67 @@ namespace TcpWebGateway.Tools
             else if (Command.IndexOf("0C 20 10 16 00 01 00 FF") >= 0) //主灯开
             {
                 await OpenMainLight();
+            }
+
+            //OE 面板 ---------------------------------------------------
+            else if (Command.IndexOf("0E 20 10 11 00 01 00 FF ") >= 0) //全开
+            {
+                await OpenAll();
+            }
+            else if (Command.IndexOf("0E 20 10 12 00 01 00 FF ") >= 0) //全开
+            {
+                await CloseAll();
+            }
+            else if(Command.IndexOf("0E 20 10 15 00 01 00 FF ") >= 0)
+            {
+                if (!CurtainOpenRunning)
+                {
+                    CurtainOpenRunning = true;
+                    await SetBackgroudLight("0E", "25", 1);
+                    await _curtainHelper.Open(2);
+                    await _curtainHelper.Open(3);
+
+                    await Task.Delay(8000);
+                    if (CurtainOpenRunning)
+                    {
+                        CurtainOpenRunning = false;
+                        await SetBackgroudLight("0E", "25", 0);
+                        await _curtainHelper.Stop(2);
+                        await _curtainHelper.Stop(3);
+                    }
+                }
+                else{
+                    CurtainOpenRunning = false;
+                    await SetBackgroudLight("0E", "25", 0);
+                    await _curtainHelper.Stop(2);
+                    await _curtainHelper.Stop(3);
+                }
+                
+            }
+            else if (Command.IndexOf("0E 20 10 16 00 01 00 FF ") >= 0)
+            {
+                if (!CurtainCloseRunning)
+                {
+                    CurtainCloseRunning = true;
+                    await SetBackgroudLight("0E", "26", 1);
+                    await _curtainHelper.Close(2);
+                    await _curtainHelper.Close(3);
+                    await Task.Delay(8000);
+                    if (CurtainCloseRunning)
+                    {
+                        CurtainCloseRunning = false;
+                        await SetBackgroudLight("0E", "26", 0);
+                        await _curtainHelper.Stop(2);
+                        await _curtainHelper.Stop(3);
+                    }
+                }
+                else
+                {
+                    CurtainCloseRunning = false;
+                    await SetBackgroudLight("0E", "26", 0);
+                    await _curtainHelper.Stop(2);
+                    await _curtainHelper.Stop(3);
+                }
             }
 
             //OD 面板 -----------------------------------------------------

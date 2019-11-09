@@ -59,7 +59,6 @@ namespace TcpWebGateway.Tools
         {
             var cmd = string.Format("00 00 00 00 00 06 55 01 {0} 01 02 01",id.ToString("X2"));
             await _listener.SendCommand(cmd);
-            
         }
 
         public async Task SetCurtain(int id ,int value)

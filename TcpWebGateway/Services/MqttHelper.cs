@@ -43,6 +43,7 @@ namespace TcpWebGateway.Services
             _hvacHelper.SetMqttListener(this);
             _curtainHelper.SetMqttListener(this);
             _lightHelper.SetMqttListener(this);
+            //_lightHelper.SetCurtainHelper(_curtainHelper);
 
             var mqtthost = _config.GetValue<string>("mqttBroken:Hostip");
             var port = _config.GetValue<int>("mqttBroken:port");

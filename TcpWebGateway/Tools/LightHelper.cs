@@ -174,15 +174,17 @@ namespace TcpWebGateway.Tools
             }
 
             //OE 面板 ---------------------------------------------------
-            else if (Command.IndexOf("0E 20 10 11 00 01 00 FF ") >= 0) //全开
+            else if (Command.IndexOf("0E 20 10 11 00 01 00 FF") >= 0) //全开
             {
+                _logger.LogInformation("时间:" + DateTime.Now);
+                _logger.LogInformation("过道开灯");
                 await OpenAll();
             }
-            else if (Command.IndexOf("0E 20 10 12 00 01 00 FF ") >= 0) //全开
+            else if (Command.IndexOf("0E 20 10 12 00 01 00 FF") >= 0) //全开
             {
                 await CloseAll();
             }
-            else if(Command.IndexOf("0E 20 10 15 00 01 00 FF ") >= 0)
+            else if(Command.IndexOf("0E 20 10 15 00 01 00 FF") >= 0)
             {
                 if (!CurtainOpenRunning)
                 {
@@ -208,7 +210,7 @@ namespace TcpWebGateway.Tools
                 }
                 
             }
-            else if (Command.IndexOf("0E 20 10 16 00 01 00 FF ") >= 0)
+            else if (Command.IndexOf("0E 20 10 16 00 01 00 FF") >= 0)
             {
                 if (!CurtainCloseRunning)
                 {

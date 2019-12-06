@@ -582,6 +582,8 @@ namespace TcpWebGateway.Tools
             await LightSwitch("LR8_Brightness", "OFF");
             await LightSwitch("LR9_Brightness", "OFF");
             await LightSwitch("LR10_Brightness", "OFF");
+            await LightSwitch("WR1Brightness", "OFF");
+            await LightSwitch("WR2Brightness", "OFF");
             await LightSwitch("LRStripTvColorTemperature", "OFF");
             await LightSwitch("LRStrip1ColorTemperature", "OFF");
             await LightSwitch("LRStrip2ColorTemperature", "OFF");

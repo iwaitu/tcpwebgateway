@@ -140,10 +140,6 @@ namespace TcpWebGateway.Tools
             {
                 await CloseAll();
             }
-            else if (Command.IndexOf("0C 20 10 12 00 01 00 FF") >= 0) //松开全关按钮
-            {
-                await CloseAll();
-            }
             else if (Command.IndexOf("0C 20 10 13 00 01 00 FF") >= 0) //松开观影按钮
             {
                 //await CloseAll();

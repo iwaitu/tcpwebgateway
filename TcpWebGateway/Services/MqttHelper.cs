@@ -108,27 +108,27 @@ namespace TcpWebGateway.Services
 
                 else if (e.ApplicationMessage.Topic == "Home/LightScene/Livingroom")
                 {
-                    int i = int.Parse(sVal);
+                    int i = (int)float.Parse(sVal);
                     Task.Run(async () => { await _lightHelper.SceneLivingRoomSet((SceneState)i); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/LightScene/Bedroom")
                 {
-                    int i = int.Parse(sVal);
+                    int i = (int)float.Parse(sVal);
                     Task.Run(async () => { await _lightHelper.SceneBedRoomSet((SceneState)i); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/LightScene/Guestroom")
                 {
-                    int i = int.Parse(sVal);
+                    int i = (int)float.Parse(sVal);
                     Task.Run(async () => { await _lightHelper.SceneGuestRoomSet((SceneState)i); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/LightScene/Workroom")
                 {
-                    int i = int.Parse(sVal);
+                    int i = (int)float.Parse(sVal);
                     Task.Run(async () => { await _lightHelper.SceneWorkRoomSet((SceneState)i); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/LightScene/Dinner")
                 {
-                    int i = int.Parse(sVal);
+                    int i = (int)float.Parse(sVal);
                     Task.Run(async () => { await _lightHelper.SceneDinnerRoomSet((SceneState)i); });
                 }
                 else if (e.ApplicationMessage.Topic == "Home/Mode")
